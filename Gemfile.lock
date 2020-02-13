@@ -93,8 +93,8 @@ GEM
     erb2haml (0.1.5)
       html2haml
     erubi (1.9.0)
-    excon (0.71.1)
     erubis (2.7.0)
+    excon (0.71.1)
     execjs (2.7.0)
     ffi (1.12.2)
     fog-aws (3.5.2)
@@ -272,8 +272,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  fog-aws
   erb2haml
+  fog-aws
   haml-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
