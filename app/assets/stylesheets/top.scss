@@ -4,10 +4,10 @@
 // 最上段のヘッダー
 .header{
   width:100vw;
-  .header__inner{
+  &__inner{
     // margin-left:13vw;
     // margin-right:11vh;
-    .header__above{
+    &__above{
       display:flex;
       .logo{
         
@@ -74,7 +74,6 @@ span{
     }
     ::placeholder{
       color:white;
-      // font-weight:bold;
       font-size: 1.5em;
     }
   }
@@ -197,7 +196,7 @@ span{
     font-size:30px;
     color:#2BCCD1;
   }
-  .introduction__sections{
+  &__sections{
     display:flex;
     justify-content: center;
     .introduction__section{
