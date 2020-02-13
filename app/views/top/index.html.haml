@@ -1,0 +1,79 @@
+.header
+  .header_inner
+    .header_above
+      %div{:classs => "logo"}
+        %img.head_logo{:src => "/assets/logo.png"}/
+      %p.points
+        ポイント
+        %br/
+        = succeed "P" do
+          %span 0
+      %p.proceeds
+        売上金
+        %br/
+        = succeed "\u5186" do
+          %span 0
+      %a.sell_header_n{:href => "https://shoppies.jp/write-item_sp"} 出品
+      %a.sell_header_n{:href => "https://shoppies.jp/write-item_sp"} お知らせ
+      %a.sell_header_n{:href => "https://shoppies.jp/write-item_sp"} やること
+      .profil_head
+        %img.head_user_logo{:src => "/assets/member_photo_noimage_thumb.png"}/
+.header_bottom
+  %p カテゴリー
+  %p ブランド
+  %link{:href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+  %form.search_container{:action => "#", :method => "get"}
+    %input{:placeholder => "キーワードから探す", :size => "40", :type => "text"}/
+    %input{:type => "submit", :value => ""}/
+.smart_app
+  .discription
+    %ul
+      %li.title 女の子のためのフリマ・コーデアプリ
+      %li 買うのも売るのもアプリでかんたん♡
+      %li 約300万点のファッションアイテムから、毎日格安商品を見つけよう！
+    .store_logo
+      %img.appstore_logo{:src => "/assets/btn_appstore.gif"}/
+      %img.googleplay_logo{:src => "/assets/btn_googleplay.gif"}/
+  .app_image
+    %img.app_image_pic{:src => "/assets/bg-mainVisual-pict_pc.jpg"}/
+.category
+  .left_box
+    .title
+      .title_top CATEGORY
+      .title_discription ファッションから探す
+    .category_images
+      %img.tops{:src => "/assets/item_tops_on.jpg"}/
+      %img.shoes{:src => "/assets/item_shoes_on.jpg"}/
+      %img.skirt{:src => "/assets/item_skirt_on.jpg"}/
+      %img.bag{:src => "/assets/item_bag_on.jpg"}/
+      %img.accessories{:src => "/assets/item_accessories_on.jpg"}/
+      %img.hat{:src => "/assets/item_hat_on.jpg"}/
+      %img.goods{:src => "/assets/item_goods_on.jpg"}/
+      %img.beauty{:src => "/assets/item_beauty_on.jpg"}/
+      %img.coordinate{:src => "/assets/item_coordinate_on.jpg"}/
+  .right_box
+    %img.appBanner{:src => "/assets/bg-appBanner-pict.jpg"}/
+.news
+  %ul News
+  %ul 2020年1月31日ショピマガvol.61 寒い冬を乗り切るあったかアイテム
+  %ul 2020年1月24日ブランド追加のお知らせ
+  %ul 2019年12月27日ショピマガvol.60 トレンドをおさえた主力アウター
+.introduction
+  %p ショッピーズに新機能が追加されました！
+  .introduction_sections
+    .introduction_section
+      %img.introduction_image{:src => "/assets/icon-01.png"}/
+      %div AAAAAAA
+    .introduction_section
+      %img.introduction_image{:src => "/assets/icon-02.png"}/
+      %div AAAAAA
+    .introduction_section
+      %img.introduction_image{:src => "/assets/icon-03.png"}/
+      %div AAAAAA
+.footer
+  %ul
+    %li 利用規約
+    %li プライバシーポリシー
+    %li 特定取引法に基づく表示
+    %li 運営会社
+  .copyRight © 2014 Stardust Communications Inc. All Rights Reserved.
