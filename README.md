@@ -12,52 +12,194 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-## products table
+# freemarket_sample_68a DB設計
+
+## items table
 |Column|Type|Options|
 |------|----|-------|
-|name||| 商品名
-|image1||| 商品画像1(4枚まで)
-|price||| 商品価格
-|description||| 商品説明
-|brand||| ブランド
-|status||| 状態
-|size||| サイズ
+|name|string|null:false|
+|price|integer|null:false|
+|description|text|null:false|
+|brand_id|references|null:false,foreign_key:true|
+|condition_id|references|null:false,foreign_key:true|
+|size_id|references|null:false,foreign_key:true|
+|first_category_id|references|null:false,foreign_key:true|
+|prefecture_id|references|null:false,foreign_key:true|
+|user_id|references|null:false,foreign_key:true|
+|delivary_date_id|references|null:false,foreign_key:true|
+|shipping_fee_id|references|null:false,foreign_key:true|
+
+### association
+- belongs_to :brand
+- belongs_to :condition
+- belongs_to :size
+- belongs_to :first_category
+- belongs_to :prefecture
+- belongs_to :user
+- belongs_to :delivary_date
+- belongs_to :shipping_fee
+- has_many :images
+- has_one :order
+
+## images table
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|item_id|references|null:false, foreign_key: true|
+
+### association
+- belongs_to :item
+
+## brands table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false, unique: true|
+
+### association
+- has_many :items
+- has_many :brand_categories
+- has_many :first_categories, through: :brand_categories
+
+## conditions table
+|Column|Type|Options|
+|------|----|-------|
+|condition|string|null:false unique: true|
+
+### association
+- has_many :items
+
+## sizes table
+|Column|Type|Options|
+|------|----|-------|
+|size|string|null:false unique: true|
+
+### association
+- has_many :items
+
+## first_categories table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false, unique:true|
+
+### association
+- has_many :items
+- has_many :second_categories
+- has_many :brand_categories
+- has_many :brands, through: :brand_categories
+
+
+## second_categories table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false, unique:true| 
+|first_category_id|references|null:false, foreign_key: true|
+
+
+### association
+- belongs_to :first_category
+- has_many :third_categories
+
+## third_categories table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|unique:true| 
+|second_category_id|references|null:false, foreign_key: true|
+
+### association
+- belongs_to :second_category
+
 
 ## users table
 |Column|Type|Options|
 |------|----|-------|
-登録時に必要
-|last_name||| 苗字
-|first_name||| 名
-|nickname||| ニックネーム
-|email||| eメール
-|password||| パスワード
-|gender||| 性別
-|birth_year||| 誕生年
-|birth_month||| 誕生月
-|birth_day||| 誕生日
-|point||| ポイント
-|proceed|||売上金
-|tel|||電話番号
-|zip_code||| 郵便番号
-|prifecture||| 都道府県
-|address|||市区町村
+|last_name|string|null:false|
+|first_name|string|null:false|
+|last_name_kana|string|null:false|
+|first_name_kana|string|null:false|
+|nickname|string|null:false, unique:true|
+|email|string|null:false, unique:true,default: ""| 
+|password|string|null:false,default: ""| 
+|tel|string|null:false|
+|zip_code|integer|null:false|
+|address|string|null:false|
+|birth_year|integer|null:false|
+|birth_month|integer|null:false|
+|birth_day|integer|null:false|
+|prefecture_id|references|null:false, foreign_key:true|
+
+### association
+- belongs_to :prefecture
+- has_many :items
+- has_many :orders
+
+## prefectures table
+|Column|Type|Options|
+|------|----|-------|
+|prefecture|string|null:false, unique:true|
+
+### association
+- has_many :users
+- has_many :orders
+- has_many :items
 
 ## orders table
-|shopping_fee||| 配送料（込みか無しか）
-|payment_method||| 支払い方法
-|delivery_day||| 配送日の目安
-|order_status||| 注文状態
-|buyer||| 買い手(user_id)
-|seller||| 売り手(user_id)
-|buyer_last_name||| 買い手苗字
-|buyer_first_name||| 買い手名
-|seller_last_name||| 売り手苗字
-|seller_first_name||| 売り手名
-|zip_code_deliver||| 郵便番号(配達先)
-|prifecture_deliver||| 都道府県(配達先)
-|address_deliver|||市区町村(配達先)
-|buyer_tell||| 配達先電話番号
+|Column|Type|Options|
+|------|----|-------|
+|last_name_receiver|string|null:false| 送付先姓
+|first_name_receiver|string|null:false| 送付先名
+|last_name_kana_receiver|string|null:false| 姓かな
+|first_name_kana_receiver|string|null:false| 名かな
+
+|zip_code_receiver|integer|null:false| 郵便番号(配達先)
+|address_receiver|text|null:false|市区町村(配達先)
+|tell_receiver|string|| 配達先電話番号
+|prefecture_id|references|null:false, foreign_key:true| 都道府県(配達先)
+|payment_id|references|null:false, foreign_key:true|
+|item_id|references|null:false, foreign_key:true|
+|buyer|references|null:false, foreign_key:true| 買い手(user_id)
+
+### association
+- belongs_to :prefecture
+- belongs_to :payment
+- belongs_to :item
+- belongs_to :user
+
+
+
+## payments table
+|Column|Type|Options|
+|------|----|-------|
+|method|string|null:false,unique:true|
+
+### association
+- has_many :orders
+
+
+## delivary_dates table
+|Column|Type|Options|
+|------|----|-------|
+|date|string|null:false,unique:true|
+
+### association
+- has_many :items
+
+## shipping_fees table
+|Column|Type|Options|
+|------|----|-------|
+|fee|string|null:false,unique:true|
+
+### association
+- has_many :items
+
+## brand_categories
+|Column|Type|Options|
+|------|----|-------|
+|brand_id|references|null:false, foreign_key: true|
+|first_category_id|references|null:false, foreign_key: true|
+
+### association
+- belongs_to :brand
+- belongs_to :first_category
 
 * Database initialization
 
