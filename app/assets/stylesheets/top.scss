@@ -5,46 +5,36 @@
 .header{
   width:100vw;
   &__inner{
-    // margin-left:13vw;
-    // margin-right:11vh;
     &__above{
       display:flex;
-      .logo{
-        
+      .points{
+        margin-left:50px;
+      } 
+      .proceeds{
+        margin-left:50px;
+        margin-right:200px;
+      }
+      .sell{
+          margin-right:40px;
+          margin-top:30px;
+      }
+      .profile{
+        &__logo{
+        width:40px;
+        height:40px;
+        margin-top:10px;
+        }
       }
     }
   }
 }
 
-.head__logo{
+.logo__image{
   width:200px;
   height:60px;
   margin-top:10px;
   margin-left:150px;
 }  
-
-.head__user__logo{
-  width:40px;
-  height:40px;
-}
-
-.points{
-  margin-left:50px;
-} 
-
-.proceeds{
-  margin-left:50px;
-  margin-right:200px;
-}
-
-.sell__header{
-  margin-right:40px;
-  margin-top:30px;
-}
-
-.head__user__logo{
-  margin-top:10px;
-}
 
 span{
   color:#2BCCD1;
@@ -52,7 +42,7 @@ span{
 
 // 水色の検索バー
 
-.header__bottom{
+.topSearch{
   background-color: #2BCCD1;
   width:100vw;
   height:48px;
@@ -71,13 +61,15 @@ span{
     
     input{
       background-color:rgb(141, 237, 242);
+      color: white;
+      font-size: 13px;
     }
     ::placeholder{
       color:white;
-      font-size: 1.5em;
+      font-size: 1.33em;
     }
   }
-  .search__container{
+  .container{
     box-sizing: border-box;
     position: relative;
     border:none;
@@ -89,15 +81,15 @@ span{
     overflow: hidden;
     margin-top:6px;
   }
-  .search__container input[type="text"]{
+  .container input[type="text"]{
     border: none;
     height: 2.0em;
     margin-top:6px;
   }
-  .search__container input[type="text"]:focus {
+  .container input[type="text"]:focus {
     outline: 0;
   }
-  .search__container input[type="submit"]{
+  .container input[type="submit"]{
     cursor: pointer;
     font-family: FontAwesome;
     font-size: 1.3em;
@@ -115,13 +107,12 @@ span{
 
 // スマホアプリ
 
-.smart__app{
+.smartApp{
   background-color:#f5f5f5;
   display:flex;
   justify-content: center;
   width:100vw;
-  .description{
-
+  &__description{
     ul{
       list-style: none;
       .title{
@@ -130,32 +121,29 @@ span{
         margin-bottom:18px;
       }
     }
-    .store__logo{
+    .appLogo{
       margin-left:38px;
       margin-top:30px;
     }
   }
-}
-
-
-.app__image__pic{
-  width:354px;
-  height:214px ;
-  margin-top:15px;
+  &__image__pic{
+    width:354px;
+    height:214px ;
+    margin-top:15px;
+  }
 }
 
 // カテゴリー
 .category{
   display:flex;
   position: relative;
-  .left__box{
+  &__leftBox{
     margin-top:80px;
     margin-left:300px;
-    
     .title{
       display:flex;
     }
-    .category__images{
+    &__images{
       display:flex;
       flex-wrap:wrap;
       width:90%;
@@ -169,7 +157,7 @@ span{
       }
     }
   }
-  .right__box{
+  &__right__box{
     margin-top:80px;
     .appBanner{
       width:300px;

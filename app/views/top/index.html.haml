@@ -2,7 +2,7 @@
   .header__inner
     .header__inner__above
       %div{class: "logo"}
-        %img.head__logo{src: "/assets/logo.png"}/
+        %img.logo__image{src: "/assets/logo.png"}/
       %p.points
         ポイント
         %br/
@@ -13,35 +13,35 @@
         %br/
         = succeed "\u5186" do
           %span 0
-      %a.sell__header{href: "https://shoppies.jp/write-item_sp"} 出品
-      %a.sell__header{href: "https://shoppies.jp/write-item_sp"} お知らせ
-      %a.sell__header{href: "https://shoppies.jp/write-item_sp"} やること
-      .profil__head
-        %img.head__user__logo{src: "/assets/member_photo_noimage_thumb.png"}/
-.header__bottom
+      %a.sell{href: "https://shoppies.jp/write-item_sp"} 出品
+      %a.sell{href: "https://shoppies.jp/write-item_sp"} お知らせ
+      %a.sell{href: "https://shoppies.jp/write-item_sp"} やること
+      .profile
+        %img.profile__logo{src: "/assets/member_photo_noimage_thumb.png"}/
+.topSearch
   %p カテゴリー
   %p ブランド
   %link{href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}/
-  %form.search__container{action: "#", method: "get"}
+  %form.container{action: "#", method: "get"}
     %input{placeholder: "キーワードから探す", size: "40", type: "text"}/
     %input{type: "submit", value: ""}/
-.smart__app
-  .description
+.smartApp
+  .smartApp__description
     %ul
       %li.title 女の子のためのフリマ・コーデアプリ
       %li 買うのも売るのもアプリでかんたん♡
       %li 約300万点のファッションアイテムから、毎日格安商品を見つけよう！
-    .store__logo
-      %img.appstore__logo{src: "/assets/btn_appstore.gif"}/
-      %img.googleplay__logo{src: "/assets/btn_googleplay.gif"}/
-  .app__image
-    %img.app__image__pic{src: "/assets/bg-mainVisual-pict_pc.jpg"}/
+    .storeLogo
+      %img{src: "/assets/btn_appstore.gif"}/
+      %img{src: "/assets/btn_googleplay.gif"}/
+  .smartApp__image
+    %img.smartApp__image__pic{src: "/assets/bg-mainVisual-pict_pc.jpg"}/
 .category
-  .left__box
+  .category__leftBox
     .title
       .title__top CATEGORY
       .title__description ファッションから探す
-    .category__images
+    .category__leftBox__images
       %img.tops{src: "/assets/item_tops_on.jpg"}/
       %img.shoes{src: "/assets/item_shoes_on.jpg"}/
       %img.skirt{src: "/assets/item_skirt_on.jpg"}/
@@ -51,7 +51,7 @@
       %img.goods{src: "/assets/item_goods_on.jpg"}/
       %img.beauty{src: "/assets/item_beauty_on.jpg"}/
       %img.coordinate{src: "/assets/item_coordinate_on.jpg"}/
-  .right__box
+  .category__right__box
     %img.appBanner{src: "/assets/bg-appBanner-pict.jpg"}/
 .news
   %ul News
