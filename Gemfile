@@ -80,3 +80,4 @@ gem 'devise'
 
 gem "carrierwave"
 
+gem 'ancestry'
