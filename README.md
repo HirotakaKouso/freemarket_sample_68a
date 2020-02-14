@@ -23,7 +23,7 @@ Things you may want to cover:
 |brand_id|references|null:false,foreign_key:true|
 |condition_id|references|null:false,foreign_key:true|
 |size_id|references|null:false,foreign_key:true|
-|first_category_id|references|null:false,foreign_key:true|
+|category_id|references|null:false,foreign_key:true|
 |prefecture_id|references|null:false,foreign_key:true|
 |user_id|references|null:false,foreign_key:true|
 |delivary_date_id|references|null:false,foreign_key:true|
@@ -33,7 +33,7 @@ Things you may want to cover:
 - belongs_to :brand
 - belongs_to :condition
 - belongs_to :size
-- belongs_to :first_category
+- belongs_to :category
 - belongs_to :prefecture
 - belongs_to :user
 - belongs_to :delivary_date
@@ -58,7 +58,7 @@ Things you may want to cover:
 ### association
 - has_many :items
 - has_many :brand_categories
-- has_many :first_categories, through: :brand_categories
+- has_many :categories, through: :brand_categories
 
 ## conditions table
 |Column|Type|Options|
@@ -76,38 +76,16 @@ Things you may want to cover:
 ### association
 - has_many :items
 
-## first_categories table
+## categories table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false, unique:true|
 
 ### association
 - has_many :items
-- has_many :second_categories
+- has_ancestry
 - has_many :brand_categories
 - has_many :brands, through: :brand_categories
-
-
-## second_categories table
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null:false, unique:true| 
-|first_category_id|references|null:false, foreign_key: true|
-
-
-### association
-- belongs_to :first_category
-- has_many :third_categories
-
-## third_categories table
-|Column|Type|Options|
-|------|----|-------|
-|name|string|unique:true| 
-|second_category_id|references|null:false, foreign_key: true|
-
-### association
-- belongs_to :second_category
-
 
 ## users table
 |Column|Type|Options|
@@ -199,7 +177,7 @@ Things you may want to cover:
 
 ### association
 - belongs_to :brand
-- belongs_to :first_category
+- belongs_to :category
 
 * Database initialization
 
