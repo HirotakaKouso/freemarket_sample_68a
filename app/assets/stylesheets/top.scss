@@ -1,3 +1,216 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// 最上段のヘッダー
+.header{
+  width:100vw;
+  &__inner{
+    &__above{
+      display:flex;
+      .points{
+        margin-left:50px;
+      } 
+      .proceeds{
+        margin-left:50px;
+        margin-right:200px;
+      }
+      .sell{
+          margin-right:40px;
+          margin-top:30px;
+      }
+      .profile{
+        &__logo{
+        width:40px;
+        height:40px;
+        margin-top:10px;
+        }
+      }
+    }
+  }
+}
+
+.logo__image{
+  width:200px;
+  height:60px;
+  margin-top:10px;
+  margin-left:150px;
+}  
+
+span{
+  color:#2BCCD1;
+}
+
+// 水色の検索バー
+
+.topSearch{
+  background-color: #2BCCD1;
+  width:100vw;
+  height:48px;
+  margin-left:0px;
+  display:flex;
+  justify-content:center;
+  p{
+    color:white;
+    margin-left:30px;
+    margin-right:50px;
+    font-weight:bold;
+  }
+  form{
+    background-color:rgb(141, 237, 242);
+    caret-color:white;
+    
+    input{
+      background-color:rgb(141, 237, 242);
+      color: white;
+      font-size: 13px;
+    }
+    ::placeholder{
+      color:white;
+      font-size: 1.33em;
+    }
+  }
+  .container{
+    box-sizing: border-box;
+    position: relative;
+    border:none;
+    display: block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    height: 2.3em;
+    width: 260px;
+    overflow: hidden;
+    margin-top:6px;
+  }
+  .container input[type="text"]{
+    border: none;
+    height: 2.0em;
+    margin-top:6px;
+  }
+  .container input[type="text"]:focus {
+    outline: 0;
+  }
+  .container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 1.3em;
+    border: none;
+    background: none;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    right: 0;
+    top: -10px;
+    outline :none;
+  }
+}
+
+// スマホアプリ
+
+.smartApp{
+  background-color:#f5f5f5;
+  display:flex;
+  justify-content: center;
+  width:100vw;
+  &__description{
+    ul{
+      list-style: none;
+      .title{
+        color:#2BCCD1;
+        font-size:28px;
+        margin-bottom:18px;
+      }
+    }
+    .appLogo{
+      margin-left:38px;
+      margin-top:30px;
+    }
+  }
+  &__image__pic{
+    width:354px;
+    height:214px ;
+    margin-top:15px;
+  }
+}
+
+// カテゴリー
+.category{
+  display:flex;
+  position: relative;
+  &__leftBox{
+    margin-top:80px;
+    margin-left:300px;
+    .title{
+      display:flex;
+    }
+    &__images{
+      display:flex;
+      flex-wrap:wrap;
+      width:90%;
+      img{
+        width:26%;
+        margin:4px;
+        .tops{
+          width:190px;
+          height:190px;
+        }
+      }
+    }
+  }
+  &__rightBox{
+    margin-top:80px;
+    .appBanner{
+      width:300px;
+      height:150px;
+      margin-right:80px;
+      margin-top:40px;
+    }
+  }
+}
+// ニュース
+.news{
+  margin-top:70px;
+  margin-left:250px;
+}
+
+// 機能紹介
+.introduction{
+  margin-top:100px;
+  background-color:rgb(208, 253, 255);
+  width:100vw;
+  p{
+    margin-top:30px;
+    text-align:center;
+    font-size:30px;
+    color:#2BCCD1;
+  }
+  &__sections{
+    display:flex;
+    justify-content: center;
+    .introduction__section{
+      .introduction__image{
+        width:300px;
+        height:500px;
+      }
+    }
+  }
+}
+
+
+// フッターa
+.footer{
+  ul{
+    display:flex;
+    justify-content: center;
+    li{
+      list-style: none;
+      margin-right:30px;
+      margin-left:30px;
+      color:#646066;
+    }
+  }
+  .copyRight{
+    text-align: center;
+    color:#646066;
+  }
+}
