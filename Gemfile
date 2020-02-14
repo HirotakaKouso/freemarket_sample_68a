@@ -76,4 +76,7 @@ gem 'haml-rails'
 # erbをhamlに変換するgem
 gem 'erb2haml'
 
+gem 'devise'
+
 gem "carrierwave"
+
