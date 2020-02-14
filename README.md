@@ -80,6 +80,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false, unique:true|
+|ancestry|string||
 
 ### association
 - has_many :items
