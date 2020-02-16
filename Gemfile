@@ -81,3 +81,7 @@ gem 'devise'
 gem "carrierwave"
 
 gem 'ancestry'
+
+# deviseを日本語化(参照先 https://qiita.com/you8/items/921e0dd1210eb0d158df)
+gem 'devise-i18n'
+gem 'devise-i18n-views'
