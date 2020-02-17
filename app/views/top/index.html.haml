@@ -17,7 +17,9 @@
       %a.sell{href: "https://shoppies.jp/write-item_sp"} お知らせ
       %a.sell{href: "https://shoppies.jp/write-item_sp"} やること
       .profile
-        %img.profile__logo{src: "/assets/member_photo_noimage_thumb.png"}/
+        = link_to new_user_session_path, class: "btn btn-dark btn-sm" do
+          %img.profile__logo{src: "/assets/member_photo_noimage_thumb.png"}/
+        
 .topSearch
   %p カテゴリー
   %p ブランド
