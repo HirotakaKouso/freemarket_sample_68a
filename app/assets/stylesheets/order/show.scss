@@ -8,45 +8,56 @@
   overflow: scroll;
 
   &__header {
-    height: rem(112);
+    height: rem(108);
 
   }
 
   &__content {
 
-    .top {
-      height: rem(135);
-      position: relative;
+    &__flex {
+      height: rem(115);
+      width: 100%;
       background: $mainBackground;
-      display: flex;
 
-      &__image {
-        position: absolute;
-        left: rem(240);
-        top: rem(32);
-      }
+      .top {
+        width: rem(960);
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+  
+        &__left {
+          height: rem(115);
+          display: flex;
+          align-items: center;
+          position: relative;
 
-      &__link {
-        border: #c8c8c8 1px solid;
-        border-radius: rem(30);
-        text-decoration: none;
-        color: gray;
-        position: absolute;
-        right: rem(240);
-        top: rem(32);
-        font-size: rem(14);
-        background: #f8f8f8;
-        width: rem(137);
-        height: rem(34);
-        text-align: center;
-        line-height: rem(34);
-      }
+          &__image {
+            margin-top: rem(20);
+          }
 
-      &__text {
-        color: white;
-        position: absolute;
-        left: rem(400);
-        top: rem(32);
+          &__text {
+            color: white;
+            margin-left: rem(50);
+          }
+        }
+
+        &__right {
+
+          &__link {
+            display: inline-block;
+            border: #c8c8c8 1px solid;
+            border-radius: rem(30);
+            text-decoration: none;
+            color: gray;
+            font-size: rem(14);
+            background: #f8f8f8;
+            width: rem(137);
+            height: rem(34);
+            text-align: center;
+            line-height: rem(34);
+            margin-top: rem(20);
+          }
+        }
       }
     }
 
@@ -87,6 +98,7 @@
             position: relative;
             top: rem(16);
             right: rem(48);
+
             .price {
               position: absolute;
               right: 0;
@@ -263,6 +275,7 @@
         .commission{
           display: flex;
           justify-content: center;
+          
           &__flex {
             display: flex;
             flex-direction: column;
