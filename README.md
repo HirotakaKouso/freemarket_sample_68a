@@ -26,7 +26,7 @@ Things you may want to cover:
 |category_id|references|null:false,foreign_key:true|
 |prefecture_id|references|null:false,foreign_key:true|
 |user_id|references|null:false,foreign_key:true|
-|delivary_date_id|references|null:false,foreign_key:true|
+|delivery_date_id|references|null:false,foreign_key:true|
 |shipping_fee_id|references|null:false,foreign_key:true|
 
 ### association
@@ -36,7 +36,7 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :prefecture
 - belongs_to :user
-- belongs_to :delivary_date
+- belongs_to :delivery_date
 - belongs_to :shipping_fee
 - has_many :images
 - has_one :order
@@ -141,7 +141,7 @@ Things you may want to cover:
 - belongs_to :prefecture
 - belongs_to :payment
 - belongs_to :item
-- belongs_to :user
+- belongs_to :buyer, class_name: "User"
 
 
 
@@ -154,7 +154,7 @@ Things you may want to cover:
 - has_many :orders
 
 
-## delivary_dates table
+## delivery_dates table
 |Column|Type|Options|
 |------|----|-------|
 |date|string|null:false,unique:true|
@@ -174,7 +174,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |brand_id|references|null:false, foreign_key: true|
-|first_category_id|references|null:false, foreign_key: true|
+|category_id|references|null:false, foreign_key: true|
 
 ### association
 - belongs_to :brand
