@@ -1,0 +1,310 @@
+@function rem($value) {
+  @return #{$value / 16}rem;
+}
+
+.purchase {
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+
+  &__header {
+    height: rem(112);
+
+  }
+
+  &__content {
+
+    .top {
+      height: rem(135);
+      position: relative;
+      background: $mainBackground;
+      display: flex;
+
+      &__image {
+        position: absolute;
+        left: rem(240);
+        top: rem(32);
+      }
+
+      &__link {
+        border: #c8c8c8 1px solid;
+        border-radius: rem(30);
+        text-decoration: none;
+        color: gray;
+        position: absolute;
+        right: rem(240);
+        top: rem(32);
+        font-size: rem(14);
+        background: #f8f8f8;
+        width: rem(137);
+        height: rem(34);
+        text-align: center;
+        line-height: rem(34);
+      }
+
+      &__text {
+        color: white;
+        position: absolute;
+        left: rem(400);
+        top: rem(32);
+      }
+    }
+
+    &__box{
+      width: 80vw;
+      height: 100%;
+      margin: 0 auto;
+      padding: rem(60) rem(96);
+
+      .form{
+        height: 100%;
+
+        .item {
+          height: rem(144);
+          width: rem(960);
+          margin: 0 auto;
+          border: $mainBorder 1px solid;
+          position: relative;
+
+          &__image {
+            height: rem(112);
+            width: rem(112);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: rem(16);
+            margin: auto;
+          }
+
+          &__title{
+          display: inline-block;
+          position: absolute;
+          left: rem(144);
+          top: rem(11.2);
+          }
+
+          &__info {
+            position: relative;
+            top: rem(16);
+            right: rem(48);
+            .price {
+              position: absolute;
+              right: 0;
+              font-size: rem(24);
+              font-weight: bold;
+            }
+
+            .fee {
+              position: absolute;
+              right: 0;
+              top: rem(30);
+              font-size: rem(12);
+            }
+          }
+        }
+
+        .userInfo {
+          height: rem(272);
+          width: rem(960);
+          margin: 0 auto;
+          display: flex;
+          position: relative;
+
+          &__icon {
+            height: rem(32);
+            width: rem(64);
+            position: absolute;
+            top: rem(16);
+            right: rem(288);
+          }
+
+          &__left {
+            height: rem(240);
+            width: rem(560);
+            border: $mainBorder 1px solid;
+            margin-top: rem(32);
+            display: flex;
+            padding: rem(20);
+
+            .title {
+              width: rem(250);
+              font-size: rem(14);
+              color: #646166;
+            }
+
+            .detail {
+              
+              &__top {
+                font-size: rem(14);
+                margin-bottom: rem(5);
+                color: #646166;
+              }
+
+              &__btn {
+                display: inline-block;
+                width: rem(120);
+                height: rem(32);
+                font-size: rem(14);
+                margin-top: rem(3);
+                margin-bottom: rem(15);
+                border: #c8c8c8 1px solid;
+                border-radius: rem(5);
+                color: #646166;
+                background: linear-gradient(to bottom, #ffffff 0%,#ececec 100%);
+                text-align: center;
+                line-height: rem(32);
+              }
+
+              &__bottom {
+                font-size: rem(12);
+                color: #646166;
+              }
+            }
+          }
+
+          &__right{
+            height: rem(240);
+            width: rem(352);
+            margin-top: rem(32);
+            margin-left: rem(48);
+
+            .seller {
+              height: rem(192);
+              width: rem(352);
+              border: $mainBorder 1px solid;  
+
+              &__top {
+                height: rem(80);
+                border-bottom: $mainBorder 1px solid;
+                
+                .link {
+                  display: block;
+                  height: 100%;
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+
+                  &__image {
+                    height: rem(56);
+                    width: rem(56);
+                    margin-left: rem(8);
+                  }
+
+                  &__box {
+                    margin-left: rem(20);
+
+                    &__name {
+                      display: inline-block;
+                      color: black;
+                      font-weight: bold;
+                      font-size: rem(14);
+                    }
+
+                    &__comment {
+                      color: #b5b5b5;
+                      font-size: rem(12);
+
+                    }
+                  }
+
+                  &__icon {
+                    height: rem(18);
+                    color: #b5b5b5;
+                    font-size: rem(20);
+                    opacity: 0.5;
+                    margin-left: rem(78);
+
+                  }
+                }
+              }
+
+              &__evaluation {
+                height: rem(48);
+                border-bottom: $mainBorder 1px solid;
+
+                .link{
+                  height: 100%;
+                  display: flex;
+                  align-items: center;  
+                  color: $mainColor;
+
+                  &__box {
+                    width: rem(160);
+                    margin: 0 auto;
+                  }
+
+                  &__icon {
+                    color: #b5b5b5;
+                    font-size: rem(20);
+                    opacity: 0.5;
+                    margin-right:rem(3.2);
+                  }
+
+                }
+              }
+
+              &__bottom {
+                height: rem(64);
+                padding: rem(14);
+                color: $mainColor;
+                font-size: rem(14);
+                border-top: $mainBorder 1px solid;
+              }
+            }
+
+            .text {
+              font-size: rem(12);
+              position: absolute;
+              bottom: 0;
+              color: $mainColor;
+            }
+          }
+        }
+        .commission{
+          display: flex;
+          justify-content: center;
+          &__flex {
+            display: flex;
+            flex-direction: column;
+            width: rem(352);
+            background: #f8f8f8;
+            border: $mainBorder 1px solid;
+            padding: rem(20);
+            margin-top: rem(10);
+            margin-left: rem(608);
+
+            &__title {
+              font-size: rem(18);
+              font-weight: bold;
+              color: $mainColor;
+            }
+
+            &__box {
+              display: flex;
+              justify-content: space-between;
+              margin-top: rem(20);
+              font-size: rem(14);
+              color: $mainColor;
+            }
+          }
+        }
+
+        .submit {
+          display: block;
+          width: rem(400);
+          height: rem(45);
+          background:$mainBackground;
+          border: $mainBackground 1px solid ;
+          border-radius: rem(5);
+          color: #ffffff;
+          font-size: rem(16);
+          font-weight: bold;
+          line-height: rem(45);
+          margin: 0 auto;
+          margin-top: rem(40);
+          margin-bottom: rem(20);
+        }
+      }
+    }
+  }
+}
