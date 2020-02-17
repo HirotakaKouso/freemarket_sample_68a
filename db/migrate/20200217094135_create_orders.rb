@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string     :first_name_kana_receive,   null:false
       t.integer    :zip_code_receiver,         null:false
       t.text       :address_receiver,          null:false
-      t.string     :tell_receive
+      t.string     :tel_receive
       t.references :prefecture,                null:false, foreign_key:true
       t.references :payment,                   null:false, foreign_key:true
       t.references :item,                      null:false, foreign_key:true

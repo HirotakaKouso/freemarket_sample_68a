@@ -131,7 +131,7 @@ Things you may want to cover:
 
 |zip_code_receiver|integer|null:false| 郵便番号(配達先)
 |address_receiver|text|null:false|市区町村(配達先)
-|tell_receiver|string|| 配達先電話番号
+|tel_receiver|string|| 配達先電話番号
 |prefecture_id|references|null:false, foreign_key:true| 都道府県(配達先)
 |payment_id|references|null:false, foreign_key:true|
 |item_id|references|null:false, foreign_key:true|

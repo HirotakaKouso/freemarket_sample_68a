@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_094253) do
     t.string "first_name_kana_receive", null: false
     t.integer "zip_code_receiver", null: false
     t.text "address_receiver", null: false
-    t.string "tell_receive"
+    t.string "tel_receive"
     t.bigint "prefecture_id", null: false
     t.bigint "payment_id", null: false
     t.bigint "item_id", null: false
