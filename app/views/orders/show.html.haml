@@ -1,0 +1,116 @@
+.purchase
+  .purchase__header
+  .purchase__content
+    .purchase__content__flex
+      .top
+        .top__left
+          = image_tag "https://image.shoppies.jp/img_m/title_p_step0.gif", alt:"order", class:"top__left__image"
+          .top__left__text
+            この商品を注文します。
+            %br
+            注文受領されると、この商品を購入できるようになります。
+        .top__right
+          = link_to "#", alt:"guide", class:"top__right__link" do
+            =icon('fas', 'book-open')
+            %span 取引ガイド
+
+    .purchase__content__box
+      = form_with url: "#", local: true, class: "form" do |f|
+        .item
+          = image_tag "https://www.pakutaso.com/shared/img/thumb/MITETTE016_TP_V.jpg", class:"item__image"
+          .item__title
+            秋の薔薇
+          .item__info
+            .price
+              ¥300
+            .fee
+              送料込み(出品者が払う)
+        .userInfo
+          = image_tag "https://image.shoppies.jp/img_m/img_exhibitor_gray.png", alt:"出品者", class:"userInfo__icon" 
+          .userInfo__left
+            .title
+              配送先
+            .detail
+              %p.detail__top
+                氏名
+              %p.detail__top
+                〒000-0000
+              %p.detail__top
+                住所
+              %p.detail__top
+                電話番号
+              = link_to "#", alt:"配送先を選ぶ", class:"detail__btn" do
+                配送先を選ぶ
+              %p.detail__bottom
+                ※送付先住所は、商品代金を支払うまでは、都道府県のみが出品者に伝わります。
+          .userInfo__right
+            .seller
+              .seller__top
+                = link_to "#", alt:"evaluation", class:"link" do
+                  = image_tag "https://www.pakutaso.com/shared/img/thumb/shikun2002021827_TP_V.jpg", class:"link__image"
+                  .link__box
+                    .link__box__name
+                      レオン
+                    .link__box__comment
+                      購入前コメントくださいm(__)m
+                  =icon('fas', 'angle-right',class:"link__icon")
+              .seller__evaluation
+                = link_to "#", alt:"evaluation", class:"link" do
+                  .link__box
+                    = image_tag "https://image.shoppies.jp/img_m/icon_good.png", alt:"good", class:"image1" 
+                    %span.count
+                      57
+                    = image_tag "https://image.shoppies.jp/img_m/icon_normal.png", alt:"normal", class:"image2" 
+                    %span.count
+                      1
+                    = image_tag "https://image.shoppies.jp/img_m/icon_bad.png", alt:"bad", class:"image3"
+                    %span.count 
+                      0
+                  =icon('fas', 'angle-right',class:"link__icon")
+
+              .seller__bottom
+                過去に1回購入しました
+                %br
+                過去に1回販売しました
+
+            .text
+              ※お支払いの際、別途決済手数料がかかります。
+        .commission
+          .commission__flex
+            .commission__flex__title
+              決済手数料
+
+            .commission__flex__box
+              .name
+                コンビニ
+              .fee
+                ¥200
+
+            .commission__flex__box
+              .name
+                ATM(郵便局/銀行)
+              .fee
+                ¥200
+
+            .commission__flex__box
+              .name
+                クレジットカード(Visa/Master)
+              .fee
+                ¥200
+
+            .commission__flex__box
+              .name
+                nanacoギフト支払い
+              .fee
+                ¥200
+
+            .commission__flex__box
+              .name
+                全額所持金支払い
+              .fee
+                ¥0
+
+        = f.submit "確認", class:"submit"
+
+      
+      
