@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
-lock '3.11.0'
+lock '3.12.0'
 
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_68a'
@@ -32,15 +32,17 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
+  # desc 'upload secrets.yml'
+  # task :upload do
+  #   on roles(:app) do |host|
+  #     if test "[ ! -d #{shared_path}/config ]"
+  #       execute "mkdir -p #{shared_path}/config"
+  #     end
+  #     upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+  #   end
+  # end
+  # before :starting, 'deploy:upload'
+  # after :finishing, 'deploy:cleanup'
 end
+
+
