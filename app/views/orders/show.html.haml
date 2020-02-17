@@ -13,7 +13,6 @@
           = link_to "#", alt:"guide", class:"top__right__link" do
             =icon('fas', 'book-open')
             %span 取引ガイド
-
     .purchase__content__box
       = form_with url: "#", local: true, class: "form" do |f|
         .item
@@ -67,49 +66,41 @@
                     %span.count 
                       0
                   =icon('fas', 'angle-right',class:"link__icon")
-
               .seller__bottom
                 過去に1回購入しました
                 %br
                 過去に1回販売しました
-
             .text
               ※お支払いの際、別途決済手数料がかかります。
         .commission
           .commission__flex
             .commission__flex__title
               決済手数料
-
             .commission__flex__box
               .name
                 コンビニ
               .fee
                 ¥200
-
             .commission__flex__box
               .name
                 ATM(郵便局/銀行)
               .fee
                 ¥200
-
             .commission__flex__box
               .name
                 クレジットカード(Visa/Master)
               .fee
                 ¥200
-
             .commission__flex__box
               .name
                 nanacoギフト支払い
               .fee
                 ¥200
-
             .commission__flex__box
               .name
                 全額所持金支払い
               .fee
                 ¥0
-
         = f.submit "確認", class:"submit"
 
       
