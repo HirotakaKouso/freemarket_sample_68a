@@ -54,33 +54,23 @@ body {
         &__image {
           height: 600px;
           width: 412px;
-          &__main {
-            margin-left: 70px;
-          }
+          margin-left: 70px;
           &__sub {
             display: flex;
-            width: 100%;
+            justify-content: space-between;
+            width: 90%;
             height: 200px;
             &__left {
               height: 116px;
               width: 116px;
-              background-color: saddlebrown;
-              margin-top: 25px;
-              margin-left: 70px;
             }
             &__center {
               height: 116px;
               width: 116px;
-              background-color: seagreen;
-              margin-top: 25px;
-              margin-left: 13px;
             }
             &__right {
               height: 116px;
               width: 116px;
-              background-color: yellow;
-              margin-top: 25px;
-              margin-left: 15px;
             }
           }
         }

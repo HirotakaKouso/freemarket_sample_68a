@@ -7,11 +7,12 @@
     .content__wrapper__box
       .content__wrapper__box__left
         .content__wrapper__box__left__image
-          %img.content__wrapper__box__left__image__main{src: "/assets/49461096_p0_master1200.jpg", width: '370', height: '370'}/
+          .content__wrapper__box__left__image__main
+          = image_tag "/assets/49461096_p0_master1200.jpg", size: "370x370", alt: "test"
           .content__wrapper__box__left__image__sub
-            %img.content__wrapper__box__left__image__sub__left{src: "/assets/IMG_2758-1024x683.jpg", width: '116', height: '166'}/
-            %img.content__wrapper__box__left__image__sub__center{src: "/assets/IMG_2758-1024x683.jpg", width: '166', height: '166'}/
-            %img.content__wrapper__box__left__image__sub__right{src: "/assets/IMG_2758-1024x683.jpg", width: '166', height: '166'}/
+            = image_tag "/assets/IMG_2758-1024x683.jpg", alt: "test"
+            = image_tag "/assets/IMG_2758-1024x683.jpg", alt: "test"
+            = image_tag "/assets/IMG_2758-1024x683.jpg", alt: "test"
         .content__wrapper__box__left__price
           .content__wrapper__box__left__price__main
             .content__wrapper__box__left__price__main__text 商品価格
