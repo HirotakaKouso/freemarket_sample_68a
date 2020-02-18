@@ -53,7 +53,7 @@ Things you may want to cover:
 ## brands table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false, unique: true|
+|name|string|unique: true|
 
 ### association
 - has_many :items
