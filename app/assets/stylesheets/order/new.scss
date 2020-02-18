@@ -56,6 +56,10 @@
             text-align: center;
             line-height: rem(34);
             margin-top: rem(20);
+            
+            .text{
+              color: $mainColor;
+            }
           }
         }
       }
@@ -243,6 +247,10 @@
                   &__box {
                     width: rem(160);
                     margin: 0 auto;
+
+                    .count {
+                      color: $mainColor;
+                    }
                   }
 
                   &__icon {
