@@ -1,0 +1,121 @@
+.header 
+
+
+
+.content
+  .content__wrapper
+    .content__wrapper__title 
+      %h2.content__wrapper__title__text 出品
+      .content__wrapper__title__detail 商品情報を入力してください
+    .content__wrapper__box
+      .content__wrapper__box__left
+        .content__wrapper__box__left__image
+          %img.content__wrapper__box__left__image__main{src: "/assets/49461096_p0_master1200.jpg", width: '370', height: '370'}/
+          .content__wrapper__box__left__image__sub
+            %img.content__wrapper__box__left__image__sub__left{src: "/assets/IMG_2758-1024x683.jpg", width: '116', height: '166'}/
+            %img.content__wrapper__box__left__image__sub__center{src: "/assets/IMG_2758-1024x683.jpg", width: '166', height: '166'}/
+            %img.content__wrapper__box__left__image__sub__right{src: "/assets/IMG_2758-1024x683.jpg", width: '166', height: '166'}/
+        
+
+
+        
+        .content__wrapper__box__left__price
+          .content__wrapper__box__left__price__main
+            .content__wrapper__box__left__price__main__text 商品価格
+            %input.content__wrapper__box__left__price__main__input{name: "price", type: "text", value: "", placeholder: "             300~50,000"}/
+            円
+          .content__wrapper__box__left__price__sub
+            .content__wrapper__box__left__price__sub__left
+              .content__wrapper__box__left__price__sub__left__text 決済手数料
+              %span.content__wrapper__box__left__price__sub__left__span 0
+              円
+            .content__wrapper__box__left__price__sub__right
+              .content__wrapper__box__left__price__sub__right__text 付与予定売上
+              %span.content__wrapper__box__left__price__sub__right__span 0
+              円
+
+            
+
+          
+
+        
+
+        .content__wrapper__box__left__option 
+          .content__wrapper__box__left__option__title その他オプション
+          .content__wrapper__box__left__option__price
+            .content__wrapper__box__left__option__price__left 価格設定
+            .content__wrapper__box__left__option__price__right
+              %input.content__wrapper__box__left__option__price__right__input{name: "price", type: "checkbox"} 
+              .content__wrapper__box__left__option__price__right__text 価格を未設定にする
+          .content__wrapper__box__left__option__quantity
+            .content__wrapper__box__left__option__quantity__left 数量
+            .content__wrapper__box__left__option__quantity__right
+              %input.content__wrapper__box__left__option__quantity__right__input{name: "price", type: "checkbox"} 
+              .content__wrapper__box__left__option__quantity__right__text 同じ商品を複数出品する
+
+          .content__wrapper__box__left__option__item
+            .content__wrapper__box__left__option__item__left 専用出品
+            %input.content__wrapper__box__left__option__item__right{type: "button", value: "取引相手を選択する"}
+            
+              
+          
+          .content__wrapper__box__left__option__guide
+            %i.fas.fa-question-circle
+            .content__wrapper__box__left__option__guide__text その他のオプションガイド
+            
+
+
+          
+
+
+
+          
+          
+
+
+        
+
+
+      .content__wrapper__box__right
+        .content__wrapper__box__right__name
+          .content__wrapper__box__right__name__left 商品名
+          %input.content__wrapper__box__right__name__right{name: "name", type: "text", value: "", placeholder: "30文字以内で入力"}/
+        .content__wrapper__box__right__description
+          .content__wrapper__box__right__description__left 商品説明
+          %input.content__wrapper__box__right__description__right{name: "name", type: "textarea", value: "", placeholder: "2048文字以内で入力"}/
+        .content__wrapper__box__right__category
+          .content__wrapper__box__right__category__left カテゴリー
+          %input.content__wrapper__box__right__category__right{type: "button", value: "カテゴリーを選択をする"}
+        .content__wrapper__box__right__status
+          .content__wrapper__box__right__status__left 状態
+          .content__wrapper__box__right__status__right
+            .content__wrapper__box__right__status__right__text 目立った傷や汚れなし
+            %input.content__wrapper__box__right__status__right__input{type: "button", value: "選択してください"}
+        .content__wrapper__box__right__shoppingFee 
+          .content__wrapper__box__right__shoppingFee__left 配送料
+          .content__wrapper__box__right__shoppingFee__right
+            .content__wrapper__box__right__shoppingFee__right__text 商品価格に込み
+            %input.content__wrapper__box__right__shoppingFee__right__input{type: "button", value: "選択してください"}
+        .content__wrapper__box__right__deliveryMethod
+          .content__wrapper__box__right__deliveryMethod__left 配送方法
+          .content__wrapper__box__right__deliveryMethod__right
+            .content__wrapper__box__right__deliveryMethod__right__text (必須)
+            %input.content__wrapper__box__right__deliveryMethod__right__input{type: "button", value: "選択してください"}
+        .content__wrapper__box__right__prifecture
+          .content__wrapper__box__right__prifecture__left 出品地域
+          %input.content__wrapper__box__right__prifecture__right{type: "button", value: "選択してください"}
+        .content__wrapper__box__right__deliveryDay
+          .content__wrapper__box__right__deliveryDay__left 発送日の目安
+          .content__wrapper__box__right__deliveryDay__right
+            .content__wrapper__box__right__deliveryDay__right__text 指定なし
+            %input.content__wrapper__box__right__deliveryDay__right__input{type: "button", value: "選択してください"}
+        
+
+    .content__wrapper__confirmation
+      %input.content__wrapper__confirmation__button{type: "button", value: "確認"}
+      
+    
+.footer
+
+
+
