@@ -88,3 +88,5 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'font-awesome-sass'
+
+gem 'seed-fu'
