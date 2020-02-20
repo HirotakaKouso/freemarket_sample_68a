@@ -11,5 +11,6 @@ class AddUsernameToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :birth_year, :integer, null: false
     add_column :users, :birth_month, :integer, null: false
     add_column :users, :birth_day, :integer, null: false
+    add_reference :users, :prefecture, null: false, foreign_key: true 
   end
 end

@@ -2,10 +2,23 @@ ja:
   activerecord:
     attributes:
       user:
+        nickname: "ニックネーム"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+        last_name: "姓"
+        first_name: "名"
+        last_name_kana: "せい"
+        first_name_kana: "めい"
+        tel: "電話番号"
+        zip_code: "郵便番号"
+        address: "住所"
+        birth_year: "年"
+        birth_month: "月"
+        birth_day: "日"
+        prefecture: "都道府県"
+        
         remember_me: "ログインを記憶"
     models:
       user: "ユーザ"

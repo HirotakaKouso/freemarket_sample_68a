@@ -35,8 +35,11 @@ ActiveRecord::Schema.define(version: 2020_02_17_010948) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
+    t.bigint "prefecture_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "prefectures"
 end
