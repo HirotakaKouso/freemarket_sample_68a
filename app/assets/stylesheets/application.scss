@@ -1,7 +1,10 @@
 @import "./reset";
-// @import "modules/mixin";
 @import "config/color";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "top/top";
 @import "devise/registrations";
+@import "order/new";
+*{
+  text-decoration: none;
+}
