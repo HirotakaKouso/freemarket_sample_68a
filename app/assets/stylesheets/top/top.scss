@@ -98,7 +98,7 @@
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   &__visual {
     height: 560px;
-    background-image: url(/bg-mainVisual-pict_pc.jpg);
+    background-image: url('/bg-mainVisual-pict_pc.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -249,7 +249,7 @@
   }
   .topMiddle {
     height: 400px;
-    background-image: url(/bg-topMiddleDl-pict.jpg);
+    background-image: url('/bg-topMiddleDl-pict.jpg');
     background-position: bottom right;
     background-size: cover;
     display: flex;
@@ -385,7 +385,7 @@
     }
   }
   &__banner {
-    background-image: url(/bg-appBanner-pict.jpg);
+    background-image: url('/bg-appBanner-pict.jpg');
     padding: 100px 40px;
     position: relative;
     background-size: cover;
