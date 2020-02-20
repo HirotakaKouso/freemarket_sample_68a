@@ -1,81 +1,239 @@
+-# ヘッダー
 .header
   .header__inner
-    .header__inner__above
-      %div{class: "logo"}
-        %img.logo__image{src: "/assets/logo.png"}/
-      %p.points
-        ポイント
-        %br/
-        = succeed "P" do
-          %span 0
-      %p.proceeds
-        売上金
-        %br/
-        = succeed "\u5186" do
-          %span 0
-      %a.sell{href: "/items/new"} 出品
-      %a.sell{href:  "/orders/new"} お知らせ
-      %a.sell{href: "https://shoppies.jp/write-item_sp"} やること
-      .profile
-        = link_to new_user_session_path, class: "btn btn-dark btn-sm" do
-          %img.profile__logo{src: "/assets/member_photo_noimage_thumb.png"}/
-        
-.topSearch
-  %p カテゴリー
-  %p ブランド
-  %link{href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}/
-  %form.container{action: "#", method: "get"}
-    %input{placeholder: "キーワードから探す", size: "40", type: "text"}/
-    %input{type: "submit", value: ""}/
-.smartApp
-  .smartApp__description
-    %ul
-      %li.title 女の子のためのフリマ・コーデアプリ
-      %li 買うのも売るのもアプリでかんたん♡
-      %li 約300万点のファッションアイテムから、毎日格安商品を見つけよう！
-    .storeLogo
-      %img{src: "/assets/btn_appstore.gif"}/
-      %img{src: "/assets/btn_googleplay.gif"}/
-  .smartApp__image
-    %img.smartApp__image__pic{src: "/assets/bg-mainVisual-pict_pc.jpg"}/
-.category
-  .category__leftBox
-    .title
-      .title__top CATEGORY
-      .title__description ファッションから探す
-    .category__leftBox__images
-      %img.tops{src: "/assets/item_tops_on.jpg"}/
-      %img.shoes{src: "/assets/item_shoes_on.jpg"}/
-      %img.skirt{src: "/assets/item_skirt_on.jpg"}/
-      %img.bag{src: "/assets/item_bag_on.jpg"}/
-      %img.accessories{src: "/assets/item_accessories_on.jpg"}/
-      %img.hat{src: "/assets/item_hat_on.jpg"}/
-      %img.goods{src: "/assets/item_goods_on.jpg"}/
-      %img.beauty{src: "/assets/item_beauty_on.jpg"}/
-      %img.coordinate{src: "/assets/item_coordinate_on.jpg"}/
-  .category__rightBox
-    %img.appBanner{src: "/assets/bg-appBanner-pict.jpg"}/
-.news
-  %ul News
-  %ul 2020年1月31日ショピマガvol.61 寒い冬を乗り切るあったかアイテム
-  %ul 2020年1月24日ブランド追加のお知らせ
-  %ul 2019年12月27日ショピマガvol.60 トレンドをおさえた主力アウター
-.introduction
-  %p ショッピーズに新機能が追加されました！
-  .introduction__sections
-    .introduction__section
-      %img.introduction__image{src: "/assets/icon-01.png"}/
-      %div AAAAAAA
-    .introduction__section
-      %img.introduction__image{src: "/assets/icon-02.png"}/
-      %div AAAAAA
-    .introduction__section
-      %img.introduction__image{src: "/assets/icon-03.png"}/
-      %div AAAAAA
+    .header__main
+      .header__main__icon
+        = image_tag "logo.png", class: "topLogo"
+      .header__main__seachBox
+        = form_with local: true do |f|
+          = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
+      .header__main__seachBtn
+        = image_tag "icon-search 1.png", class: "topSearch"
+    .header__inner__nav
+      .listLeft
+        .header__category
+          カテゴリー
+        .header__bland
+          ブランド
+      .listRight
+        .header__login
+          ログイン
+        .header__register
+          新規会員登録
+
+.topMain
+  .topMain__visual
+    .content
+      .content__subtitle
+        人生を変えるフリマアプリ
+      .content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .content__btn
+        = image_tag "btn_appstore.gif", class: "aBtn"
+        = image_tag "btn_googleplay.gif",class: "gBtn"
+
+  .topMain__introduction
+    .subtitle
+      FURIMAが選ばれる3つの理由
+    .lists
+      .list
+        .list__picture
+          .number
+            1
+          = image_tag "pict-reason-01.jpg", class: "listPic"
+        .list__text
+          .list__text__blue
+            3分
+          .list__text__black
+            ですぐ出品
+        .list__description
+          スマホで入力するだけで簡単に出品できる！
+      .list
+        .list__picture
+          .number
+            2
+          = image_tag "pict-reason-02.jpg", class: "listPic"
+        .list__text
+          .list__text__blue
+            シンプル
+          .list__text__black
+            で使いやすい
+        .list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .listLast
+        .listLast__picture
+          .number
+            3
+          = image_tag "pict-reason-03.jpg", class: "lastPic"
+        .listLast__text
+          .listLast__text__black
+            手数料
+          .listLast__text__blue
+            業界最安
+        .listLast__description
+          最大3%でお得に出品&購入！
+
+  .topMiddle
+    .topMiddle__inner
+      .subtitle
+        会員数日本一位
+      .text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .btn
+        = image_tag "btn_appstore.gif", class: "aBtn"
+        = image_tag "btn_googleplay.gif",class: "gBtn"
+
+  .topMain__future
+    .head
+      FURIMAの特徴
+    .items
+      .item
+        = image_tag "icon-01.png", class: "item__img"
+        .item__subtitle
+          簡単に売り買いできる
+        .item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .item
+        = image_tag "icon-03.png", class: "item__img"
+        .item__subtitle
+          売上金は即日振り込みに対応
+        .item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      .item
+        = image_tag "icon-04.png", class: "item__img"
+        .item__subtitle
+          様々な支払いに対応
+        .item__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .topMain__pickup
+    .head
+      ピックアップカテゴリー
+    .productBox
+      .productHead
+        新規投稿商品
+      .productLists
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+
+  .topMain__pickup
+    .head
+      ピックアップブランド
+    .productBox
+      .productHead
+        アーカイバ
+      .productLists
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+        .productList
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class: "productList__img"
+          .productList__body
+            .name
+              product3
+            .details
+              .money
+                30000円
+              .tax
+                (税込)
+                
+  .topMain__banner
+    .inner
+      .inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      .inner__text
+        今すぐ無料ダウンロード！
+      .inner__icon
+        = image_tag "btn_appstore.gif", class: "aBtn"
+        = image_tag "btn_googleplay.gif",class: "gBtn"
+
 .footer
-  %ul
-    %li 利用規約
-    %li プライバシーポリシー
-    %li 特定取引法に基づく表示
-    %li 運営会社
-  .copyRight © 2014 Stardust Communications Inc. All Rights Reserved.
+  .contents
+    .content
+      .content__head
+        FURIMAについて
+        .content__head__list
+          会社概要（運営会社）
+        .content__head__list
+          プライバシーポリシー
+        .content__head__list
+          FURIMA利用規約
+        .content__head__list
+          ポイントに関する特約
+    .content
+      .content__head
+        FURIMAを見る
+        .content__head__list
+          カテゴリー一覧
+        .content__head__list
+          ブランド一覧
+    .content
+      .content__head
+        ヘルプ＆ガイド
+        .content__head__list
+          FURIMAガイド
+        .content__head__list
+          FURIMAロゴ利用ガイドライン
+        .content__head__list
+          お知らせ
+  .footer__logo
+    = image_tag "/assets/logo-white.png", class: "footer__logo__image"
+    .footer__logo__furima
+      © FURIMA
+
+.purchaseBtn
+  .purchaseBtn__text
+    出品する
+  .purchaseBtn__icon
+    = image_tag "/assets/icon_camera.png", class: "topIcon"
