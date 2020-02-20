@@ -1,0 +1,359 @@
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  overflow:scroll;
+}
+
+.header {
+  height: 90px;
+  width: 100%;
+  background: #3CCACE
+}
+
+.main {
+  overflow:scroll;
+  &__all {
+    margin: 0 auto;
+    width: 700px;
+    margin-top: 30px;
+    padding: 20px;
+    &__content {
+      padding: 20px 20px;
+      background-color: white;
+      width: 100%;
+      margin: 0 auto;
+      overflow:scroll;
+      &__image {
+        &__main {
+          margin: 0 auto;
+          width: 500px;
+          &__title {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+          &__image {
+            margin: 0 auto;
+            width: 500px;
+            img {
+              object-fit: cover;
+              width: 500px;
+            }
+          }
+        }
+        &__sub {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+          &__left {
+            img {
+              object-fit: cover;
+            }
+          }
+          &__center {
+            margin: 0 10px;
+            img {
+              object-fit: cover;
+            }
+          }
+          &__right {
+            img {
+              object-fit: cover;
+            }
+          }
+        }
+        &__price {
+          font-size: 46px;
+          font-weight: bold;
+          margin: 0 10px 0 0;
+          text-align: center;
+        }
+        &__fee {
+          font-size: 16px;
+          text-align: center;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+      }
+
+      &__product {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        margin: auto;
+        &__title {
+          font-size: 18px;
+          margin-bottom: 30px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+        &__name {
+          display: flex;
+          width: 100%;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__category {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;  
+          }
+        }
+        &__brand {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__size {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__status {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__shoppingFee {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__prifecture {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+        &__deliveryDay {
+          display: flex;
+          &__title {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__text {
+            width: 75%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    &__option {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      padding: 20px 20px;
+      margin: 0 auto;
+      width: 100%;
+      &__left {
+        padding: 6px 10px;
+        border-radius: 40px;
+        color: #3CCACE;
+        border: 1px solid #ffb340;
+        width: 120px;
+        &__icon {
+          display: inline-block;
+        }
+        &__text {
+          display: inline-block;
+        }
+      }
+      &__right {
+        padding: 6px 10px;
+        display: inline-block;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+        text-decoration: none;
+        &__icon {
+          display: inline-block;
+        }
+        &__text {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__blank {
+      background-color: #f8f8f8;
+      height: 20px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__comment {
+      background-color: #fff;
+      margin-top: 70px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 20px;
+      width: 100%;
+      &__form {
+        width: 95%;
+        height: 104px;
+        padding: 10px;
+      }
+      &__text {
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 10px 0;
+        text-align: left;
+      }
+      &__button {
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        &__text {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      color: #3CCACE;
+      width: 100%;
+      padding: 10px;
+      &__left {
+        &__icon {
+          display: inline-block;
+        }
+        &__text {
+          display: inline-block;
+        }
+      }
+      &__right {
+        &__text {
+          display: inline-block;
+        }
+        &__icon {
+          display: inline-block;
+        }
+      }
+    }
+
+    &__bottomlist {
+      margin: 0 auto;
+      color: #3CCACE;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+      margin-top: 20px;
+      font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  background-color: brown;
+  width: 100%;
+  height: 100px;
+}
