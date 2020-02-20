@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   # 登録画面のストロングパロメーター
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:last_name,:first_name,:last_name_kana,:first_name_kana,:tel,:zip_code,:address,:prefecture_id,:birth_year,:birth_month,:birth_day])
-    # binding.pry
     # 新規登録時(sign_up時)にそれぞれのキーのパラメーターを追加で許可する
   end
   # binding.pry
