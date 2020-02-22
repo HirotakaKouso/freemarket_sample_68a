@@ -1,0 +1,345 @@
+= render "shared/header"
+
+%body
+  #wrapper
+    .wrapper__content
+      .wrapper__content__pankuzu
+        %a{href: "#"}> ホーム
+        ＞
+        %a ユーザーSHOP
+      .wrapper__content__main
+        -# プロフィール編集ページへ
+        %a.wrapper__content__main__editProfBtn{href: "#", rel: ""} プロフィール編集
+        .wrapper__content__main__name
+          %img.wrapper__content__main__name__picProf{alt: "profileimage", src: "https://image.shoppies.jp/img_m/noimage-profile.png"}/
+          %h1.wrapper__content__main__name__shopName 自分の名前（お店の名前）
+          %p.wrapper__content__main__name__nickName ニックネーム
+        .wrapper__content__main__shop
+          %p.wrapper__content__main__shopDesc
+          -# ショップ詳細ページへ移動
+          %a.wrapper__content__main__shopInfoBtn{href: "#"}
+            詳細ページ移動
+            -# 評価一覧画面へ
+        %a.wrapper__content__main__evaluations{href: "#"}
+          %p 評価：
+          %img.wrapper__content__main__evaluationsIcon{alt: "goodsmile", src: "https://image.shoppies.jp/img_m/icon_good.png"}/
+          %p.wrapper__content__main__evaluationsGood 良い
+          %p.wrapper__content__main__evaluationsCnt 0
+          %img.wrapper__content__main__evaluationsSmile{alt: "normalsmile", src: "https://image.shoppies.jp/img_m/icon_normal.png"}/
+          %p.wrapper__content__main__evaluationsNormal ふつう
+          %p.wrapper__content__main__evaluationsCnt 0
+          %img.wrapper__content__main__evaluationsSmile{alt: "badsmile", src: "https://image.shoppies.jp/img_m/icon_bad.png"}/
+          %p.wrapper__content__main__evaluationsBad 悪い
+          %p.wrapper__content__main__evaluationsCnt 0
+          %p.wrapper__content__main__evaluationsDealCnt 取引数：0
+          -# ボタンを押したらいいねでカウントが増える
+        .wrapper__content__main__likeBtn
+          %input.wrapper__content__main__likeBtnShop{alt: "likebtn", src: "https://image.shoppies.jp/img_m/suki_off.png", type: "image", value: "1"}/
+        .wrapper__content__main__likeCnt
+          0
+      %br
+      .wrapper__content__exhibition
+        -# 出品ページへ
+        %a.wrapper__content__exhibition__ItemBtn{:href => "#"} 出品する
+
+      .wrapper__content__page
+        .wrapper__content__page__select
+          %nav.wrapper__content__page__select__navi
+            %ul
+              %li.prev
+                %span.active.prevTxt 前へ
+              %li
+                %span 1
+              %li
+                %a{href: "/user-shop/20937015/p/2"} 2
+              %li
+                %a{href: "/user-shop/20937015/p/3"} 3
+              %li
+                %a{href: "/user-shop/20937015/p/4"} 4
+              %li.last
+                %a{href: "/user-shop/20937015/p/5"} …5
+              %li.next
+                %a{href: "/user-shop/20937015/p/2"} 次へ
+
+
+      %section#wrapper__content__goods
+        .wrapper__content__goods__block{style: "position: absolute; top: 100px; left: 0px;"}
+          -# 商品詳細ページへ
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/156/626/204/204626156/MA_200219140941090.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204626156.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 100px; left: 190px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/744/625/204/204625744/MA_200219140629080.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625744.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625744.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+        .wrapper__content__goods__block{style: "position: absolute; top: 100px; left: 380px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/319/625/204/204625319/MA_200219140316060.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 100px; left: 570px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/393/624/204/204624393/MA_200219135639490.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 100px; left: 760px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/602/535/204/204535602/MA_200219045237750.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 450px; left: 0px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/156/626/204/204626156/MA_200219140941090.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204626156.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+
+        .wrapper__content__goods__block{style: "position: absolute; top: 450px; left: 190px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/744/625/204/204625744/MA_200219140629080.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625744.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625744.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+        .wrapper__content__goods__block{style: "position: absolute; top: 450px; left: 380px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/319/625/204/204625319/MA_200219140316060.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 450px; left: 570px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/393/624/204/204624393/MA_200219135639490.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 450px; left: 760px;"}
+          %a.wrapper__content__goods__blockLink{href:""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/602/535/204/204535602/MA_200219045237750.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+
+        .wrapper__content__goods__block{style: "position: absolute; top: 800px; left: 0px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/156/626/204/204626156/MA_200219140941090.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204626156.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 800px; left: 190px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/744/625/204/204625744/MA_200219140629080.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625744.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625744.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+        .wrapper__content__goods__block{style: "position: absolute; top: 800px; left: 380px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品 ", "data-original" => "https://resource.shoppies.jp/items/319/625/204/204625319/MA_200219140316060.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 800px; left: 570px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/393/624/204/204624393/MA_200219135639490.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+ 
+        .wrapper__content__goods__block{style: "position: absolute; top: 800px; left: 760px;"}
+          %a.wrapper__content__goods__blockLink{href: ""}
+            %img.wrapper__content__goods__blockLinkImg{alt: "今季新作 人気美品", "data-original" => "https://resource.shoppies.jp/items/602/535/204/204535602/MA_200219045237750.jpg", src: "assets/oj2.jpg"}/
+          .wrapper__content__goods__block__info
+            %p 今季新作 人気美品
+            %p.wrapper__content__goods__block__infoBrand Adonson
+            %p.wrapper__content__goods__block__infoPrice ¥84,500
+            .wrapper__content__goods__block__infoflex
+              %p#item_204625319.wrapper__content__goods__block__infoflex__like
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                %span 0
+              %p.wrapper__content__goods__block__infoflex__comment
+                %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                0
+              .wrapper__content__goods__block__infoflex__likeBtn
+                %input#204625319.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+
+      .wrapper__content__page
+        .wrapper__content__page__select
+          %nav.wrapper__content__page__select__navi
+            %ul
+              %li.prev
+                %span.active.prevTxt 前へ
+              %li
+                %span 1
+              %li
+                %a{:href => "/user-shop/20937015/p/2"} 2
+              %li
+                %a{:href => "/user-shop/20937015/p/3"} 3
+              %li
+                %a{:href => "/user-shop/20937015/p/4"} 4
+              %li.last
+                %a{:href => "/user-shop/20937015/p/5"} …5
+              %li.next
+                %a{:href => "/user-shop/20937015/p/2"} 次へ
+
+= render "shared/footer"
+= render "shared/purchase"
