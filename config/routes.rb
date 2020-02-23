@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :prefectures
   
   root to: 'top#index'
-  resources :items, only: [:new]
+  resources :items, only: [:new, :create, :show]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
