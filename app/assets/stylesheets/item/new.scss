@@ -40,6 +40,13 @@
           color: #646166;
         }
       }
+
+      .imageError {
+        margin-left: 170px;
+        color: red;
+        display: none;
+      }
+
       &__box {
         display: flex;
         width: 100%;
