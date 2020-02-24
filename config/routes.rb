@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   resources :prefectures
   
   root to: 'top#index'
-  resources :items, only: [:new]
+
+  resources :items, only: [:new, :create, :show] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
