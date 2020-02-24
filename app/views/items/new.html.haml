@@ -97,7 +97,7 @@
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
       .content__wrapper__confirmation
         = f.submit :name, class:"content__wrapper__confirmation__button", value: "確認"
-  .footer
+  = render "shared/footer"
 
 
 
