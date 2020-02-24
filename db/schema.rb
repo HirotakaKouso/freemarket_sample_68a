@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_02_24_082125) do
+ActiveRecord::Schema.define(version: 2020_02_17_094253) do
 
   create_table "brand_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "brand_id", null: false
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_082125) do
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_categories_on_name"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,8 +77,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_082125) do
     t.bigint "shipping_fee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "shipping_method_id"
-    t.string "method"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
@@ -126,7 +124,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_082125) do
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "size"
+    t.string "size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -145,10 +143,10 @@ ActiveRecord::Schema.define(version: 2020_02_24_082125) do
     t.string "first_name_kana", null: false
     t.string "nickname", null: false
     t.string "tel", null: false
-    t.string "zip_code", null: false
+    t.integer "zip_code", null: false
     t.string "address", null: false
-    t.string "birth_year", null: false
-    t.string "birth_month", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
     t.integer "birth_day", null: false
     t.bigint "prefecture_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

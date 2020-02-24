@@ -53,6 +53,7 @@ $(document).on('turbolinks:load', function(){
           $('.labelBox').attr({id: `labelBox--${count}`,for: `item_images_attributes_${count}_src`});
         }
       }
+      $(".imageError").css('display','none');
     });
 
     $(document).on('click', '.delete-box', function() {
@@ -65,5 +66,15 @@ $(document).on('turbolinks:load', function(){
         $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
       }
     });
+    $(".content__wrapper__confirmation__button").click(function() {
+      if ($(".preview-box").length == 0) {
+        $(".imageError").css('display','block');
+        $("html,body").animate({scrollTop: 0}, 300, "swing");
+        return false;
+      }
+    });
+    if ($(".preview-box").length !== 0) {
+      $(".imageError").css('display','none');
+    }
   });
 })

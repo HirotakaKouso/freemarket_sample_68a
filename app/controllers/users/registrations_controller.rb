@@ -8,16 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @prefectures = Prefecture.all
   end
 
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
-
-  # def prefecture_select
-  #   @prefectures = Prefecture.all
-  # end
-
-
+  
   # POST /resource
   # def create
   #   super
@@ -51,8 +47,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find_by(id: params[:id])
   end
 
-
-
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -67,12 +61,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    "/"
+    "/" # ログイン後に遷移するpathを設定
   end
 
+  def after_sign_out_path_for(resource)
+    "/" # ログアウト後に遷移するpathを設定
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
+  #   redirect_to signup_path
   # end
 end

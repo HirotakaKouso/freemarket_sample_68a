@@ -4,10 +4,8 @@
 @import "./font-awesome";
 @import "top/top";
 @import "devise/registrations";
+@import "devise/sessions.scss";
 @import "order/new";
-@import "mypage/mypage";
-@import "item/new";
-@import "item/show";
 *{
   text-decoration: none;
 }
