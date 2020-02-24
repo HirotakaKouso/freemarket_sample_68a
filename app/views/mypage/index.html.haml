@@ -16,7 +16,10 @@
         .wrapper__content__main__shop
           %p.wrapper__content__main__shopDesc
             = link_to "詳細ページ移動", class: "wrapper__content__main__shopInfoBtn"
-            -# 評価一覧画面へ
+          %p.wrapper__content__main__shopCredit
+            = link_to "クレジットカード登録&確認", pay_card_index_path
+          %p.wrapper__content__main__shopCreditInfo
+
         %a.wrapper__content__main__evaluations{href: "#"}
           %p 評価：
           %img.wrapper__content__main__evaluationsIcon{alt: "goodsmile", src: "https://image.shoppies.jp/img_m/icon_good.png"}/
