@@ -1,5 +1,6 @@
 // ヘッダー
 .header {
+  padding: 0 60px;
   &__inner {
     max-width: 1040px;
     width: 100%;
@@ -423,7 +424,7 @@
   }
 }
 // フッター
-.footer1 {
+.footer {
   padding: 60px 0;
   color: #fff;
   background-color: #272727;

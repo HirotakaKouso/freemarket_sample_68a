@@ -6,10 +6,8 @@
 @import "devise/registrations";
 @import "devise/sessions";
 @import "devise/passwords";
+@import "devise/sessions.scss";
 @import "order/new";
-@import "mypage/mypage";
-@import "item/new";
-@import "item/show";
 *{
   text-decoration: none;
 }

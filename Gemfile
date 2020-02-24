@@ -90,11 +90,7 @@ gem 'devise-i18n-views'
 
 gem 'font-awesome-sass'
 
-
 gem 'seed-fu'
-
 gem 'listen', '>= 3.0.5', '< 3.2'
 
-gem 'jquery-rails'
-
-gem 'active_hash'
+gem 'seed-fu'
