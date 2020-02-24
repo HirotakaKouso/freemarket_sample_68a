@@ -89,7 +89,7 @@
           .content__wrapper__box__right__prefecture
             .content__wrapper__box__right__prefecture__left 出品地域
             .content__wrapper__box__right__prefecture__right
-              = current_user.prefecture.prefecture
+              -# = current_user.prefecture.prefecture
               = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: "選択してください"},id:"newSelect"
           .content__wrapper__box__right__deliveryDay
             .content__wrapper__box__right__deliveryDay__left 発送日の目安
