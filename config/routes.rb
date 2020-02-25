@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :prefectures
 
   root to: 'top#index'
+  # resources :top, only: [:index,:show]
 
   resources :items, only: [:new, :create, :show]
 
