@@ -1,0 +1,51 @@
+.sessions{
+  width:60vw;
+  height:100%;
+  margin-left:20vw;
+  background-color:lightblue;
+  h2{
+    margin-bottom:20px;
+    text-align:center;
+    font-weight: bold;
+    color:grey;
+    font-size: 25px;
+  }
+  form{
+    .email{
+      margin-left:5vw;
+      color:grey;
+      input#user_email{
+        width:250px;
+        margin-bottom:15px;
+      }
+    }
+    .password{
+      margin-left:5vw;
+      color:grey;
+      input#user_password{
+        width:250px;
+        margin-bottom:15px;
+      }
+    }
+    .userRememberMe{
+      margin-left:5vw;
+      label{
+        color:grey;
+      }
+    }
+    .actions{
+      margin-top:15px;
+      text-align: center;
+      input{
+        width:100px;
+        height:30px;
+        background-color: #3CCACD;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+    }
+  }
+  a{
+    color:grey;
+  }
+}
