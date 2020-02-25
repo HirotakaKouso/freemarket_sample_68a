@@ -53,16 +53,16 @@
       = f.label :address
       = f.text_field :address, autofocus: true, autocomplete: "address"
     %br/
-    %span.birth 生年月日（西暦）
+    %span.birth 生年月日
     %span.birthYear
-      = f.label :birth_year
       = f.number_field :birth_year, autofocus: true, autocomplete: "birth_year", min:1900, max:2020,value:2000
+      = f.label :birth_year
     %span.birthMonth
-      = f.label :birth_month
       = f.number_field :birth_month, autofocus: true, autocomplete: "birth_month", min:1, max:12,value:1
+      = f.label :birth_month
     %span.birthDay
-      = f.label :birth_day
       = f.number_field :birth_day, autofocus: true, autocomplete: "birth_day", min:1, max:31,value:1
+      = f.label :birth_day
     .actions
       = f.submit "登録"
   = render "devise/shared/links"
