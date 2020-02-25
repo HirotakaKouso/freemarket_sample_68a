@@ -98,34 +98,17 @@
       .productHead
         新規投稿商品
       .productLists
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "productList__img"
+        .productLists__main
+          - @items.each do |item|
+            - item.images.each do |image|
+              = image_tag image.src.url, class: "productList"
+              = link_to item_path
+        .productLists__sub
           .productList__body
             .name
-              product3
             .details
               .money
-                30000円
-              .tax
-                (税込)
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "productList__img"
-          .productList__body
-            .name
-              product3
-            .details
-              .money
-                30000円
-              .tax
-                (税込)
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class: "productList__img"
-          .productList__body
-            .name
-              product3
-            .details
-              .money
-                30000円
+                10000円
               .tax
                 (税込)
 
@@ -136,28 +119,11 @@
       .productHead
         アーカイバ
       .productLists
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "productList__img"
-          .productList__body
-            .name
-              product3
-            .details
-              .money
-                30000円
-              .tax
-                (税込)
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "productList__img"
-          .productList__body
-            .name
-              product3
-            .details
-              .money
-                30000円
-              .tax
-                (税込)
-        .productList
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class: "productList__img"
+        .productLists__main
+          - @items.each do |item|
+            - item.images.each do |image|
+              = image_tag image.src.url, class: "productList"
+        .productLists__sub
           .productList__body
             .name
               product3
