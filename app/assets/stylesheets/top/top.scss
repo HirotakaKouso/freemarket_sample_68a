@@ -352,10 +352,14 @@
       .productLists {
         width: 780px;
         margin: 26px auto;
-        display: flex;
         justify-content: space-around;
+        .product__main {
+          display: flex;
+          background-size: cover;
+        }
         .productList {
           width: 220px;
+          height: 150px;
           display: inline-block;
           cursor: pointer;
           &__img {
