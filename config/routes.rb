@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
+
   resources :prefectures
 
   root to: 'top#index'
@@ -24,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :card, only: [:new, :show] do
     collection do
-      post 'show', to: 'card#show'
+      post 'create', to: 'card#create'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
