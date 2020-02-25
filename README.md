@@ -135,7 +135,7 @@ Things you may want to cover:
 |prefecture_id|references|null:false, foreign_key:true| 都道府県(配達先)
 |payment_id|references|null:false, foreign_key:true|
 |item_id|references|null:false, foreign_key:true|
-|buyer|references|null:false, foreign_key:true| 買い手(user_id)
+|buyer_id|references|null:false, foreign_key:true| 買い手(user_id)
 
 ### association
 - belongs_to :prefecture
@@ -189,3 +189,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<!-- INSERT INTO shipping_fees(id, fee,created_at,updated_at) VALUES(1, "商品価格に込み","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO shipping_fees(id, fee,created_at,updated_at) VALUES(2, "商品価格とは別途","2020-02-18 12:04:35","2020-02-18 12:04:35");  -->
+
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(1, "指定なし","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(2, "１〜２日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(3, "２〜３日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(4, "４〜７日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(5, "発送は週末のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(5, "発送は平日のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(6, "発送は平日のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
+
+
+
