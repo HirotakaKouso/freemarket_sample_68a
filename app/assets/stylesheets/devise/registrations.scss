@@ -1,4 +1,199 @@
-input{
-  width:500px;
-  height:30px;
+.registrationsNew{
+  width:100%;
+  height:100vh;
+  background-color:lightblue;
+  text-align:center;
+  vertical-align: middle;
+  h2{
+    padding-top:10vh;
+    font-weight: bold;
+    color:grey;
+    font-size: 25px;
+  }
+  form{
+    .request{
+      color:red;
+      margin-bottom:20px;
+    }
+    .nickname{
+      color:grey;
+      label{
+        margin-right:200px;
+      }
+      input#user_nickname{
+        margin-left:150px;
+        width:250px;
+        margin-bottom:15px;
+      }  
+    }
+    .email{
+      color:grey;
+      label{
+        margin-right:200px;
+      }
+      input#user_email{
+        margin-left:137px;
+        width:250px;
+        margin-bottom:15px;
+      }
+    }
+    .password{
+      // margin-left:5vw;
+      color:grey;
+      em{
+        margin-right:70px;
+      }
+      input#user_password{
+        margin-left:137px;
+        width:250px;
+        margin-bottom:15px;
+      }
+    }
+    .passwordConfirm{
+      // margin-left:5vw;
+      color:grey;
+      label{
+        margin-right:190px;
+      }
+      input#user_password_confirmation{
+        margin-left:130px;
+        width:250px;
+        margin-bottom:15px;
+      }
+    }
+    .lastName{
+      // margin-left:5vw;
+      color:grey;
+      label{
+        margin-left:402px;
+      }
+      input#user_last_name{
+        width:125px;
+        margin-bottom:15px;
+      }
+    }
+    .firstName{
+      color:grey;
+      label{
+        // margin-left:4vw;
+      }
+      #user_first_name{
+        // margin-left:0vw;
+      }
+      input#user_first_name{
+        width:125px;
+        margin-bottom:15px;
+      }
+    }
+    .lastNameKana{
+      color:grey;
+      label{
+        margin-left:370px;
+      }
+      input#user_last_name_kana{
+        width:125px;
+        margin-bottom:15px;
+      }
+    }
+    .firstNameKana{
+      color:grey;
+      label{
+        // margin-left:2.9vw;
+      }
+      input#user_first_name_kana{
+        width:125px;
+        margin-bottom:15px;
+      }
+    }
+    .tel{
+      color:grey;
+      label{
+        margin-right:250px;
+      }
+      input#user_tel{
+        margin-left:200px;
+        margin-bottom:15px;
+      }
+    }
+    .zipCode{
+      color:grey;
+      label{
+        margin-right:250px;
+      }
+      input#user_zip_code{
+        margin-bottom:15px;
+        margin-left:200px;
+      }
+    }
+    .prefecture{
+      // margin-left:5vw;
+      color:grey;
+      label{
+        margin-right:300px;
+      }
+      select#user_prefecture_id{
+        width:100px;
+        height:30px;
+        margin-bottom:15px;
+        margin-left:240px;
+      }
+    }
+    .address{
+      // margin-left:5vw;
+      color:grey;
+      label{
+        margin-right:250px;
+      }
+      input#user_address{
+        margin-bottom:15px;
+        margin-left:230px;
+      }
+    }
+    .birth{
+      margin-left:440px;
+      color:grey;
+    }
+    .birthYear{
+      margin-bottom:15px;
+      color:grey;
+      #user_birth_year{
+        // margin-left:14.3vw;
+      }
+      input#user_birth_year{
+        width:80px;
+      }
+    }
+    .birthMonth{
+      // margin-bottom:15px;
+      color:grey;
+      input#user_birth_month{
+        width:35px;
+      }
+    }
+    .birthDay{
+      margin-bottom:15px;
+      color:grey;
+      input#user_birth_day{
+        width:35px;
+      }
+    }
+    .actions{
+      margin-top:15px;
+      text-align: center;
+      input{
+        width:100px;
+        height:30px;
+        background-color: #3CCACD;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+    }
+  }
+  a{
+    color:grey;
+  }
+}
+
+.field_with_errors {
+  display: contents;
 }
