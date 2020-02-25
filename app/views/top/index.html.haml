@@ -102,7 +102,7 @@
           - @items.each do |item|
             - item.images.each do |image|
               = image_tag image.src.url, class: "productList"
-              = link_to item_path
+              -# = link_to item_path
         .productLists__sub
           .productList__body
             .name

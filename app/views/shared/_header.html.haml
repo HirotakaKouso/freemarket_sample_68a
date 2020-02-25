@@ -17,7 +17,7 @@
           ブランド
       .listRight
         -if user_signed_in?
-          = link_to mypage_index_path, class: "header__mypage" do
+          -# = link_to mypage_index_path, class: "header__mypage" do
             = current_user.nickname
           = link_to destroy_user_session_path,method: :delete, class: "header__register" do
             ログアウト
