@@ -5,6 +5,7 @@
       .content__wrapper__title 
         %h2.content__wrapper__title__text 出品
         .content__wrapper__title__detail 商品情報を入力してください
+      .imageError ※写真を追加してください
       .content__wrapper__box
         .content__wrapper__box__left
           .content__wrapper__box__left__image
@@ -13,10 +14,10 @@
                 = i.file_field :src, class: "hiddenField"
                 .content__wrapper__box__left__image__main
                   .imageLabel--0
-                    .flex
-                      .flex__plus
+                    .cameraIcon0
+                      .cameraIcon0__plus
                         +
-                      .flex__text
+                      .cameraIcon0__text
                         １枚目(メイン)の商品写真になります。
               .content__wrapper__box__left__image__sub
                 %label{for: "item_images_attributes_1_src",id: "labelBox--1"}
@@ -66,14 +67,23 @@
         .content__wrapper__box__right
           .content__wrapper__box__right__name
             .content__wrapper__box__right__name__left 商品名
-            = f.text_field :name, class:"content__wrapper__box__right__name__right", placeholder: "30文字以内で入力", maxlength: "30"
+            = f.text_field :name, class:"content__wrapper__box__right__name__right", placeholder: "30文字以内で入力", maxlength: "30",required: true
           .content__wrapper__box__right__description
             .content__wrapper__box__right__description__left 商品説明
-            = f.text_area :description, class:"content__wrapper__box__right__name__right", placeholder: "2048文字以内で入力", maxlength:"2048"
+            = f.text_area :description, class:"content__wrapper__box__right__name__right", placeholder: "2048文字以内で入力", maxlength:"2048",required: true
           .content__wrapper__box__right__category
             .content__wrapper__box__right__category__left カテゴリー
             .content__wrapper__box__right__category__right
-              = f.collection_select :category_id, Category.group(:name).order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する"}
+              -# = f.collection_select :category_id, Category.group(:name).order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
+              = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
+          .content__wrapper__box__right__brand
+            .content__wrapper__box__right__brand__left ブランド
+            .content__wrapper__box__right__brand__right
+              = f.collection_select :brand_id, Brand.group(:name).order(id: :asc), :id, :name, {prompt: "選択してください"},id:"newSelect,brandSelect"
+          .content__wrapper__box__right__size
+            .content__wrapper__box__right__size__left サイズ
+            .content__wrapper__box__right__size__right
+              = f.collection_select :size_id, Size.group(:size).order(id: :asc), :id, :size, {prompt: "選択してください"},id:"newSelect,sizeSelect"
           .content__wrapper__box__right__status
             .content__wrapper__box__right__status__left 状態
             .content__wrapper__box__right__status__right
@@ -98,6 +108,4 @@
       .content__wrapper__confirmation
         = f.submit :name, class:"content__wrapper__confirmation__button", value: "確認"
   = render "shared/footer"
-
-
 
