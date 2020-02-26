@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :prefectures
 
   root to: 'top#index'
@@ -23,4 +24,12 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   resources :mypage, only: [:index]
+
+  resources :card, only: [:new, :show, :destroy] do
+    collection do
+      post 'create', to: 'card#create'
+      post 'pay', to: 'card#pay'
+    end
+  end
+  
 end

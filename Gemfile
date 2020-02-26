@@ -98,3 +98,10 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'jquery-rails'
 
 gem 'active_hash'
+
+#payjp導入
+gem 'payjp'
+#ENV環境変数の読み込み
+gem 'dotenv-rails'
+
+gem "jquery-rails"
