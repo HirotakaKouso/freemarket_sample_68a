@@ -99,15 +99,41 @@
         新規投稿商品
       .productLists
         .productLists__main
+          - @items.last(3).each do |item|
+            - item.images.first(1).each do |image|
+              = link_to item_path(item.id) do
+                = image_tag image.src.url, class: "productList"
+          -# .aaa
+          -#   - @orders.each do |order|
+          -#     - if order.id == buyer.id
+          -#       = image_tag image.src.url, class: "productList"
+          -#     - else
+          -#       = image_tag "btn_appstore.gif", class: "aBtn"
         .productLists__sub
           .productList__body
             .name
-            .details
-              .money
-                10000円
-              .tax
-                (税込)
-
+              - @items[-3..-3].each do |item|
+                = item.name
+            .money
+              - @items[-3..-3].each do |item|
+                = item.price
+                円
+          .productList__body
+            .name
+              - @items[-2..-2].each do |item|
+                = item.name
+            .money
+              - @items[-2..-2].each do |item|
+                = item.price
+                円
+          .productList__body
+            .name
+              - @items.last(1).each do |item|
+                = item.name
+            .money
+              - @items.last(1).each do |item|
+                = item.price
+                円
   .topMain__pickup
     .head
       ピックアップブランド
@@ -116,18 +142,35 @@
         アーカイバ
       .productLists
         .productLists__main
-          - @items.each do |item|
-            - item.images.each do |image|
-              = image_tag image.src.url, class: "productList"
+          - @items.last(3).each do |item|
+            - item.images.first(1).each do |image|
+              = link_to item_path(1) do
+                = image_tag image.src.url, class: "productList"
         .productLists__sub
           .productList__body
             .name
-              product3
-            .details
-              .money
-                30000円
-              .tax
-                (税込)
+              - @items[-3..-3].each do |item|
+                = item.name
+            .money
+              - @items[-3..-3].each do |item|
+                = item.price
+                円
+          .productList__body
+            .name
+              - @items[-2..-2].each do |item|
+                = item.name
+            .money
+              - @items[-2..-2].each do |item|
+                = item.price
+                円
+          .productList__body
+            .name
+              - @items.last(1).each do |item|
+                = item.name
+            .money
+              - @items.last(1).each do |item|
+                = item.price
+                円
 
   .topMain__banner
     .inner
