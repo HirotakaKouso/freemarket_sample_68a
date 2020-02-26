@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :show]
   def new
     @item = Item.new
     @item.images.new
@@ -20,7 +21,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to item_path(@item.id)
+      redirect_to
     else
       render :new
     end
