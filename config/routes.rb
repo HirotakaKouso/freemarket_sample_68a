@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create, :show]
 
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
