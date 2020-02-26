@@ -99,9 +99,7 @@
         新規投稿商品
       .productLists
         .productLists__main
-          - @items.each do |item|
-            - item.images.each do |image|
-              = image_tag image.src.url, class: "productList"
+          
         .productLists__sub
           .productList__body
             .name
@@ -114,6 +112,7 @@
   .topMain__pickup
     .head
       ピックアップブランド
+
     .productBox
       .productHead
         アーカイバ
