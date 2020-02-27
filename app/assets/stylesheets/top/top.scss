@@ -45,7 +45,7 @@
   }
 // ヘッダーの下段
     .header__inner__nav {
-      font-size: 14px;
+      font-size: 16px;
       display: flex;
       margin-bottom: 10px;
       .listLeft {
@@ -252,7 +252,7 @@
   }
   .topMiddle {
     height: 400px;
-    background-image: image-url("/images/bg-topMiddleDl-pict.jpg");
+    background-image: image-url("bg-topMiddleDl-pict.jpg");
     background-position: bottom right;
     background-size: cover;
     display: flex;
@@ -352,39 +352,26 @@
         width: 780px;
         margin: 26px auto;
         justify-content: space-around;
-        .product__main {
-          display: flex;
-          background-size: cover;
-        }
         .productList {
           width: 220px;
           height: 150px;
           display: inline-block;
           cursor: pointer;
-          &__img {
-            width: 220px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            z-index: auto;
-          }
-          &__body {
-            background-color: white;
-            color: #333;
-            padding: 16px;
+        }
+        // .aaa {
+        // }
+        .productLists__sub {
+          display: flex;
+          .productList__body {
+            width: 230px;
             .name {
               overflow: hidden;
               line-height: 1.5;
               font-size: 16px;
               text-align: left;
             }
-            .detail {
+            .money {
               font-size: 16px;
-              .tax {
-                font-size: 10px;
-                text-align: left;
-              }
             }
           }
         }
@@ -392,7 +379,7 @@
     }
   }
   &__banner {
-    background-image: image-url("/images/bg-appBanner-pict.jpg");
+    background-image: image-url("bg-appBanner-pict.jpg");
     padding: 100px 40px;
     position: relative;
     background-size: cover;

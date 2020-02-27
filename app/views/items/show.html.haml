@@ -1,72 +1,88 @@
-.header
+= render "shared/header"
+
 .main
   .main__all
     .main__all__content
       .main__all__content__image
         .main__all__content__image__main 
-          .main__all__content__image__main__title product3
+          .main__all__content__image__main__title
+            = @item.name
           .main__all__content__image__main__image
-            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "560x346", alt: "test"
-        .main__all__content__image__sub
-          .main__all__content__image__sub__left
-            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", alt: "test", size: "140x87"
-          .main__all__content__image__sub__center
-            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", alt: "test", size: "140x87"
-          .main__all__content__image__sub__right
-            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", alt: "test", size: "140x87"
-        .main__all__content__image__price ¥ 30000
+            - @item.images.first(1).each do |image|
+              = image_tag image.src.url
+          .main__all__content__image__main__sub
+            - @item.images.each do |image|
+              = image_tag image.src.url
+        .main__all__content__image__price
+          = @item.price
         .main__all__content__image__fee (税込)送料込み
+        .main__all__content__image__button
+          - if user_signed_in? && current_user.id == @item.user_id
+            %button= link_to "編集", "#", class: "main__all__content__image__button__edit"
+            %button= link_to "削除", "#", method: :delete, class: "main__all__content__image__button__delete"
+          - else
+            %button= link_to "購入する", new_order_path(@item), class: "main__all__content__image__button__purchase"
 
       .main__all__content__product
-        .main__all__content__product__title product3
+        .main__all__content__product__title
+          = @item.name
         .main__all__content__product__name
           .main__all__content__product__name__title 出品者
-          .main__all__content__product__name__text hoge
+          .main__all__content__product__name__text
+            = @item.user.nickname
         .main__all__content__product__category
           .main__all__content__product__category__title カテゴリー
-          .main__all__content__product__category__text ベビー・キッズ
+          .main__all__content__product__category__text
+            = @item.category.name
         .main__all__content__product__brand
           .main__all__content__product__brand__title ブランド
           .main__all__content__product__brand__text
+            - if @item.brand.present? 
+              = @item.brand.name
+            - else
+              指定なし
         .main__all__content__product__size
-          .main__all__content__product__size__title 商品のサイズ
+          .main__all__content__product__size__title サイズ
           .main__all__content__product__size__text
+            - if @item.size.present?
+              = @item.size.size
+            - else
+              指定なし
         .main__all__content__product__status
           .main__all__content__product__status__title 商品の状態
-          .main__all__content__product__status__text 未使用に近い
+          .main__all__content__product__status__text
+            = @item.condition.condition
         .main__all__content__product__shoppingFee
           .main__all__content__product__shoppingFee__title 配送料の負担
-          .main__all__content__product__shoppingFee__text 送料込み（出品者負担）
+          .main__all__content__product__shoppingFee__text
+            = @item.shipping_fee.fee
         .main__all__content__product__prifecture
           .main__all__content__product__prifecture__title 発送元の地域
-          .main__all__content__product__prifecture__text 岩手県
+          .main__all__content__product__prifecture__text
+            = @item.prefecture.prefecture
         .main__all__content__product__deliveryDay
           .main__all__content__product__deliveryDay__title 発送日の目安
-          .main__all__content__product__deliveryDay__text 4-7日で発送
+          .main__all__content__product__deliveryDay__text
+            = @item.delivery_date.date
 
     .main__all__option
       .main__all__option__left
         .main__all__option__left__icon
           %i.fa.fa-star
-        .main__all__option__left__text お気に入り 0
-          
+        = link_to "お気に入り 0", "#", class: "main__all__option__left__text"
       .main__all__option__right
         .main__all__option__right__icon
           %i.fa.fa-flag
-        .main__all__option__right__text 不適切な商品の通報
-        
+        = link_to "不適切な商品の通報", "#", class: "main__all__option__right__text"
     .main__all__blank
-
     .main__all__comment
       %input.main__all__comment__form{name: "comment", type: "textarea", value: ""}
       .main__all__comment__text
         .main__all__comment__text__up 相手のことを考え丁寧なコメントを心がけましょう。
         .main__all__comment__text__down 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-
       %button.main__all__comment__button{name: "button", type: "submit"}
         %i.fa.fa-comment
         .main__all__comment__button__text コメントする
-
     .main__all__list
       .main__all__list__left 
         .main__all__list__left__icon
@@ -77,6 +93,7 @@
         .main__all__list__right__icon
         %i.fa.fa-angle-right
       
-    .main__all__bottomlist ベビー・キッズをもっと見る
+    = link_to "#{@item.category.name}をもっと見る", "#", class: "main__all__bottomlist"
 
-.footer
+= render "shared/footer"
+= render "shared/purchase"
