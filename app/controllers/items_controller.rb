@@ -3,12 +3,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.where(ancestry: nil).order("id ASC")
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
     @item = Item.new(item_params)
-    @parents = Category.where(ancestry: nil).order("id ASC")
+    @parents = Category.where(ancestry: nil)
     unless @item.save
       render :new
     end
@@ -24,6 +24,25 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
+    @children = Category.where(ancestry:@item.category.root.id)
+    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
+    @children = Category.where(ancestry:@item.category.root.id)
+    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy

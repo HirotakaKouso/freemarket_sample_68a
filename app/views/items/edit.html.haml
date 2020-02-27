@@ -1,4 +1,4 @@
-.newItem
+.editItem
   .header 
   .content
     = form_with model: @item, local:true, class:"content__wrapper" do |f|
@@ -13,25 +13,63 @@
               %label{for: "item_images_attributes_0_src", id: "labelBox--0"}
                 = i.file_field :src, class: "hiddenField"
                 .content__wrapper__box__left__image__main
-                  .imageLabel--0
-                    .cameraIcon0
-                      .cameraIcon0__plus
-                        +
-                      .cameraIcon0__text
-                        １枚目(メイン)の商品写真になります。
+                  - @item.images.first(1).each do |image|
+                    .imageLabel--0
+                      .cameraIcon0
+                        .cameraIcon0__plus
+                          +
+                        .cameraIcon0__text
+                          １枚目(メイン)の商品写真になります。
+                      .preview-box#preview-box__0
+                        .upper-box1
+                          = image_tag image.src.url, id:"editImage0",alt:"preview"
+                        .lower-box
+                          .delete-box#delete_btn_0
+                            %span 削除
               .content__wrapper__box__left__image__sub
                 %label{for: "item_images_attributes_1_src",id: "labelBox--1"}
                   %input{class:"hiddenField", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
                   .imageLabel--1
-                    = icon('fas', 'camera',class:"cameraIcon1")
+                    -if @item.images.length >= 2
+                      - @item.images[1..1].each do |image|
+                        = icon('fas', 'camera',class:"cameraIcon1",style:"display:none;")
+                        .preview-box#preview-box__1
+                          .upper-box
+                            = image_tag image.src.url, id:"editImage1",alt:"preview"
+                          .lower-box2
+                            .delete-box#delete_btn_1
+                              %span 削除
+                    -else
+                      = icon('fas', 'camera',class:"cameraIcon1")
                 %label{for: "item_images_attributes_2_src",id: "labelBox--2"}
                   %input{class:"hiddenField", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
                   .imageLabel--2
-                    = icon('fas', 'camera',class:"cameraIcon2")
+                    -if @item.images.length >= 3
+                      - @item.images[2..2].each do |image|
+                        = icon('fas', 'camera',class:"cameraIcon2",style:"display:none;")
+                        .preview-box#preview-box__2
+                          .upper-box
+                            = image_tag image.src.url, id:"editImage2",alt:"preview"
+                          .lower-box2
+                            .delete-box#delete_btn_2
+                              %span 削除
+                    -else
+                      = icon('fas', 'camera',class:"cameraIcon2")
                 %label{for: "item_images_attributes_3_src",id: "labelBox--3"}
                   %input{class:"hiddenField", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
                   .imageLabel--3
-                    = icon('fas', 'camera',class:"cameraIcon3")
+                    -if @item.images.length >= 4
+                      - @item.images.last(1).each do |image|
+                        = icon('fas', 'camera',class:"cameraIcon3",style:"display:none;")
+                        .preview-box#preview-box__3
+                          .upper-box
+                            = image_tag image.src.url, id:"editImage3",alt:"preview"
+                          .lower-box2
+                            .delete-box#delete_btn_3
+                              %span 削除
+                    -else
+                      = icon('fas', 'camera',class:"cameraIcon3")
+                    
           .content__wrapper__box__left__price
             .content__wrapper__box__left__price__main
               .content__wrapper__box__left__price__main__text 商品価格
@@ -74,45 +112,56 @@
           .content__wrapper__box__right__category
             .content__wrapper__box__right__category__left カテゴリー
             .content__wrapper__box__right__category__right
-              -# = f.collection_select :category_id, Category.group(:name).order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
-              = f.collection_select :category_id, @parents , :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+              -if @item.category.root.id == @item.category.parent.id
+                -# 子止まり
+                -# 親カテゴリー選択フォーム
+                = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.root.id}, id:"parent_category"
+                -# 子カテゴリー選択フォーム
+                #children_wrapper.listing-select-wrapper__added
+                  .listing-select-wrapper__box
+                    = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"child_category"
+              - else
+                -# 孫止まり
+                -# 親カテゴリー選択フォーム
+                = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.root.id}, id:"parent_category"
+                -# 子カテゴリー選択フォーム
+                #children_wrapper.listing-select-wrapper__added
+                  .listing-select-wrapper__box
+                    = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"child_category"
+                -# 孫カテゴリー選択フォーム
+                #grandchildren_wrapper.listing-select-wrapper__added>
+                  .listing-select-wrapper__box
+                    = f.collection_select :category_id, @grandchildren.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"grandchild_category"
+
           .content__wrapper__box__right__brand
             .content__wrapper__box__right__brand__left ブランド
             .content__wrapper__box__right__brand__right
               = f.collection_select :brand_id, Brand.group(:name).order(id: :asc), :id, :name, {prompt: "選択してください"},id:"newSelect,brandSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__size
             .content__wrapper__box__right__size__left サイズ
             .content__wrapper__box__right__size__right
               = f.collection_select :size_id, Size.group(:size).order(id: :asc), :id, :size, {prompt: "選択してください"},id:"newSelect,sizeSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__status
             .content__wrapper__box__right__status__left 状態
             .content__wrapper__box__right__status__right
               = f.collection_select :condition_id, Condition.group(:condition).order(id: :asc), :id, :condition, {prompt: "選択してください"},id:"newSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__shippingFee 
             .content__wrapper__box__right__shippingFee__left 配送料
             .content__wrapper__box__right__shippingFee__right
               = f.collection_select :shipping_fee_id, ShippingFee.group(:fee).order(id: :asc), :id, :fee, {prompt: "選択してください"},id:"newSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__deliveryMethod
             .content__wrapper__box__right__deliveryMethod__left 配送方法
             .content__wrapper__box__right__deliveryMethod__right
-              = f.collection_select :method, ShippingMethod.all, :name, :name, {prompt: "選択してください"}
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+              = f.collection_select :method, ShippingMethod.all, :name, :name, prompt: "選択してください"
           .content__wrapper__box__right__prefecture
             .content__wrapper__box__right__prefecture__left 出品地域
             .content__wrapper__box__right__prefecture__right
               = current_user.prefecture.prefecture
               = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: "選択してください"},id:"newSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__deliveryDay
             .content__wrapper__box__right__deliveryDay__left 発送日の目安
             .content__wrapper__box__right__deliveryDay__right
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down",style:"display:block;")
       .content__wrapper__confirmation
-        = f.submit "確認", class:"content__wrapper__confirmation__button"
+        = f.submit :name, class:"content__wrapper__confirmation__button", value: "確認"
   = render "shared/footer"
