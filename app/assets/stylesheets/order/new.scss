@@ -3,7 +3,6 @@
 }
 
 .purchase {
-  height: 100vh;
   width: 100vw;
   overflow: scroll;
 
@@ -321,9 +320,17 @@
           font-size: rem(16);
           font-weight: bold;
           line-height: rem(45);
+          text-align: center;
           margin: 0 auto;
           margin-top: rem(40);
           margin-bottom: rem(20);
+        }
+        .commision__card {
+          font-size: 18px;
+          text-align: center;
+          &__title {
+            margin: 20px 0 10px 0;
+          }
         }
       }
     }
