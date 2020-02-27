@@ -65,7 +65,8 @@
 
       %button.main__all__comment__button{name: "button", type: "submit"}
         %i.fa.fa-comment
-        .main__all__comment__button__text コメントする
+        .main__all__comment__button__text 
+          = link_to "コメントする", new_order_path(@item.id)
 
     .main__all__list
       .main__all__list__left 
