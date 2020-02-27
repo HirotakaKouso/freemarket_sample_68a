@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :prefecture
-  belongs_to :card
+  has_one :card
   has_many :items
   has_many :orders
   # Include default devise modules. Others available are:
