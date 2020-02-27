@@ -3,13 +3,17 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.where(ancestry: nil)
-    @category_parent_array = ["カテゴリーを選択する"]
-    @parents.each do |parent|
-      @category_parent_array << parent.name
-    end
+    @parents = Category.where(ancestry: nil).order("id ASC")
   end
 
+  def create
+    @item = Item.new(item_params)
+    @parents = Category.where(ancestry: nil).order("id ASC")
+    unless @item.save
+      render :new
+    end
+  end
+  
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end

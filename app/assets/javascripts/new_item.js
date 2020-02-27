@@ -8,9 +8,6 @@ $(document).on('turbolinks:load', function(){
                         <img src="" alt="preview" style="width:398px; height:370px;">
                       </div>
                       <div class="lower-box">
-                        <div class="update-box">
-                          <label class="edit_btn">編集</label>
-                        </div>
                         <div class="delete-box" id="delete_btn_${count}">
                           <span>削除</span>
                         </div>
@@ -22,9 +19,6 @@ $(document).on('turbolinks:load', function(){
                         <img src="" alt="preview" style="width:114px; height:116px;">
                       </div>
                       <div class="lower-box">
-                        <div class="update-box">
-                          <label class="edit_btn">編集</label>
-                        </div>
                         <div class="delete-box" id="delete_btn_${count}">
                           <span>削除</span>
                         </div>

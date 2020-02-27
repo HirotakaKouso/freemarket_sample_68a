@@ -3,7 +3,8 @@
   .header__inner
     .header__main
       .header__main__icon
-        = image_tag "logo.png", class: "topLogo"
+        = link_to root_path do
+          = image_tag "logo.png", class: "topLogo"
       .header__main__seachBox
         = form_with local: true do |f|
           = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
