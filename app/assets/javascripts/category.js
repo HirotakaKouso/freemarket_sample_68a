@@ -109,7 +109,7 @@ $(document).on('turbolinks:load', function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='listing-select-wrapper__box'>
+                        <div class='listing-select-wrapper__box' style='width:300px;'>
                           <select class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]">
                             <option value="カテゴリーを選択する" data-category="カテゴリーを選択する">カテゴリーを選択する</option>
                             ${insertHTML}
@@ -123,7 +123,7 @@ $(document).on('turbolinks:load', function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
-                              <div class='listing-select-wrapper__box'>
+                              <div class='listing-select-wrapper__box' style='width:300px;'>
                                 <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
                                   <option value="カテゴリーを選択する" data-category="カテゴリーを選択する">カテゴリーを選択する</option>
                                   ${insertHTML}
