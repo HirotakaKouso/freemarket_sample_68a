@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'purchase/index'
+  get 'purchase/done'
   resources :prefectures
 
   root to: 'top#index'
@@ -29,6 +31,14 @@ Rails.application.routes.draw do
     collection do
       post 'create', to: 'card#create'
       post 'pay', to: 'card#pay'
+    end
+  end
+
+  resources :purchase, only: [:index] do
+    collection do
+      post 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
     end
   end
   
