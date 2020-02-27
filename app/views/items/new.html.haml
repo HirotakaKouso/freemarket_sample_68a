@@ -9,7 +9,7 @@
       .content__wrapper__box
         .content__wrapper__box__left
           .content__wrapper__box__left__image
-            = f.fields_for :images do |i|
+            = f.fields_for :images, @item.images.first do |i|
               %label{for: "item_images_attributes_0_src", id: "labelBox--0"}
                 = i.file_field :src, class: "hiddenField"
                 .content__wrapper__box__left__image__main
