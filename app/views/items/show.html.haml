@@ -82,7 +82,8 @@
         .main__all__comment__text__down 不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %button.main__all__comment__button{name: "button", type: "submit"}
         %i.fa.fa-comment
-        .main__all__comment__button__text コメントする
+        .main__all__comment__button__text 
+          = link_to "コメントする", new_order_path(@item.id)
     .main__all__list
       .main__all__list__left 
         .main__all__list__left__icon
