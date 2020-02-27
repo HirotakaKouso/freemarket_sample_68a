@@ -144,7 +144,7 @@
         .productLists__main
           - @items.last(3).each do |item|
             - item.images.first(1).each do |image|
-              = link_to item_path(1) do
+              = link_to item_path(item.id) do
                 = image_tag image.src.url, class: "productList"
         .productLists__sub
           .productList__body
