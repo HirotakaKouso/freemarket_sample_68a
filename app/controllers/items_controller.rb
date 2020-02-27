@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     @children = Category.where(ancestry:@item.category.root.id)
     @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path(@item)
     else
       render :edit
     end
