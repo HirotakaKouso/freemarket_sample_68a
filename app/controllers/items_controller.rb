@@ -24,7 +24,10 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
+    unless item.destroy
+      render :show
+    end
+    
   end
 
   private
