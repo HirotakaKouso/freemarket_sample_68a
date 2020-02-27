@@ -8,11 +8,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create, :show] do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get "get_category_children", defaults: { format: 'json' }
+      get "get_category_grandchildren", defaults: { format: 'json' }
     end
   end
-
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

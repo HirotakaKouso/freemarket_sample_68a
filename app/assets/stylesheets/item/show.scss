@@ -3,17 +3,12 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  background: #f8f8f8;
   overflow:scroll;
-}
-
-.header {
-  height: 90px;
-  width: 100%;
 }
 
 .main {
   overflow:scroll;
+  background: #f8f8f8;
   &__all {
     margin: 0 auto;
     width: 700px;
@@ -22,13 +17,10 @@
     &__content {
       padding: 20px 20px;
       background-color: white;
-      width: 100%;
-      margin: 0 auto;
       overflow:scroll;
       &__image {
         &__main {
           margin: 0 auto;
-          width: 500px;
           &__title {
             font-weight: bold;
             font-size: 24px;
@@ -37,33 +29,20 @@
             font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
           }
           &__image {
-            margin: 0 auto;
-            width: 500px;
+            text-align: center;
             img {
               object-fit: cover;
-              width: 500px;
+              width: 560px;
+              height: 350px;
             }
           }
-        }
-        &__sub {
-          display: flex;
-          justify-content: center;
-          margin-top: 10px;
-          &__left {
-            img {
-              object-fit: cover;
-            }
-          }
-          &__center {
-            margin: 0 10px;
-            img {
-              object-fit: cover;
-            }
-          }
-          &__right {
-            img {
-              object-fit: cover;
-            }
+          &__sub {
+              text-align: center;
+              img {
+                width: 140px;
+                height: 90px;
+                object-fit: cover;
+              }
           }
         }
         &__price {
@@ -77,10 +56,20 @@
           text-align: center;
           font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
         }
+        &__button {
+          &__edit {
+            color: #3CCACE;
+          }
+          &__delete {
+            color: #3CCACE;
+          }
+          &__purchase {
+            color: #3CCACE;
+          }
+        }
       }
 
       &__product {
-        width: 100%;
         border-collapse: collapse;
         background-color: white;
         margin: auto;
@@ -102,7 +91,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -120,7 +109,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;  
@@ -138,7 +127,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -156,7 +145,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -174,7 +163,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -192,7 +181,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -210,7 +199,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -228,7 +217,7 @@
             text-align: center;
           }
           &__text {
-            width: 75%;
+            width: 68%;
             padding: 15px 15px;
             border: 1px solid #dedede;
             font-size: 14px;
@@ -243,7 +232,6 @@
       background-color: white;
       padding: 20px 20px;
       margin: 0 auto;
-      width: 100%;
       &__left {
         padding: 6px 10px;
         border-radius: 40px;
@@ -255,6 +243,7 @@
         }
         &__text {
           display: inline-block;
+          color: #3CCACE;
         }
       }
       &__right {
@@ -264,20 +253,21 @@
         color: #333;
         border: 1px solid #333;
         text-decoration: none;
+        margin-right: 30px;
         &__icon {
           display: inline-block;
         }
         &__text {
-          display: inline-block;
+          display: inline-block; 
+          color: black;       
         }
       }
     }
 
     &__blank {
       background-color: #f8f8f8;
-      height: 20px;
+      height: 10px;
       width: 100%;
-      margin: 0 auto;
     }
 
     &__comment {
@@ -285,18 +275,18 @@
       margin-top: 70px;
       text-align: center;
       margin: 0 auto;
-      padding: 20px;
-      width: 100%;
+      padding: 20px 0;
       &__form {
         width: 95%;
         height: 104px;
-        padding: 10px;
+        padding: 10px 0;
+        margin-bottom: 20px;
       }
       &__text {
         padding: 8px;
         font-size: 14px;
         background-color: #f8f8f8;
-        margin: 10px 0;
+        margin: 0 20px;
         text-align: left;
       }
       &__button {
@@ -307,6 +297,7 @@
         width: 60%;
         font-size: 18px;
         border-radius: 100px;
+        margin-top: 20px;
         &__text {
           display: inline-block;
         }
@@ -319,7 +310,7 @@
       margin: 0 auto;
       color: #3CCACE;
       width: 100%;
-      padding: 10px;
+      padding: 10px 0;
       &__left {
         &__icon {
           display: inline-block;
@@ -349,10 +340,4 @@
       width: 100%;
     }
   }
-}
-
-.footer {
-  background-color: brown;
-  width: 100%;
-  height: 100px;
 }

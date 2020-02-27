@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "condition_id", null: false
-    t.bigint "size_id", null: false
+    t.bigint "size_id"
     t.bigint "category_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "user_id", null: false
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.bigint "shipping_fee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "shipping_method_id"
     t.string "method"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -145,10 +144,10 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.string "first_name_kana", null: false
     t.string "nickname", null: false
     t.string "tel", null: false
-    t.string "zip_code", null: false
+    t.integer "zip_code"
     t.string "address", null: false
-    t.string "birth_year", null: false
-    t.string "birth_month", null: false
+    t.integer "birth_year"
+    t.integer "birth_month"
     t.integer "birth_day", null: false
     t.bigint "prefecture_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
