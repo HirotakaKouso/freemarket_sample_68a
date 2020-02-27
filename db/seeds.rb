@@ -156,3 +156,27 @@ DeliveryDate.create!(
   {date: '発送は平日のみ'}
   ]
 )
+
+Brand.create!(
+ [ 
+  {name: 'ユニクロ'},
+  {name: 'GU'},
+  {name: 'しまむら'},
+  {name: '西松屋'},
+  {name: 'ノーブランド'},
+  {name: 'その他'}
+ ]
+)
+
+Size.create!(
+ [ 
+  {size: 'サイズ選択なし'},
+  {size: 'XS'},
+  {size: 'S'},
+  {size: 'M'},
+  {size: 'L'},
+  {size: 'XL'},
+  {size: 'XL以上'},
+  {size: 'フリーサイズ'}
+ ]
+)

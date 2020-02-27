@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   resources :prefectures
 
   root to: 'top#index'
   # get '/items/:id/edit', to: 'items#edit', as: 'item'
 
-  resources :items, only: [:new, :create, :show, :edit, :update] do
+  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -24,4 +26,19 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   resources :mypage, only: [:index]
+
+  resources :card, only: [:new, :show, :destroy] do
+    collection do
+      post 'create', to: 'card#create'
+      post 'pay', to: 'card#pay'
+    end
+  end
+
+  resources :purchase, only: [:index] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
+  
 end

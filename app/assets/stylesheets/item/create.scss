@@ -1,0 +1,57 @@
+.exhibition{
+  display: flex;
+  align-items: center;
+  &__box{
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+    margin-top: 30px;
+    border: $mainBorder 1px solid;
+    border-radius: 10px;
+    padding: 50px 50px 150px 50px;
+    background: $mainBorder;
+    &__top{
+      font-size: 25px;
+      font-weight: bold;
+      color: $mainColor;
+    }
+    &__bottom{
+      margin-left: 100px;
+      .upper{
+        margin-top: 100px;
+        color: $mainColor;
+        &--1{
+        font-size: 20px;
+        font-weight: bold;
+        }
+        &--2{
+          margin-top: 10px;
+        }
+      }
+      .lower{
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-around;
+        &--1{
+          border: $mainBackground 1px solid;
+          padding: 5px 50px;
+          background: $mainBackground;
+          border-radius: 5px;
+          a{
+            color: white;
+          }
+        }
+        &--2{
+          border: $mainBackground 1px solid;
+          padding: 5px 50px;
+          background: $mainBackground;
+          border-radius: 5px;
+          color: white;
+          a{
+            color: white;
+          }
+        } 
+      }
+    }
+  }
+}

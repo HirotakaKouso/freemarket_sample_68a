@@ -2,11 +2,7 @@ class TopController < ApplicationController
 
   def index
     @items = Item.all
+    @orders = Order.all
   end
-  
-  # def show
-  #   @item = Item.find(params[:id])
-  # end
-
   
 end

@@ -3,7 +3,8 @@
   .header__inner
     .header__main
       .header__main__icon
-        = image_tag "logo.png", class: "topLogo"
+        = link_to root_path do
+          = image_tag "logo.png", class: "topLogo"
       .header__main__seachBox
         = form_with local: true do |f|
           = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
@@ -17,7 +18,7 @@
           ブランド
       .listRight
         -if user_signed_in?
-          -# = link_to mypage_index_path, class: "header__mypage" do
+          = link_to mypage_index_path, class: "header__mypage" do
             = current_user.nickname
           = link_to destroy_user_session_path,method: :delete, class: "header__register" do
             ログアウト
