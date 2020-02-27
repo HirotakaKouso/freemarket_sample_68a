@@ -1,14 +1,23 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :show]
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.where(ancestry: nil)
-    @category_parent_array = ["カテゴリーを選択する"]
-    @parents.each do |parent|
-      @category_parent_array << parent.name
-    end
+    @parents = Category.where(ancestry: nil).order("id ASC")
+    # @category_parent_array = ["カテゴリーを選択する"]
+    # @parents.each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
+  def create
+    @item = Item.new(item_params)
+    @parents = Category.where(ancestry: nil).order("id ASC")
+    unless @item.save
+      render :new
+    end
+  end
+  
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
@@ -17,10 +26,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find_by(id: "#{params[:child_id]}").children
   end
 
+
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to item_path(@item.id)
+      redirect_to
     else
       render :new
     end
@@ -29,6 +39,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
+
 
   private
   def item_params
