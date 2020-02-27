@@ -75,7 +75,7 @@
             .content__wrapper__box__right__category__left カテゴリー
             .content__wrapper__box__right__category__right
               -# = f.collection_select :category_id, Category.group(:name).order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
-              = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
+              = f.collection_select :category_id, @parents , :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
           .content__wrapper__box__right__brand
             .content__wrapper__box__right__brand__left ブランド
             .content__wrapper__box__right__brand__right
@@ -106,6 +106,6 @@
             .content__wrapper__box__right__deliveryDay__right
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
       .content__wrapper__confirmation
-        = f.submit :name, class:"content__wrapper__confirmation__button", value: "確認"
+        = f.submit "確認", class:"content__wrapper__confirmation__button"
   = render "shared/footer"
 
