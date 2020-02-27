@@ -1,1 +1,21 @@
-登録完了
+= render "shared/header"
+.exhibition
+  .exhibition__box
+    .exhibition__box__top
+      出品
+    .exhibition__box__bottom
+      .upper
+        .upper--1
+          出品が完了しました！
+          %br
+        .upper--2
+          出品した商品は出品リスト出品リストよりご確認いただけます。
+      .lower
+        .lower--1
+          = link_to "トップへ", root_path,class:"topLink"
+        .lower--2
+          = link_to "続けて出品する", new_item_path,class:"itemLink"
+
+
+
+  

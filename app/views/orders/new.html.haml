@@ -1,5 +1,6 @@
+= render "shared/header"
+
 .purchase
-  .purchase__header
   .purchase__content
     .purchase__content__flex
       .top
@@ -16,12 +17,14 @@
     .purchase__content__box
       = form_with url: "#", local: true, class: "form" do |f|
         .item
-          = image_tag "https://www.pakutaso.com/shared/img/thumb/MITETTE016_TP_V.jpg", class:"item__image"
+          - @item.images.each do |image|
+            = image_tag image.src.url, class:"item__image"
           .item__title
-            秋の薔薇
+            = @item.name
           .item__info
             .price
-              ¥300
+              = @item.price
+              円
             .fee
               送料込み(出品者が払う)
         .userInfo
@@ -31,13 +34,13 @@
               配送先
             .detail
               %p.detail__top
-                氏名
+                = current_user.nickname
               %p.detail__top
-                〒000-0000
+                = current_user.zip_code
               %p.detail__top
-                住所
+                = current_user.address
               %p.detail__top
-                電話番号
+                = current_user.tel
               = link_to "#", alt:"配送先を選ぶ", class:"detail__btn" do
                 配送先を選ぶ
               %p.detail__bottom
@@ -45,11 +48,11 @@
           .userInfo__right
             .seller
               .seller__top
-                = link_to "#", alt:"evaluation", class:"link" do
+                = link_to @item_user_mypage_index_path, alt:"evaluation", class:"link" do
                   = image_tag "https://www.pakutaso.com/shared/img/thumb/shikun2002021827_TP_V.jpg", class:"link__image"
                   .link__box
                     .link__box__name
-                      レオン
+                      = @item.user.nickname
                     .link__box__comment
                       購入前コメントくださいm(__)m
                   =icon('fas', 'angle-right',class:"link__icon")
@@ -101,7 +104,15 @@
                 全額所持金支払い
               .fee
                 ¥0
-        = f.submit "確認", class:"submit"
+        - if current_user.id == @card.id
+          = link_to "確認", card_path(@item.id), class:"submit"
+        - else
+          = link_to "確認", card_path(@item.id), class:"submit"
+        .commision__card
+          .commision__card__title
+            クレジットカードの登録がまだな方は↓
+          .commision__card__link
+            = link_to "登録はこちら", new_card_path
 
-      
-      
+= render "shared/footer"
+= render "shared/purchase"
