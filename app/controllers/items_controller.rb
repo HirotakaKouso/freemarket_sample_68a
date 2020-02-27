@@ -4,10 +4,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @parents = Category.where(ancestry: nil).order("id ASC")
-    # @category_parent_array = ["カテゴリーを選択する"]
-    # @parents.each do |parent|
-    #   @category_parent_array << parent.name
-    # end
   end
 
   def create
