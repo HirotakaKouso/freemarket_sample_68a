@@ -1,6 +1,7 @@
 .registrationsNew{
   width:100%;
-  height:100vh;
+  min-height:100vh;
+  height: 100%;
   background-color:lightblue;
   text-align:center;
   vertical-align: middle;
@@ -9,188 +10,240 @@
     font-weight: bold;
     color:grey;
     font-size: 25px;
+    font-family: 'Courier';
   }
   form{
     .request{
       color:red;
       margin-bottom:20px;
     }
-    .nickname{
-      color:grey;
-      label{
-        margin-right:200px;
-      }
-      input#user_nickname{
-        margin-left:150px;
-        width:250px;
-        margin-bottom:15px;
-      }  
-    }
-    .email{
-      color:grey;
-      label{
-        margin-right:200px;
-      }
-      input#user_email{
-        margin-left:137px;
-        width:250px;
-        margin-bottom:15px;
-      }
-    }
-    .password{
-      // margin-left:5vw;
-      color:grey;
-      em{
-        margin-right:70px;
-      }
-      input#user_password{
-        margin-left:137px;
-        width:250px;
-        margin-bottom:15px;
-      }
-    }
-    .passwordConfirm{
-      // margin-left:5vw;
-      color:grey;
-      label{
-        margin-right:190px;
-      }
-      input#user_password_confirmation{
-        margin-left:130px;
-        width:250px;
-        margin-bottom:15px;
-      }
-    }
-    .lastName{
-      // margin-left:5vw;
-      color:grey;
-      label{
-        margin-left:402px;
-      }
-      input#user_last_name{
-        width:125px;
-        margin-bottom:15px;
-      }
-    }
-    .firstName{
-      color:grey;
-      label{
-        // margin-left:4vw;
-      }
-      #user_first_name{
-        // margin-left:0vw;
-      }
-      input#user_first_name{
-        width:125px;
-        margin-bottom:15px;
-      }
-    }
-    .lastNameKana{
-      color:grey;
-      label{
-        margin-left:370px;
-      }
-      input#user_last_name_kana{
-        width:125px;
-        margin-bottom:15px;
-      }
-    }
-    .firstNameKana{
-      color:grey;
-      label{
-        // margin-left:2.9vw;
-      }
-      input#user_first_name_kana{
-        width:125px;
-        margin-bottom:15px;
-      }
-    }
-    .tel{
-      color:grey;
-      label{
-        margin-right:250px;
-      }
-      input#user_tel{
-        margin-left:200px;
-        margin-bottom:15px;
-      }
-    }
-    .zipCode{
-      color:grey;
-      label{
-        margin-right:250px;
-      }
-      input#user_zip_code{
-        margin-bottom:15px;
-        margin-left:200px;
-      }
-    }
-    .prefecture{
-      // margin-left:5vw;
-      color:grey;
-      label{
-        margin-right:300px;
-      }
-      select#user_prefecture_id{
-        width:100px;
-        height:30px;
-        margin-bottom:15px;
-        margin-left:240px;
-      }
-    }
-    .address{
-      // margin-left:5vw;
-      color:grey;
-      label{
-        margin-right:250px;
-      }
-      input#user_address{
-        margin-bottom:15px;
-        margin-left:230px;
-      }
-    }
-    .birth{
-      margin-left:440px;
-      color:grey;
-    }
-    .birthYear{
-      margin-bottom:15px;
-      color:grey;
-      #user_birth_year{
-        // margin-left:14.3vw;
-      }
-      input#user_birth_year{
-        width:80px;
-      }
-    }
-    .birthMonth{
-      // margin-bottom:15px;
-      color:grey;
-      input#user_birth_month{
-        width:35px;
-      }
-    }
-    .birthDay{
-      margin-bottom:15px;
-      color:grey;
-      input#user_birth_day{
-        width:35px;
+    .registrationBox{
+      display: inline-block;
+      &__flex {
+        display: flex;
+        flex-direction: column;
+        .nickname{
+          display: flex;
+          justify-content: space-between;
+          color:grey;
+          label{
+            margin-right:200px;
+          }
+          input#user_nickname{
+            margin-left:150px;
+            width:250px;
+            margin-bottom:15px;
+          }  
+        }
+        .email{
+          display: flex;
+          justify-content: space-between;
+          color:grey;
+          label{
+            margin-right:200px;
+          }
+          input#user_email{
+            margin-left:137px;
+            width:250px;
+            margin-bottom:15px;
+          }
+        }
+        .password{
+          display: flex;
+          justify-content: space-between;
+          // margin-left:5vw;
+          color:grey;
+          em{
+            margin-right:70px;
+          }
+          input#user_password{
+            margin-left:137px;
+            width:250px;
+            margin-bottom:15px;
+          }
+        }
+        .passwordConfirm{
+          display: flex;
+          justify-content: space-between;
+          // margin-left:5vw;
+          color:grey;
+          label{
+            margin-right:190px;
+          }
+          input#user_password_confirmation{
+            margin-left:130px;
+            width:250px;
+            margin-bottom:15px;
+          }
+        }
+        .nameUpper{
+          display: flex;
+          justify-content: flex-end;
+          margin-left: 15px;
+          .lastName{
+            // margin-left:5vw;
+            color:grey;
+            label{
+              margin-left:380px;
+            }
+            input#user_last_name{
+              width:125px;
+              margin-bottom:15px;
+            }
+          }
+          .firstName{
+            color:grey;
+            label{
+              margin-left:30px;
+            }
+            #user_first_name{
+              // margin-left:0vw;
+            }
+            input#user_first_name{
+              width:125px;
+              margin-bottom:15px;
+            }
+          }
+        }
+        .nameLower{
+          display: flex;
+          justify-content: flex-end;
+          margin-left: 23px;
+          .lastNameKana{
+            color:grey;
+            margin-right: 15px;
+            label{
+              margin-left:340px;
+            }
+            input#user_last_name_kana{
+              width:125px;
+              margin-bottom:15px;
+            }
+          }
+          .firstNameKana{
+            color:grey;
+            label{
+              // margin-left:2.9vw;
+            }
+            input#user_first_name_kana{
+              width:125px;
+              margin-bottom:15px;
+            }
+          }
+        }
+        .tel{
+          display: flex;
+          justify-content: space-between;
+          color:grey;
+          label{
+            margin-right:265px;
+          }
+          input#user_tel{
+            margin-left:200px;
+            margin-bottom:15px;
+          }
+        }
+        .zipCode{
+          display: flex;
+          justify-content: space-between;
+          color:grey;
+          label{
+            margin-right:265px;
+          }
+          input#user_zip_code{
+            margin-bottom:15px;
+            margin-left:200px;
+          }
+        }
+        .prefecture{
+          display: flex;
+          justify-content: space-between;
+          // margin-left:5vw;
+          color:grey;
+          label{
+            margin-right:300px;
+          }
+          select#user_prefecture_id{
+            width:100px;
+            height:30px;
+            margin-bottom:15px;
+            margin-left:240px;
+          }
+        }
+        .address{
+          display: flex;
+          justify-content: space-between;
+          // margin-left:5vw;
+          color:grey;
+          label{
+            margin-right:265px;
+          }
+          input#user_address{
+            margin-bottom:15px;
+            margin-left:230px;
+          }
+        }
+        .userBirth{
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            .birth{
+              color:grey;
+            }
+          }
+          &__right {
+            display: flex;
+            .birthYear{
+              margin-bottom:15px;
+              color:grey;
+              #user_birth_year{
+                // margin-left:14.3vw;
+              }
+              input#user_birth_year{
+                width:80px;
+              }
+            }
+            .birthMonth{
+              // margin-bottom:15px;
+              color:grey;
+              input#user_birth_month{
+                width:35px;
+              }
+            }
+            .birthDay{
+              margin-bottom:15px;
+              color:grey;
+              input#user_birth_day{
+                width:35px;
+              }
+            }
+          }
+        }
       }
     }
     .actions{
       margin-top:15px;
       text-align: center;
+      margin-bottom: 50px;
       input{
         width:100px;
         height:30px;
-        background-color: #3CCACD;
+        // background-color: #3CCACD;
         font-size: 15px;
+        font-weight: bold;
         border-radius: 5px;
+        cursor: pointer;
       }
     }
-  }
-  a{
-    color:grey;
+    a{
+      color:black;
+      font-weight: bold;
+      border: white 1px solid;
+      background: white;
+      border-radius: 5px;
+      width: 100px;
+      margin: 0 auto;
+    }
   }
 }
 
