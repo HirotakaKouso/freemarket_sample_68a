@@ -18,17 +18,13 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find_by(id: "#{params[:child_id]}").children
   end
 
-  def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to
-    else
-      render :new
-    end
-  end
-
   def show
     @item = Item.find(params[:id])
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
   end
 
   private

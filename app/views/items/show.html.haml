@@ -18,8 +18,8 @@
         .main__all__content__image__fee (税込)送料込み
         .main__all__content__image__button
           - if user_signed_in? && current_user.id == @item.user_id
-            %button= link_to "編集", edit_item_path(@item), class: "main__all__content__image__button__edit"
-            %button= link_to "削除", "#", method: :delete, class: "main__all__content__image__button__delete"
+            %button= link_to "編集", "#", class: "main__all__content__image__button__edit"
+            %button= link_to "削除", item_path(@item.id), method: :delete, class: "main__all__content__image__button__delete"
           - else
             %button= link_to "購入する", new_order_path(@item), class: "main__all__content__image__button__purchase"
 
