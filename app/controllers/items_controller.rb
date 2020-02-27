@@ -3,10 +3,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @parents = Category.where(ancestry: nil)
-    @category_parent_array = ["カテゴリーを選択する"]
-    @parents.each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   def get_category_children
@@ -26,9 +22,30 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def show
-  #   @item = Item.find(params[:id])
-  # end
+  def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
+    @children = Category.where(ancestry:@item.category.root.id)
+    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+  end
+
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry:nil)
+    @children = Category.where(ancestry:@item.category.root.id)
+    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
 
   private
   def item_params

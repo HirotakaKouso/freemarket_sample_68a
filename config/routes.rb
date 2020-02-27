@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :prefectures
 
   root to: 'top#index'
+  # get '/items/:id/edit', to: 'items#edit', as: 'item'
 
-  resources :items, only: [:new, :create, :show] do
+  resources :items, only: [:new, :create, :show, :edit, :update] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
