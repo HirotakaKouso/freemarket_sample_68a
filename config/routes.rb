@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
-  resources :mypage, only: [:index]
+  resources :users, only: [:show, :edit]
 
   resources :card, only: [:new, :show, :destroy] do
     collection do

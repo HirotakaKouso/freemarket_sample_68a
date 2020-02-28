@@ -105,3 +105,8 @@ gem 'payjp'
 gem 'dotenv-rails'
 
 gem "jquery-rails"
+
+# ページネーションするやつ
+gem 'kaminari'
+
+gem 'bootstrap', '~> 4.1.1'

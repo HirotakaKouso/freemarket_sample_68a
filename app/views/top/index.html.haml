@@ -103,12 +103,12 @@
             - item.images.first(1).each do |image|
               = link_to item_path(item.id) do
                 = image_tag image.src.url, class: "productList"
-          -# .aaa
-          -#   - @orders.each do |order|
-          -#     - if order.id == buyer.id
-          -#       = image_tag image.src.url, class: "productList"
-          -#     - else
-          -#       = image_tag "btn_appstore.gif", class: "aBtn"
+        -# .aaa
+        -#   - @orders.each do |order|
+        -#     - if order.id == buyer.id
+        -#       = image_tag image.src.url, class: "productList"
+        -#     - else
+        -#       = image_tag "btn_googleplay.gif",class: "gBtn"
         .productLists__sub
           .productList__body
             .name

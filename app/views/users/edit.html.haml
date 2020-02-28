@@ -4,20 +4,20 @@
   #wrapper
     .wrapper__content
       .wrapper__content__pankuzu
-        = link_to "ホーム"
+        = link_to "ホーム", root_path
         ＞
         = link_to "ユーザーSHOP"
       .wrapper__content__main
         = link_to "プロフィール編集",root_path, class: "wrapper__content__main__editProfBtn"
         .wrapper__content__main__name
           %img.wrapper__content__main__name__picProf{alt: "profileimage", src: "https://image.shoppies.jp/img_m/noimage-profile.png"}/
-          %h1.wrapper__content__main__name__shopName 自分の名前（お店の名前）
-          %p.wrapper__content__main__name__nickName ニックネーム
+          %h1.wrapper__content__main__name__shopName current_user.name
+          %p.wrapper__content__main__name__nickName current_user.nickname
         .wrapper__content__main__shop
           %p.wrapper__content__main__shopDesc
             = link_to "詳細ページ移動", class: "wrapper__content__main__shopInfoBtn"
           %p.wrapper__content__main__shopCredit
-            = link_to "クレジット登録&削除", pay_card_index_path
+            = link_to "クレジット登録&削除", new_card_path
             -# 評価一覧画面へ
         %a.wrapper__content__main__evaluations{href: "#"}
           %p 評価：
@@ -37,9 +37,6 @@
         .wrapper__content__main__likeCnt
           0
       %br
-      .wrapper__content__exhibition
-        -# 出品ページへ
-        = link_to "出品する", class: "wrapper__content__exhibition__itemBtn"
 
       .wrapper__content__page
         .wrapper__content__page__select
