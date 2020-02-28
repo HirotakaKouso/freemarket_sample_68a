@@ -175,5 +175,5 @@
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
               =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
       .content__wrapper__confirmation
-        = f.submit "確認", class:"content__wrapper__confirmation__button"
+        = f.submit "確認", class:"content__wrapper__confirmation__button", id:"editSubmit"
   = render "shared/footer"
