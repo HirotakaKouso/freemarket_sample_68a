@@ -108,4 +108,16 @@ $(document).on('turbolinks:load', function(){
     $('.content__wrapper__box__right__brand').css('display', 'flex');
     $('.content__wrapper__box__right__size').css('display', 'flex');
   });
+  $('#editSubmit').click(function(){
+    var value = document.getElementById("child_category").value;    
+    if (value == "カテゴリーを選択する") {
+      alert('カテゴリーを選択してください');
+      return false;
+    }
+    var value2 = document.getElementById("grandchild_category").value;    
+    if (value2 == "カテゴリーを選択する") {
+      alert('カテゴリーを選択してください');
+      return false;
+    }
+  });
 });
