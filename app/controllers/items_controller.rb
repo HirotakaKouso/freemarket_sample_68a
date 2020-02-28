@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :show]
+  before_action :authenticate_user!, except: [:show]
   def new
     @item = Item.new
     @item.images.new
@@ -15,11 +15,18 @@ class ItemsController < ApplicationController
   end
   
   def get_category_children
-    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+    if Category.find_by(id: "#{params[:parent_id]}", ancestry: nil) == nil
+      @category_children = nil
+    else
+      @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+    end
   end
-
   def get_category_grandchildren
-    @category_grandchildren = Category.find_by(id: "#{params[:child_id]}").children
+    if Category.find_by(id: "#{params[:child_id]}") == nil
+      @category_grandchildren = nil
+    else
+      @category_grandchildren = Category.find_by(id: "#{params[:child_id]}").children
+    end
   end
 
   def show
