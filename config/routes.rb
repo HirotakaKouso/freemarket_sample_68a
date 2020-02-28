@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
+  resources :users, only: [:show, :edit]
+
   resources :card, only: [:new, :show, :destroy] do
     collection do
       post 'create', to: 'card#create'

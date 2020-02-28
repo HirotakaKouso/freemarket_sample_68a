@@ -111,6 +111,27 @@
         height: 60px;
         padding: 0 28px 18px 245px;
         word-break: break-all;
+        .shopCredit {
+          height: 50px;
+          text-align: center;
+          line-height: 75px;
+          .cardPath {
+            padding: 20px 10px;
+            color: #646166;
+            font-size: 20px;
+            border-radius: 15px;
+            border: 1px solid #646166;
+          }
+          .cardPath:hover {
+            border-bottom: solid 5px #646166;
+            border-right: solid 5px #646166;
+          }
+          .cardPath:active {
+            border:none;
+            -webkit-transform: translate(6px,6px);
+            transform: translate(6px,6px);
+          }
+        }
 
         p.wrapper__content__main__shopDesc {
           font-size: 12px;
@@ -262,7 +283,6 @@
 
 
     &__page {
-      float: right;
       display: flex;
 
       &__select {
@@ -274,8 +294,11 @@
         vertical-align: baseline;
         background: transparent;
 
-        nav.wrapper__content__page__select__navi {
-          display: block;
+        .wrapper__content__page__select__navi {
+          font-size: 20px;
+          font-weight: bold;
+          display: flex;
+          margin-bottom: 20px;
 
           ul {
             list-style: none;
@@ -302,13 +325,31 @@
 
 
     section#wrapper__content__goods {
-      position: relative;
-      height: 1200px;
-      margin-top: -50px;
-      margin-bottom: -50px;
+      display: flex;
+      flex-wrap: wrap;
 
+      .wrapper__content__goods__block:hover {
+        border-bottom: solid 3px #3CCACE;
+        border-right: solid 3px #3CCACE;
+      }
+      .wrapper__content__goods__block:active {
+        border:none;
+        -webkit-transform: translate(6px,6px);
+        transform: translate(6px,6px);
+      }
       .wrapper__content__goods__block {
+        height: 220px;
+        width: 175px;
+        margin: 0 0 20px 12px;
         border: 1px solid #e7e7e7;
+        border-radius: 10px;
+        cursor: pointer;
+        .myImage {
+          height: 100px;
+          width: 150px;
+          margin: 10px 0 0 14px;
+          border-radius: 15px;
+        }
 
         a.wrapper__content__goods__blockLink {
           margin: 0;
@@ -375,3 +416,19 @@
   }
 }
 
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #36c2e0;     /*背景の色を変える*/
+  border-radius: 40px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
