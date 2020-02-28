@@ -1,8 +1,8 @@
 .editItem
-  .header 
+  .header
   .content
     = form_with model: @item, local:true, class:"content__wrapper" do |f|
-      .content__wrapper__title 
+      .content__wrapper__title
         %h2.content__wrapper__title__text 出品
         .content__wrapper__title__detail 商品情報を入力してください
       .imageError ※写真を追加してください
@@ -69,7 +69,7 @@
                               %span 削除
                     -else
                       = icon('fas', 'camera',class:"cameraIcon3")
-                    
+
           .content__wrapper__box__left__price
             .content__wrapper__box__left__price__main
               .content__wrapper__box__left__price__main__text 商品価格
@@ -84,17 +84,17 @@
                 .content__wrapper__box__left__price__sub__right__text 付与予定売上
                 %span.content__wrapper__box__left__price__sub__right__span 0
                 円
-          .content__wrapper__box__left__option 
+          .content__wrapper__box__left__option
             .content__wrapper__box__left__option__title その他オプション
             .content__wrapper__box__left__option__price
               .content__wrapper__box__left__option__price__left 価格設定
               .content__wrapper__box__left__option__price__right
-                %input.content__wrapper__box__left__option__price__right__input{name: "price", type: "checkbox"} 
+                %input.content__wrapper__box__left__option__price__right__input{name: "price", type: "checkbox"}
                 .content__wrapper__box__left__option__price__right__text 価格を未設定にする
             .content__wrapper__box__left__option__quantity
               .content__wrapper__box__left__option__quantity__left 数量
               .content__wrapper__box__left__option__quantity__right
-                %input.content__wrapper__box__left__option__quantity__right__input{name: "price", type: "checkbox"} 
+                %input.content__wrapper__box__left__option__quantity__right__input{name: "price", type: "checkbox"}
                 .content__wrapper__box__left__option__quantity__right__text 同じ商品を複数出品する
             .content__wrapper__box__left__option__item
               .content__wrapper__box__left__option__item__left 専用出品
@@ -122,7 +122,7 @@
                 #children_wrapper.listing-select-wrapper__added
                   .listing-select-wrapper__box
                     = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"child_category"
-                    =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")              
+                    =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
               - else
                 -# 孫止まり
                 -# 親カテゴリー選択フォーム
@@ -153,7 +153,7 @@
             .content__wrapper__box__right__status__right
               = f.collection_select :condition_id, Condition.group(:condition).order(id: :asc), :id, :condition, {prompt: "選択してください"},id:"newSelect"
               =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
-          .content__wrapper__box__right__shippingFee 
+          .content__wrapper__box__right__shippingFee
             .content__wrapper__box__right__shippingFee__left 配送料
             .content__wrapper__box__right__shippingFee__right
               = f.collection_select :shipping_fee_id, ShippingFee.group(:fee).order(id: :asc), :id, :fee, {prompt: "選択してください"},id:"newSelect"
@@ -175,5 +175,7 @@
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
               =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
       .content__wrapper__confirmation
-        = f.submit "確認", class:"content__wrapper__confirmation__button", id:"editSubmit"
+
+        = f.submit "確認", class:"content__wrapper__confirmation__button",id:"editSubmit"
+
   = render "shared/footer"

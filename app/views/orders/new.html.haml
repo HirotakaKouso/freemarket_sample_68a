@@ -15,7 +15,7 @@
             =icon('fas', 'book-open')
             %span.text 取引ガイド
     .purchase__content__box
-      = form_with url: "#", local: true, class: "form" do |f|
+      = form_with url: item_purchase_index_path, local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
             = image_tag image.src.url, class:"item__image"
@@ -32,24 +32,54 @@
           .userInfo__left
             .title
               配送先
-            .detail
-              %p.detail__top
-                = current_user.nickname
-              %p.detail__top
-                = current_user.zip_code
-              %p.detail__top
-                = current_user.address
-              %p.detail__top
-                = current_user.tel
-              = link_to "#", alt:"配送先を選ぶ", class:"detail__btn" do
-                配送先を選ぶ
-              %p.detail__bottom
+            .detail#existenceInfo
+              .detail__top
+                .lastName
+                  = f.label :last_name_receiver,"姓"
+                  = f.text_field :last_name_receiver, autofocus: true, autocomplete: "last_name",value: @item.user.last_name
+              .detail__top
+                .firstName
+                  = f.label :first_name_receiver,"名"
+                  = f.text_field :first_name_receiver, autofocus: true, autocomplete: "first_name",value: @item.user.first_name
+              .detail__top
+                .lastNameKana
+                  = f.label :last_name_kana_receiver,"せい"
+                  = f.text_field :last_name_kana_receiver, autofocus: true, autocomplete: "last_name_kana",value: @item.user.last_name_kana
+              .detail__top
+                .firstNameKana
+                  = f.label :first_name_kana_receiver,"めい"
+                  = f.text_field :first_name_kana_receiver, autofocus: true, autocomplete: "first_name_kana",value: @item.user.first_name_kana
+              .detail__top
+                .tel
+                  = f.label :tel_receiver,"電話番号"
+                  = f.telephone_field :tel_receiver, autofocus: true, autocomplete: "tel",value: @item.user.tel
+              .detail__top
+                .zipCode
+                  = f.label :zip_code_receiver,"郵便番号"
+                  = f.text_field :zip_code_receiver, autofocus: true, autocomplete: "zip_code",value: @item.user.zip_code
+              .detail__top
+                .prefecture
+                  = f.label :prefecture_id,"都道府県"
+                  = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: "選択してください",selected: @item.user.prefecture}
+              .detail__top
+                .address
+                  = f.label :address_receiver, "住所"
+                  = f.text_field :address_receiver, autofocus: true, autocomplete: "address",value: @item.user.address
+
+              .detail__top
+                .payment
+                  = f.label :payment_id, "支払い方法"
+                  = f.collection_select :payment_id, Payment.group(:method).order(id: :asc), :id, :method, {prompt: "選択してください"}
+
+              -# = link_to "#", alt:"新規情報を登録する", class:"detail__btn",id:"newBtn" do
+              -#   新規情報を登録する
+              .detail__bottom
                 ※送付先住所は、商品代金を支払うまでは、都道府県のみが出品者に伝わります。
           .userInfo__right
             .seller
               .seller__top
                 = link_to @item_user_mypage_index_path, alt:"evaluation", class:"link" do
-                  = image_tag "https://www.pakutaso.com/shared/img/thumb/shikun2002021827_TP_V.jpg", class:"link__image"
+                  = image_tag "default.jpg", class:"link__image"
                   .link__box
                     .link__box__name
                       = @item.user.nickname
@@ -104,15 +134,7 @@
                 全額所持金支払い
               .fee
                 ¥0
-        - if current_user.id == @card.id
-          = link_to "確認", card_path(@item.id), class:"submit"
-        - else
-          = link_to "確認", card_path(@item.id), class:"submit"
-        .commision__card
-          .commision__card__title
-            クレジットカードの登録がまだな方は↓
-          .commision__card__link
-            = link_to "登録はこちら", new_card_path
-
+        = f.submit "確認", class:"submit"
 = render "shared/footer"
 = render "shared/purchase"
+

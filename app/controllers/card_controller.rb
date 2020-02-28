@@ -38,7 +38,6 @@ end
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
-      redirect_to mypage_index_path
     end
   end
 

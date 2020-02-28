@@ -1,2 +1,0 @@
-class ShippingFeesController < ApplicationController
-end
