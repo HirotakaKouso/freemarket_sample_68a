@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
-
     function buildHTML(count) {
       if(count == 0) {
         var html = `<div class="preview-box" id="preview-box__${count}">
@@ -18,7 +17,7 @@ $(document).on('turbolinks:load', function(){
                       <div class="upper-box">
                         <img src="" alt="preview" style="width:114px; height:116px;">
                       </div>
-                      <div class="lower-box">
+                      <div class="lower-box2">
                         <div class="delete-box" id="delete_btn_${count}">
                           <span>削除</span>
                         </div>
@@ -27,7 +26,6 @@ $(document).on('turbolinks:load', function(){
       }
       return html;
     }
-
     $(document).on('change', '.hiddenField', function() {
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
@@ -50,14 +48,12 @@ $(document).on('turbolinks:load', function(){
         }
       }
     });
-
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
       $(`#item_images_attributes_${id}_src`).val("");
       $(`.cameraIcon${id}`).css('display','flex');
-
       if(id < 5){
         $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
       }

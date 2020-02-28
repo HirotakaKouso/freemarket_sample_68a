@@ -4,10 +4,12 @@ class CardController < ApplicationController
   before_action :set_card
 
   def new
-    redirect_to action: "show" if @card.exists?
+    if @card.exists? #カード情報がなければ、カード登録画面に戻る
+    redirect_to action: "show"
   end
+end
 
-  def pay #payjpとCardのデータベース作成を実施します。
+  def pay #payjpとCardのデータベース作成。
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -50,6 +52,7 @@ class CardController < ApplicationController
     end
   end
 
+  private
   def set_card
     @card = Card.where(user_id: current_user.id)
   end

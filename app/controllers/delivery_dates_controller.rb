@@ -1,2 +1,0 @@
-class DeliveryDatesController < ApplicationController
-end

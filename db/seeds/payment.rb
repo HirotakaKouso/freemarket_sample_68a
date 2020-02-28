@@ -1,0 +1,1 @@
+Payment.create( method: 'クレジットカード' )
