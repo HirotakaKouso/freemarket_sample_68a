@@ -117,37 +117,48 @@
                 -# 親カテゴリー選択フォーム
                 = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.root.id}, id:"parent_category"
                 =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
-
                 -# 子カテゴリー選択フォーム
                 #children_wrapper.listing-select-wrapper__added
                   .listing-select-wrapper__box
-                    = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"child_category"
+                    = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.id}, id:"child_category"
                     =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")              
               - else
                 -# 孫止まり
                 -# 親カテゴリー選択フォーム
-                = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.root.id}, id:"parent_category"
+                = f.collection_select :category_id, @parents.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.root.id}, id:"parent_category", class: "listing-select-wrapper__box--select"
                 =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
                 -# 子カテゴリー選択フォーム
                 #children_wrapper.listing-select-wrapper__added
                   .listing-select-wrapper__box
-                    = f.collection_select :category_id, @children.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"child_category"
+                    = f.collection_select :category_id, @children.order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.parent.id}, class: "listing-select-wrapper__box--select", id:"child_category"
                     =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
                 -# 孫カテゴリー選択フォーム
-                #grandchildren_wrapper.listing-select-wrapper__added>
+                #grandchildren_wrapper.listing-select-wrapper__added
                   .listing-select-wrapper__box
-                    = f.collection_select :category_id, @grandchildren.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する"}, id:"grandchild_category"
+                    = f.collection_select :category_id, @grandchildren.order(id: :asc) , :id, :name, {prompt: "カテゴリーを選択する",selected: @item.category.id}, id:"grandchild_category", class: "listing-select-wrapper__box--select"
                     =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
-          .content__wrapper__box__right__brand
-            .content__wrapper__box__right__brand__left ブランド
-            .content__wrapper__box__right__brand__right
-              = f.collection_select :brand_id, Brand.group(:name).order(id: :asc), :id, :name, {prompt: "選択してください"},id:"newSelect,brandSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
-          .content__wrapper__box__right__size
-            .content__wrapper__box__right__size__left サイズ
-            .content__wrapper__box__right__size__right
-              = f.collection_select :size_id, Size.group(:size).order(id: :asc), :id, :size, {prompt: "選択してください"},id:"newSelect,sizeSelect"
-              =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+          -if @item.category.root.id == @item.category.parent.id
+            .content__wrapper__box__right__brand
+              .content__wrapper__box__right__brand__left ブランド
+              .content__wrapper__box__right__brand__right
+                = f.collection_select :brand_id, Brand.group(:name).order(id: :asc), :id, :name, {prompt: "選択してください"},id:"newSelect,brandSelect"
+                =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+            .content__wrapper__box__right__size
+              .content__wrapper__box__right__size__left サイズ
+              .content__wrapper__box__right__size__right
+                = f.collection_select :size_id, Size.group(:size).order(id: :asc), :id, :size, {prompt: "選択してください"},id:"newSelect,sizeSelect"
+                =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+          -else
+            .content__wrapper__box__right__brand#test
+              .content__wrapper__box__right__brand__left ブランド
+              .content__wrapper__box__right__brand__right
+                = f.collection_select :brand_id, Brand.group(:name).order(id: :asc), :id, :name, {prompt: "選択してください"},id:"newSelect,brandSelect"
+                =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
+            .content__wrapper__box__right__size#test
+              .content__wrapper__box__right__size__left サイズ
+              .content__wrapper__box__right__size__right
+                = f.collection_select :size_id, Size.group(:size).order(id: :asc), :id, :size, {prompt: "選択してください"},id:"newSelect,sizeSelect"
+                =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__status
             .content__wrapper__box__right__status__left 状態
             .content__wrapper__box__right__status__right
