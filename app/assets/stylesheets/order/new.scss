@@ -134,7 +134,7 @@
           }
 
           &__left {
-            height: rem(240);
+            height: rem(400);
             width: rem(560);
             border: $mainBorder 1px solid;
             margin-top: rem(32);
@@ -142,7 +142,7 @@
             padding: rem(20);
 
             .title {
-              width: rem(250);
+              width: rem(100);
               font-size: rem(14);
               color: #646166;
             }
@@ -151,13 +151,45 @@
               
               &__top {
                 font-size: rem(14);
-                margin-bottom: rem(5);
+                margin-bottom: rem(15);
                 color: #646166;
+
+                  #order_last_name_receiver {
+                    margin-left: rem(57);
+                    width: rem(295);
+                  }
+                  #order_first_name_receiver {
+                    margin-left: rem(57);
+                    width: rem(295);
+                  }
+                  #order_last_name_kana_receiver {
+                    margin-left: rem(43);
+                    width: rem(295);
+                  }
+                  #order_first_name_kana_receiver {
+                    margin-left: rem(43);
+                    width: rem(295);
+                  }
+                  #order_tel_receiver {
+                    margin-left: rem(15);
+                    width: rem(295);
+                  }
+                  #order_zip_code_receiver {
+                    margin-left: rem(15);
+                    width: rem(295);
+                  }
+                  #order_prefecture_id{
+                    margin-left: rem(15);
+                  }
+                  #order_address_receiver {
+                    margin-left: rem(43);
+                    width: rem(295);
+                  }
               }
 
               &__btn {
                 display: inline-block;
-                width: rem(120);
+                width: rem(150);
                 height: rem(32);
                 font-size: rem(14);
                 margin-top: rem(3);
@@ -203,6 +235,7 @@
                     height: rem(56);
                     width: rem(56);
                     margin-left: rem(8);
+                    border-radius: 100%;
                   }
 
                   &__box {
@@ -336,3 +369,4 @@
     }
   }
 }
+
