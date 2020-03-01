@@ -65,7 +65,9 @@ $(document).on('turbolinks:load', function(){
   });
   // 子カテゴリー選択後のイベント
   $('.content__wrapper__box__right__category__right').on('change', '#child_category', function(){
-    var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+    // var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+    var childId = document.getElementById('child_category').value;
+    console.log(childId)
     if (childId != "カテゴリーを選択する"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_grandchildren',
@@ -75,7 +77,7 @@ $(document).on('turbolinks:load', function(){
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
+          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
           var insertHTML = '';
