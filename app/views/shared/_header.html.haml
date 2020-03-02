@@ -12,8 +12,12 @@
         = image_tag "icon-search 1.png", class: "topSearch"
     .header__inner__nav
       .listLeft
-        .header__category
+        .category__box
           カテゴリー
+          %ul.parent__top
+            - Category.where('ancestry IS NULL').each do |main_category|
+              %li.parent__list
+                = link_to "#{main_category.name}", "/category/#{main_category.id}","data-id": "#{main_category.id}",class: "maincategory"
         .header__bland
           ブランド
       .listRight
