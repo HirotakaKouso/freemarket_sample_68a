@@ -5,9 +5,9 @@ class CardController < ApplicationController
 
   def new
     if @card.exists? #カード情報がなければ、カード登録画面に戻る
-    redirect_to action: "show"
+      redirect_to action: "show"
+    end
   end
-end
 
   def pay #payjpとCardのデータベース作成。
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
