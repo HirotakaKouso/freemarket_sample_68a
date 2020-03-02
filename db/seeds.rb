@@ -180,3 +180,5 @@ Size.create!(
   {size: 'フリーサイズ'}
  ]
 )
+
+Payment.create( method: 'クレジットカード' )
