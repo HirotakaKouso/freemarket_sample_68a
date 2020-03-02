@@ -23,7 +23,10 @@
           - elsif @item.order.present?
             売り切れ
           - else
-            %button= link_to "購入する", new_item_order_path(@item), class: "main__all__content__image__button__purchase"
+
+            %button= link_to "購入する", item_orders_path(@item), class: "main__all__content__image__button__purchase"
+
+
       .main__all__content__product
         .main__all__content__product__title
           = @item.name
