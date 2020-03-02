@@ -15,7 +15,7 @@
             =icon('fas', 'book-open')
             %span.text 取引ガイド
     .purchase__content__box
-      = form_with url: item_purchase_index_path, local: true, class: "form" do |f|
+      = form_with model:[@item,@order], local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
             = image_tag image.src.url, class:"item__image"

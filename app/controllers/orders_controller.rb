@@ -2,11 +2,11 @@ class OrdersController < ApplicationController
   before_action :set_item
   def new
     @order = Order.new
-    # @card = Card.new
+    @card = Card.new
   end
   def create
     @order = Order.new(order_params)
-    # @card = Card.new
+    @card = Card.new
     if @order.save
       redirect_to item_purchase_index_path
     else
