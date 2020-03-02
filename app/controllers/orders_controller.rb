@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_item,:set_card
   def index
     @order = Order.new
+
   end
 
   def new
@@ -29,11 +30,12 @@ class OrdersController < ApplicationController
     session[:payment_id] = params[:order][:payment_id]
     @payment = Payment.find(session[:payment_id])
     # @card = Card.new
+
   end
   
   def create
     @order = Order.new(order_params)
-    # @card = Card.new
+    @card = Card.new
     if @order.save
         session[:last_name_receiver].clear
         session[:first_name_receiver].clear
