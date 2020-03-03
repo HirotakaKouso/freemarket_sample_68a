@@ -11,9 +11,11 @@
 @import "item/show";
 @import "user/user";
 @import "item/edit";
-@import "card/card";
+@import "card/new";
 @import "item/create";
 @import "item/destroy";
+@import "purchase/done";
+@import "purchase/index";
 *{
   text-decoration: none;
 }

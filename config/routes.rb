@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     resources :purchase, only: [:index] do
 
       collection do
+        get 'index', to: 'purchase#index'
         post 'pay', to: 'purchase#pay'
         get 'done', to: 'purchase#done'
       end
     end    
-
+  
     
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -37,13 +38,15 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit]
 
-  resources :card, only: [:new, :show, :destroy] do
+  resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
-      post 'create', to: 'card#create'
       post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
     end
   end
+
+
 
   
 end

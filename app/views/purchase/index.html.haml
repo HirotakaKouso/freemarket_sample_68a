@@ -1,16 +1,52 @@
-%h2 購入を確定しますか？
-%p ブランドバック
-%p ¥10,000(税抜き)
-%br
-%h3 支払い方法
-- if @default_card_information.blank?
-  %br /
-- else
-  -#以下カード情報を表示
-  = "**** **** **** " + @default_card_information.last4
-  - exp_month = @default_card_information.exp_month.to_s
-  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-  = exp_month + " / " + exp_year
-%br
-= form_tag(action: :pay, method: :post) do
-  %button 購入する
+= render "shared/header"
+%h2.buy-content__title
+  購入内容の確認
+.buy
+  .buy__content
+    .buy__content__item
+      .buy__content__item__main
+        .buy__content__item__main__image
+          - @item.images.each do |image|
+            = image_tag image.src.url, class:"item__image"
+        .buy__content__item__main__name
+          .buy-item-name
+            = @item.name
+          %p.buy-price
+            = "¥#{@item.price.to_s}"
+            %span.shipping-free 送料込み(出品者が払う)
+              
+  .buy-content__item
+    %form.buy-form
+      .buy-price-table
+        .buy-price-table__left
+          支払金額
+        .buy-price-table__right
+          = "¥#{@item.price.to_s}"
+  .buy-content__user-info
+    .buy-content__user-info__inner
+      %h3 支払方法
+      .user-info-update
+        = link_to "変更する", card_index_path, calss:"update-btn"
+      .user-info-text
+      - if @default_card_information.blank?
+        %br /
+      - else
+        = "**** **** **** " + "#{@default_card_information.last4}"
+        %br
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = "有効期限 " + exp_month + " / " + exp_year
+        %br
+  .buy-content__user-info
+    .buy-content__user-info__inner              
+      %h3 配送先
+      .user-info-update
+        = link_to "変更する","#", calss:"update-btn"
+      .user-info-text
+        〒111-1111
+        %br
+        大阪府大阪市北区〇〇1-11
+        %br
+        山田太郎
+        = form_tag(action: :pay, method: :post) do
+          %button.buy-button{type:"submit"} 購入する
