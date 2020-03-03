@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     # @card = Card.new
     if @order.save
-      redirect_to item_purchase_index_path
+      redirect_to  item_purchase_index_path
     else
       render :new
     end
