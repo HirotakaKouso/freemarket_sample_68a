@@ -1,9 +1,11 @@
 # class PurchaseController < ApplicationController
 
 #   require 'payjp'
-#   before_action :set_card
 
-#   def create
+#   before_action :set_card,:set_item
+
+#   def index
+
 #     if @card.blank?
 #       #登録された情報がない場合にカード登録画面に移動
 #       redirect_to controller: "card", action: "new"
@@ -19,7 +21,9 @@
 #   def pay
 #     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 #     Payjp::Charge.create(
-#     :amount => 10000, #支払金額を入力（itemテーブル等に紐づけても良い）@item.price,
+
+#     :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）@item.price,
+
 #     :customer => @card.customer_id, #顧客ID set_cardを使うのなら、@cardと記述
 #     :currency => 'jpy', #日本円という意味
 #   )
@@ -32,9 +36,11 @@
 #     @card = Card.find_by(user_id: current_user.id)
 #   end
 
-#   # def set_item
-#   #   @item = Item.find(params[:item_id])
-#   # end
+
+#   def set_item
+#     @item = Item.find(params[:item_id])
+#   end
+
 
 # end
 

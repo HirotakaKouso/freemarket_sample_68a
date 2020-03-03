@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
+
         session[:last_name_receiver].clear
         session[:first_name_receiver].clear
         session[:last_name_kana_receiver].clear
