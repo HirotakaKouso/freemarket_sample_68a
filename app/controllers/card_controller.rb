@@ -5,7 +5,7 @@ class CardController < ApplicationController
 
   def new
     if @card.exists? #カード情報がなければ、カード登録画面に戻る
-      redirect_to action: "show"
+      redirect_to card_index_path
     end
   end
 
@@ -22,7 +22,7 @@ class CardController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to card_index_path
       else
         redirect_to action: "pay"
       end
