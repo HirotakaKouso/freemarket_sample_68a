@@ -15,7 +15,7 @@
             =icon('fas', 'book-open')
             %span.text 取引ガイド
     .purchase__content__box
-      = form_with model:[@item,@order], local: true, class: "form" do |f|
+      = form_with model:[@item,@order],url: new_item_order_path, method: :get, local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
             = image_tag image.src.url, class:"item__image"
@@ -36,56 +36,43 @@
               .detail__top
                 .lastName
                   = f.label :last_name_receiver,"姓"
-                  = session[:last_name_receiver]
-                  = f.hidden_field :last_name_receiver, value: "#{session[:last_name_receiver]}"
+                  = f.text_field :last_name_receiver, autofocus: true, autocomplete: "last_name",value: current_user.last_name
               .detail__top
                 .firstName
                   = f.label :first_name_receiver,"名"
-                  = session[:first_name_receiver]
-                  = f.hidden_field :first_name_receiver, value: "#{session[:first_name_receiver]}"
+                  = f.text_field :first_name_receiver, autofocus: true, autocomplete: "first_name",value: current_user.first_name
               .detail__top
                 .lastNameKana
                   = f.label :last_name_kana_receiver,"せい"
-                  = session[:last_name_kana_receiver]
-                  = f.hidden_field :last_name_kana_receiver, value: "#{session[:last_name_kana_receiver]}"
-
+                  = f.text_field :last_name_kana_receiver, autofocus: true, autocomplete: "last_name_kana",value: current_user.last_name_kana
               .detail__top
                 .firstNameKana
                   = f.label :first_name_kana_receiver,"めい"
-                  = session[:first_name_kana_receiver]
-                  = f.hidden_field :first_name_kana_receiver, value: "#{session[:first_name_kana_receiver]}"
+                  = f.text_field :first_name_kana_receiver, autofocus: true, autocomplete: "first_name_kana",value: current_user.first_name_kana
               .detail__top
                 .tel
                   = f.label :tel_receiver,"電話番号"
-                  = session[:tel_receiver]
-                  = f.hidden_field :tel_receiver, value: "#{session[:tel_receiver]}"
+                  = f.telephone_field :tel_receiver, autofocus: true, autocomplete: "tel",value: current_user.tel
               .detail__top
                 .zipCode
                   = f.label :zip_code_receiver,"郵便番号"
-                  =  session[:zip_code_receiver]
-                  = f.hidden_field :zip_code_receiver, value: "#{session[:zip_code_receiver]}"
+                  = f.text_field :zip_code_receiver, autofocus: true, autocomplete: "zip_code",value: current_user.zip_code
               .detail__top
                 .prefecture
                   = f.label :prefecture_id,"都道府県"
-                  = @prefecture.prefecture
-                  = f.hidden_field :prefecture_id, value: "#{session[:prefecture_id]}"
+                  = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: "選択してください",selected: current_user.prefecture}
               .detail__top
                 .address
                   = f.label :address_receiver, "住所"
-                  = session[:address_receiver]
-                  = f.hidden_field :address_receiver, value: "#{session[:address_receiver]}"
+                  = f.text_field :address_receiver, autofocus: true, autocomplete: "address",value: current_user.address
 
               .detail__top
                 .payment
                   = f.label :payment_id, "支払い方法"
-                  = @payment.method
-                  = f.hidden_field :payment_id, value: "#{session[:payment_id]}"
-                .credit
-                  = "**** **** **** " + @default_card_information.last4
-                  - exp_month = @default_card_information.exp_month.to_s
-                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                  = exp_month + " / " + exp_year
+                  = f.collection_select :payment_id, Payment.group(:method).order(id: :asc), :id, :method, {prompt: "選択してください"}
 
+              -# = link_to "#", alt:"新規情報を登録する", class:"detail__btn",id:"newBtn" do
+              -#   新規情報を登録する
               .detail__bottom
                 ※送付先住所は、商品代金を支払うまでは、都道府県のみが出品者に伝わります。
           .userInfo__right
@@ -147,8 +134,7 @@
                 全額所持金支払い
               .fee
                 ¥0
-        .submit
-          =f.submit "購入画面"
+        = f.submit "確認", class:"submit"
 = render "shared/footer"
 = render "shared/purchase"
 

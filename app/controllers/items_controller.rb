@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
       @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
     end
   end
+  
   def get_category_grandchildren
     if Category.find_by(id: "#{params[:child_id]}") == nil
       @category_grandchildren = nil
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @orders = Order.all
   end
 
   def edit

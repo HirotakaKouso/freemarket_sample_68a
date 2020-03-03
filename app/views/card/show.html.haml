@@ -18,4 +18,6 @@
   %form
   %input{:onclick => "history.go(-2);", :type => "button", :value => "前のページに戻る"}/
 
+.credit_main
+  = link_to "マイページ", user_path(current_user.id)
 
