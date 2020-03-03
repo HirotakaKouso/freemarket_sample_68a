@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item,:set_card
   def index
     @order = Order.new
@@ -29,8 +30,6 @@ class OrdersController < ApplicationController
     @prefecture = Prefecture.find(session[:prefecture_id])
     session[:payment_id] = params[:order][:payment_id]
     @payment = Payment.find(session[:payment_id])
-    # @card = Card.new
-
   end
   
   def create
