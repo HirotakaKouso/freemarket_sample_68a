@@ -1,8 +1,8 @@
 = render "shared/header"
 
-.purchase
-  .purchase__content
-    .purchase__content__flex
+.purchaseNew
+  .purchaseNew__content
+    .purchaseNew__content__flex
       .top
         .top__left
           = image_tag "https://image.shoppies.jp/img_m/title_p_step0.gif", alt:"order", class:"top__left__image"
@@ -14,7 +14,7 @@
           = link_to "#", alt:"guide", class:"top__right__link" do
             =icon('fas', 'book-open')
             %span.text 取引ガイド
-    .purchase__content__box
+    .purchaseNew__content__box
       = form_with model:[@item,@order], local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
@@ -147,7 +147,9 @@
                 全額所持金支払い
               .fee
                 ¥0
-        = f.submit "確認", class:"submit"
+        .btn
+          = link_to "修正する", :back,class:"modify"
+          = f.submit "購入確定", class:"submit"
 = render "shared/footer"
 = render "shared/purchase"
 
