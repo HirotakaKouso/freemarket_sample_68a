@@ -1,17 +1,20 @@
-# README
+# freemarket_sample_68a
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## * 概要:プログラミングスクールのチーム開発でフリマサイトの作成
 
-Things you may want to cover:
+## 機能、使用技術一覧
 
-* Ruby version
+* 商品出品機能
+* 商品購入機能
+* 商品情報編集機能
+* 商品削除機能
+* カテゴリー選択機能
 
-* System dependencies
 
-* Configuration
+* ruby 2.5.1p57
+* インフラ:AWS
+* DB:MySQL
 
-* Database creation
 # freemarket_sample_68a DB設計
 
 ## items table
@@ -57,8 +60,6 @@ Things you may want to cover:
 
 ### association
 - has_many :items
-- has_many :brand_categories
-- has_many :categories, through: :brand_categories
 
 ## conditions table
 |Column|Type|Options|
@@ -71,7 +72,7 @@ Things you may want to cover:
 ## sizes table
 |Column|Type|Options|
 |------|----|-------|
-|size|string|null:false unique: true|
+|size|string|unique: true|
 
 ### association
 - has_many :items
@@ -85,8 +86,6 @@ Things you may want to cover:
 ### association
 - has_many :items
 - has_ancestry
-- has_many :brand_categories
-- has_many :brands, through: :brand_categories
 
 ## users table
 |Column|Type|Options|
@@ -110,6 +109,7 @@ Things you may want to cover:
 - belongs_to :prefecture
 - has_many :items
 - has_many :orders
+- has_one :card
 
 ## prefectures table
 |Column|Type|Options|
@@ -170,35 +170,12 @@ Things you may want to cover:
 ### association
 - has_many :items
 
-## brand_categories
+## cards table
 |Column|Type|Options|
 |------|----|-------|
-|brand_id|references|null:false, foreign_key: true|
-|category_id|references|null:false, foreign_key: true|
+|user_id|references|null:false,foreign_key:true|
+|customer_id|string|null:false|
+|card_id|string|null:false|
 
 ### association
-- belongs_to :brand
-- belongs_to :category
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-<!-- INSERT INTO shipping_fees(id, fee,created_at,updated_at) VALUES(1, "商品価格に込み","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO shipping_fees(id, fee,created_at,updated_at) VALUES(2, "商品価格とは別途","2020-02-18 12:04:35","2020-02-18 12:04:35");  -->
-
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(1, "指定なし","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(2, "１〜２日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(3, "２〜３日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(4, "４〜７日で発送","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(5, "発送は週末のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(5, "発送は平日のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-<!-- INSERT INTO delivery_dates(id, date,created_at,updated_at) VALUES(6, "発送は平日のみ","2020-02-18 12:04:35","2020-02-18 12:04:35"); -->
-
-
-
+- belongs_to :user
