@@ -1,7 +1,10 @@
 = render "shared/header"
 
+
 .main
   .main__all
+    - breadcrumb :item
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
     .main__all__content
       .main__all__content__image
         .main__all__content__image__main 

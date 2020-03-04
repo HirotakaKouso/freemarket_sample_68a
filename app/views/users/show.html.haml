@@ -4,9 +4,8 @@
   #wrapper
     .wrapper__content
       .wrapper__content__pankuzu
-        = link_to "ホーム", root_path
-        ＞
-        = link_to "ユーザーSHOP"
+      - breadcrumb :user
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
       .wrapper__content__main
         = link_to "プロフィール編集",root_path, class: "wrapper__content__main__editProfBtn"
         .wrapper__content__main__name

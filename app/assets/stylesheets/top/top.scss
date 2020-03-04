@@ -60,9 +60,16 @@
           background-size: 18px;
           padding-right: 30px;
           cursor: pointer;
-          display: none;
-          .category__box__parent {
+          .parent__top {
             display: none;
+            .maincategory {
+            }
+            .childcategory {
+              display: none;
+            }
+            .childrencategory {
+              display: none;
+            }
           }
         }
         .header__bland {
@@ -379,12 +386,12 @@
                 transform: translateY(-3px);
               }
                 .soldout {
-                  width: 100px;
-                  height: 100px;
+                  width: 220px;
+                  height: 150px;
                   opacity: 0.9;
                   position: absolute;
-                  left: 60px;
-                  bottom: 20px;
+                  left: 0;
+                  bottom: 0;
                 }
             }
         }

@@ -15,6 +15,8 @@
             =icon('fas', 'book-open')
             %span.text 取引ガイド
     .purchase__content__box
+      -# - breadcrumb :order
+      -# = breadcrumbs pretext: "",separator: " &rsaquo; "
       = form_with model:[@item,@order], local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
