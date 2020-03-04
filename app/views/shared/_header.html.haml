@@ -16,8 +16,13 @@
           カテゴリー
           %ul.parent__top
             - Category.where('ancestry IS NULL').each do |main_category|
-              %li.parent__list
-                = link_to "#{main_category.name}", "/category/#{main_category.id}","data-id": "#{main_category.id}",class: "maincategory"
+              %li= link_to "#{main_category.name}", "/category/#{main_category.id}","data-id": "#{main_category.id}",class: "maincategory"
+              - main_category.children.each do |child|
+                - child.children.each do |children|
+                  %ul.parent__list
+                    %li= link_to "#{child.name}", "/category/#{child.id}","data-id": "#{child.id}",class: "childcategory"
+                  %ul.child__list
+                    %li= link_to "#{children.name}", "/category/#{children.id}","data-id": "#{children.id}",class: "childrencategory"
         .header__bland
           ブランド
       .listRight

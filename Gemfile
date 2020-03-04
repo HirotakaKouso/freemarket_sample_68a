@@ -110,3 +110,6 @@ gem "jquery-rails"
 gem 'kaminari'
 
 gem 'bootstrap', '~> 4.1.1'
+
+# パンくず
+gem "gretel"

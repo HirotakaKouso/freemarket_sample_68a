@@ -454,17 +454,7 @@
           }
           &__brand {
             display: none;
-            width: 90%;
-            height: 63px;
-            border-top: 1px solid #ececec;
-            padding: 12px 0;
-            align-items: center;
-            &__left {
-              width: 110px;
-              font-size: 14px;
-              font-weight: bold;
-              color: #b5b5b5;
-            }
+            @include itemSelect();
             &__right {
               font-size: 14px;
               position: relative;
@@ -480,17 +470,7 @@
           }
           &__size {
             display: none;
-            width: 90%;
-            height: 63px;
-            border-top: 1px solid #ececec;
-            padding: 12px 0;
-            align-items: center;
-            &__left {
-              width: 110px;
-              font-size: 14px;
-              font-weight: bold;
-              color: #b5b5b5;
-            }
+            @include itemSelect();
             &__right {
               font-size: 14px;
               position: relative;
@@ -507,17 +487,7 @@
           &__status {
             display: flex;
             align-items: center;
-            width: 90%;
-            height: 63px;
-            border-top: 1px solid #ececec;
-            border-bottom: 1px solid #ececec;
-            padding: 12px 0;
-            &__left {
-              width: 110px;
-              font-size: 14px;
-              font-weight: bold;
-              color: #b5b5b5;
-            }
+            @include itemSelect();
             &__right {
               font-size: 14px;
               position: relative;
@@ -528,30 +498,13 @@
                 top: 7px;
               }
             
-              &__text {
-                position: static;
-                margin-left: 0;
-                display: block;
-                font-weight: bold;
-                color: $mainColor;
-                width: 370px;
-                padding: 0px;
-              }
+
             }
           }
           &__shippingFee {
             display: flex;
             align-items: center;
-            font-size: 12px;
-            padding: 12px 0;
-            height: 63px;
-            width: 90%;
-            &__left {
-              color: #b5b5b5;
-              font-weight: bold;
-              width: 110px;
-              font-size: 14px;
-            }
+            @include itemSelect();
             &__right {
               font-size:14px;
               position: relative;
@@ -562,28 +515,13 @@
                 top: 7px;
               }
             
-              &__text {
-                font-weight: bold;
-                color: $mainColor;
-                margin-left: 0;
-              }
+
             }
           }
           &__deliveryMethod {
             display: flex;
             align-items: center;
-            border-top: 1px solid #ececec;
-            border-bottom: 1px solid #ececec;
-            padding: 12px 0;
-            height: 63px;
-            width: 90%;
-            &__left {
-              color: #b5b5b5;
-              font-weight: bold;
-              width: 110px;
-              font-size: 14px;
-              align-items: center;
-            }
+            @include itemSelect();
             &__right {
               font-size: 14px;
               position: relative;
@@ -594,33 +532,12 @@
                 top: 7px;
               }
             
-              &__text {
-                font-size: 12px !important;
-                color: $mainColor;
-                font-weight: bold;
-              }
-              &__input {
-                width: 173px;
-                background: linear-gradient(to bottom, #ffffff 0%,#ececec 100%);
-                -webkit-border-radius: 5px;
-                font-size: 14px;
-                font-weight: bold;
-              }
+
             }
           }
           &__prefecture {
             display: flex;
-            width: 90%;
-            height: 63px;
-            padding: 12px 0;
-            align-items: center;
-            &__left {
-              width: 110px;
-              font-size: 14px;
-              font-weight: bold;
-              color: #b5b5b5;
-            }
-
+            @include itemSelect();
             &__right {
               display: flex;
               flex-direction: column;  
@@ -638,21 +555,12 @@
           &__deliveryDay {
             display: flex;
             align-items: center;
-            width: 90%;
-            font-size: 14px;
-            border-top: 1px solid #ececec;
             border-bottom: 1px solid #ececec;
-            padding: 12px 0;
-            height: 63px;
-            &__left {
-              width: 110px;
-              align-items: center;
-              font-weight: bold;
-              color: #b5b5b5;
-            }
+            @include itemSelect();
             &__right {
               font-size: 14px;
               position: relative;
+
 
               .listing-select-wrapper__box--arrow-down{
                 position: absolute;
@@ -660,29 +568,15 @@
                 top: 7px;
               }
             
-              &__text {
-                color: $mainColor;
-                width: 370px;
-              }
+
             }
           }
         }
       }
       &__confirmation {
         height: 100px;
-        width: 80%;
-        margin: auto;
         &__button  {
-          text-align: center;
-          margin-top: 20px;
-          margin-left: 40%;
-          width: 200px;
-          height: 45px !important;
-          background: $mainBackground;
-          -webkit-border-radius: 5px;
-          color: white;
-          font-weight: bold;
-          outline: none;
+          @include itemBtn();
         }
       }
     }
@@ -711,6 +605,29 @@ select {
 #test {
   display:flex;
   }
+
 .upper-box1{
   padding-top: 1px;
+
+
+.imageNone{
+  div:nth-child(3){
+    display: none;
+  }
+  div:nth-child(4){
+    display: none;
+  }
+  div:nth-child(5){
+    display: none;
+  }
+  div:nth-child(6){
+    display: none;
+  }
+  div:nth-child(7){
+    display: none;
+  }
+  div:nth-child(8){
+    display: none;
+  }
+
 }
