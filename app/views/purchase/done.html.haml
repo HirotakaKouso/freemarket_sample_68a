@@ -1,5 +1,18 @@
-%h2 購入が完了しました！
-%p ブランドバック
-%p ¥10,000円(税抜き)
-.finish
-  =link_to "トップページ", root_path
+= render "shared/header"
+.exhibition
+  .exhibition__box
+    .exhibition__box__top
+      %i.far.fa-clock
+      発送をお待ちください
+    .exhibition__box__bottom
+      .upper
+        .upper--1
+          購入が完了しました！
+          %br
+        .upper--2
+          このたびSHOPPIESのご利用ありがとうございました！
+      %br
+      %br
+      %br
+      .toplist
+        = link_to "トップへ", root_path,class:"topLink"
