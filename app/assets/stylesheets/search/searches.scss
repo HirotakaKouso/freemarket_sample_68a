@@ -1,0 +1,36 @@
+.search{
+  &__container{
+    &__left{
+
+    }
+    &__right{
+      .itemsBox{
+        .search__result__head{
+          .search__result__head__text{
+
+          }
+        }
+        .search__result__number{
+
+        }
+        .search__result__content{
+
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+.search__result__content{
+  display: flex;
+  justify-content:center;
+}
+
+.panel{
+  display: flex;
+  justify-content: space-between;
+}

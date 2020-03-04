@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     function buildHTML(count) {
       if(count == 0) {
+        // メイン画像ボックス
         var html = `<div class="preview-box" id="preview-box__${count}">
                       <div class="upper-box1">
                         <img src="" alt="preview" style="width:398px; height:370px;">
@@ -13,6 +14,7 @@ $(document).on('turbolinks:load', function(){
                       </div>
                     </div>`
       }else {
+        // サブ画像ボックス
         var html = `<div class="preview-box" id="preview-box__${count}">
                       <div class="upper-box">
                         <img src="" alt="preview" style="width:114px; height:116px;">
@@ -26,8 +28,9 @@ $(document).on('turbolinks:load', function(){
       }
       return html;
     }
+
     $(document).on('change', '.hiddenField', function() {
-      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      var id = $(this).attr('id').replace(/[^0-3]/g, '');
       $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
       var file = this.files[0];
       var reader = new FileReader();
@@ -50,7 +53,7 @@ $(document).on('turbolinks:load', function(){
     });
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
-      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      var id = $(this).attr('id').replace(/[^0-3]/g, '');
       $(`#preview-box__${id}`).remove();
       $(`#item_images_attributes_${id}_src`).val("");
       $(`.cameraIcon${id}`).css('display','flex');

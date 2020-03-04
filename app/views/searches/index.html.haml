@@ -1,0 +1,32 @@
+
+.search
+  .search__container
+    .search__container__left
+      = render "shared/header"
+    .search__container__right
+      %section.itemsBox
+        -if @search.present?
+          %h2.search__result__head
+            =@search
+            %span.search__result__head__text
+              の検索結果
+          .search__result__number
+            ="1-#{@items.count}件表示"
+          .search__result__content
+            - @items.each do |item|
+              - item.images.first(1).each do |image|
+                .item__case
+                  = image_tag image.src.url
+                  .panel
+                    .panel__name
+                    = item.name
+                    .panel__price
+                    -# = item.name
+                    = "#{item.price}円"  
+        -else
+          %h2.search__result__nil
+            お探しの商品はございません
+        .items__box__content
+    -# = paginate@items
+  = render "shared/footer"
+  = render "shared/purchase"

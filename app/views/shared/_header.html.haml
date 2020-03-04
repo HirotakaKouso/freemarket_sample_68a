@@ -5,11 +5,14 @@
       .header__main__icon
         = link_to root_path do
           = image_tag "logo.png", class: "topLogo"
+      -# .header__main__seachBox
+      -#   = form_with local: true do |f|
+      -#     = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
+      -# .header__main__seachBtn
       .header__main__seachBox
-        = form_with local: true do |f|
-          = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
-      .header__main__seachBtn
-        = image_tag "icon-search 1.png", class: "topSearch"
+      = form_with(url:searches_path, method: :get, local: true) do |from|
+        = text_field_tag :search, "",placeholder:"キーワードから探す"
+        = submit_tag 'search', :name => nil
     .header__inner__nav
       .listLeft
         .header__category

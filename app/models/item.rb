@@ -18,4 +18,9 @@ class Item < ApplicationRecord
   validates :price, presence:true
   validates :description, presence:true
   validates :method, presence:true
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?',"%#{search}%"])
+  end
 end
