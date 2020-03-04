@@ -144,7 +144,7 @@
             .title {
               width: rem(100);
               font-size: rem(14);
-              color: #646166;
+              color: $mainColor;
             }
 
             .detail {
@@ -152,7 +152,7 @@
               &__top {
                 font-size: rem(14);
                 margin-bottom: rem(15);
-                color: #646166;
+                color: $mainColor;
 
                   #order_last_name_receiver {
                     margin-left: rem(57);
@@ -196,7 +196,7 @@
                 margin-bottom: rem(15);
                 border: #c8c8c8 1px solid;
                 border-radius: rem(5);
-                color: #646166;
+                color: $mainColor;
                 background: linear-gradient(to bottom, #ffffff 0%,#ececec 100%);
                 text-align: center;
                 line-height: rem(32);
@@ -204,7 +204,7 @@
 
               &__bottom {
                 font-size: rem(12);
-                color: #646166;
+                color: $mainColor;
               }
             }
           }
@@ -360,13 +360,6 @@
           cursor: pointer;
           outline: none;
         }
-        // .commision__card {
-        //   font-size: rem(18);
-        //   text-align: center;
-        //   &__title {
-        //     margin: rem(20) 0 rem(10) 0;
-        //   }
-        // }
       }
     }
   }
