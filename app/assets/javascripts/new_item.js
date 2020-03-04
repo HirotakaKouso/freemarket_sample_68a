@@ -43,6 +43,15 @@ $(document).on('turbolinks:load', function(){
           $(`.cameraIcon${id}`).css('display','none');
           $(".imageError").css('display', 'none');
           $(`.imageLabel--${id}`).append(html);
+        }else
+        if ($(`#preview-box__${id}`).length == 1 ){
+          if($(`#preview-box__${id} img`).length >= 1 && $(`#preview-box__${id} img`).length <= 3){
+            var count = $('.preview-box').length;
+            var html = buildHTML(id);
+            $(`.cameraIcon${id}`).css('display','none');
+            $(".imageError").css('display', 'none');
+            $(`.imageLabel--${id}`).append(html);
+          }
         }
         $(`#preview-box__${id} img`).attr('src', `${src}`);
         var count = $('.preview-box').length;
