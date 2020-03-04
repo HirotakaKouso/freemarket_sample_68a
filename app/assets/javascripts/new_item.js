@@ -34,6 +34,9 @@ $(document).on('turbolinks:load', function(){
       reader.readAsDataURL(file);
       reader.onload = function() {
         var src = this.result;
+        if ($(`#item_images_attributes_${id}__destroy`)){
+          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        } 
         if ($(`#preview-box__${id}`).length == 0) {
           var count = $('.preview-box').length;
           var html = buildHTML(id);
@@ -54,6 +57,8 @@ $(document).on('turbolinks:load', function(){
       $(`#preview-box__${id}`).remove();
       $(`#item_images_attributes_${id}_src`).val("");
       $(`.cameraIcon${id}`).css('display','flex');
+      $(`#item_images_attributes_${id}__destroy`).prop('checked', true);
+
       if(id < 5){
         $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
       }
