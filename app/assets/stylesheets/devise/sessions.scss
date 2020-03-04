@@ -18,9 +18,6 @@
       text-align:center;
       .email{
         color:grey;
-        #user_email{
-          
-        }
         input#user_email{
           width:250px;
           margin-bottom:15px;
@@ -29,8 +26,6 @@
       }
       .password{
         color:grey;
-        #user_password{
-        }
         input#user_password{
           width:250px;
           margin-bottom:15px;
@@ -45,8 +40,6 @@
           display: inline-block;
           margin-top: 50px;
           
-          #user_remember_me{
-          }
           label{
             color:grey;
           }

@@ -29,14 +29,14 @@
           display: inline-block;
           margin-right: 50px;
           margin-top: 25px;
-          color: #646166;
+          color: $mainColor;
           font-weight: bold;
         }
         &__detail {
           font-size: 14px;
           display: inline-block;
           margin-top: 40px;
-          color: #646166;
+          color: $mainColor;
         }
       }
       .imageError {
@@ -254,7 +254,7 @@
               &__left {
                 width: 82px;
                 font-size: 14px;
-                color: #646166;
+                color: $mainColor;
                 text-align: center;
                 vertical-align: middle;
                 margin-right: 30px;
@@ -281,7 +281,7 @@
               &__left {
                 width: 82px;
                 font-size: 14px;
-                color: #646166;
+                color: $mainColor;
                 vertical-align: middle;
                 text-align: center;
                 margin-right: 45px;
@@ -304,7 +304,7 @@
                 vertical-align: middle;
                 width: 82px;
                 font-size: 14px;
-                color: #646166;
+                color: $mainColor;
                 margin-top: 20px;
                 margin-right: 20px;
               }
@@ -312,7 +312,7 @@
                 vertical-align: middle;
                 text-align: left;
                 font-size: 14px;
-                color: #646166;
+                color: $mainColor;
                 background: linear-gradient(to bottom, #ffffff 0%,#ececec 100%);
                 font-weight: bold;
                 -webkit-border-radius: 5px;
@@ -489,7 +489,7 @@
                 margin-left: 0;
                 display: block;
                 font-weight: bold;
-                color: #646166;
+                color: $mainColor;
                 width: 370px;
                 padding: 0px;
               }
@@ -520,7 +520,7 @@
             
               &__text {
                 font-weight: bold;
-                color: #646166;
+                color: $mainColor;
                 margin-left: 0;
               }
             }
@@ -552,7 +552,7 @@
             
               &__text {
                 font-size: 12px !important;
-                color: #646166;
+                color: $mainColor;
                 font-weight: bold;
               }
               &__input {
@@ -617,7 +617,7 @@
               }
             
               &__text {
-                color: #646166;
+                color: $mainColor;
                 width: 370px;
               }
             }
@@ -662,4 +662,7 @@ select {
     right: 0px;
     top: 8px;
   }
+}
+.upper-box1{
+  padding-top: 1px;
 }
