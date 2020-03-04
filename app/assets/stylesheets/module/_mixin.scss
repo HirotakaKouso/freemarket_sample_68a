@@ -1,0 +1,26 @@
+@mixin itemSelect() {
+  width: 90%;
+  height: 63px;
+  border-top: 1px solid #ececec;
+  padding: 12px 0;
+  align-items: center;
+  &__left {
+    width: 110px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #b5b5b5;
+  }
+}
+
+@mixin itemBtn(){
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 200px;
+  height: 45px !important;
+  background: $mainBackground;
+  -webkit-border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  outline: none;
+}
