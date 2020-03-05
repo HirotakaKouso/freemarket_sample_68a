@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_02_25_050415) do
 
-  create_table "brand_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "brand_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_brand_categories_on_brand_id"
-    t.index ["category_id"], name: "index_brand_categories_on_category_id"
-  end
-
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -156,8 +147,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "brand_categories", "brands"
-  add_foreign_key "brand_categories", "categories"
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"

@@ -8,6 +8,12 @@ $(document).on('turbolinks:load', function(){
                           <img src="" alt="preview" style="width:398px; height:370px;">
                         </div>
                       </div>`
+        }else if (window.location.href.match(/\/items\/\d+/)){
+          var html = `<div class="preview-box" id="preview-box__${count}">
+                        <div class="upper-box1">
+                          <img src="" alt="preview" style="width:398px; height:370px;">
+                        </div>
+                      </div>`
         }else{
           var html = `<div class="preview-box" id="preview-box__${count}">
                         <div class="upper-box1">
@@ -54,9 +60,16 @@ $(document).on('turbolinks:load', function(){
           $(`.cameraIcon${id}`).css('display','none');
           $(".imageError").css('display', 'none');
           $(`.imageLabel--${id}`).append(html);
+        }else if(window.location.href.match(/\/items\/\d+\/edit/)){
+          if ($(`#preview-box__${id}`).length >= 1 ){
+              var html = buildHTML(id);
+              $(`.cameraIcon${id}`).css('display','none');
+              $(".imageError").css('display', 'none');
+              $(`.imageLabel--${id}`).html(html);
+          }
         }else
-        if (window.location.href.match(/\/items\/\d+\/edit/)){
-          if ($(`#preview-box__${id}`).length == 1 ){
+        if (window.location.href.match(/\/items\/\d+/)){
+          if ($(`#preview-box__${id}`).length >= 1 ){
               var html = buildHTML(id);
               $(`.cameraIcon${id}`).css('display','none');
               $(".imageError").css('display', 'none');
