@@ -4,9 +4,8 @@
   #wrapper
     .wrapper__content
       .wrapper__content__pankuzu
-        = link_to "ホーム", root_path
-        ＞
-        = link_to "ユーザーSHOP"
+      - breadcrumb :user
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
       .wrapper__content__main
         = link_to "プロフィール編集",root_path, class: "wrapper__content__main__editProfBtn"
         .wrapper__content__main__name
@@ -17,7 +16,7 @@
             = current_user.nickname
         .wrapper__content__main__shop
           .shopCredit
-            = link_to "クレジット登録&削除", pay_card_index_path, class: "cardPath"
+            = link_to "クレジット登録&削除", card_index_path, class: "cardPath"
         %a.wrapper__content__main__evaluations{href: "#"}
           %p 評価：
           %img.wrapper__content__main__evaluationsIcon{alt: "goodsmile", src: "https://image.shoppies.jp/img_m/icon_good.png"}/
@@ -40,7 +39,6 @@
       .wrapper__content__page
         .wrapper__content__page__select
           .wrapper__content__page__select__navi
-            = paginate @items
 
 
       %section#wrapper__content__goods
@@ -58,18 +56,16 @@
                     円（税込）
                   .wrapper__content__goods__block__infoFlex
                     %p#item_204626156.wrapper__content__goods__block__infoFlex__like
-                      %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                      -# 小ハートマーク
+                      %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/ 
                       %span 0
                     %p.wrapper__content__goods__block__infoFlex__comment
+                      -# コメントマーク
                       %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
                       0
                     .wrapper__content__goods__block__infoFlex__likeBtn
+                      -# 大ハートボタン
                       %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
- 
-      .wrapper__content__page
-        .wrapper__content__page__select
-          .wrapper__content__page__select__navi
-            = paginate @items
 
 = render "shared/footer"
 = render "shared/purchase"

@@ -113,4 +113,11 @@ gem "jquery-rails"
 gem 'kaminari'
 
 gem 'bootstrap', '~> 4.1.1'
+
 gem "pry-rails"
+
+
+# 検索用gem
+gem 'ransack'
+gem "gretel"
+

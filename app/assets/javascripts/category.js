@@ -43,10 +43,8 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -57,17 +55,13 @@ $(document).on('turbolinks:load', function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
+      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren_wrapper').remove();
-      $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
     }
   });
   // 子カテゴリー選択後のイベント
   $('.content__wrapper__box__right__category__right').on('change', '#child_category', function(){
-    // var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
-    var childId = document.getElementById('child_category').value;
-    console.log(childId)
+    var childId = document.getElementById('child_category').value;//選択された子カテゴリーのidを取得
     if (childId != "カテゴリーを選択する"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/items/get_category_grandchildren',
@@ -78,8 +72,6 @@ $(document).on('turbolinks:load', function(){
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
           $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
-          $('#size_wrapper').remove();
-          $('#brand_wrapper').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -92,8 +84,6 @@ $(document).on('turbolinks:load', function(){
       })
     }else{
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
-      $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
     }
   });
   $('#parent_category').on('change', function(){
@@ -110,6 +100,7 @@ $(document).on('turbolinks:load', function(){
     $('.content__wrapper__box__right__brand').css('display', 'flex');
     $('.content__wrapper__box__right__size').css('display', 'flex');
   });
+  // editページでカテゴリーが選択されなかったときのalert
   $('#editSubmit').click(function(){
     var value = document.getElementById("child_category").value;    
     if (value == "カテゴリーを選択する") {
@@ -118,6 +109,15 @@ $(document).on('turbolinks:load', function(){
     }
     var value2 = document.getElementById("grandchild_category").value;    
     if (value2 == "カテゴリーを選択する") {
+      alert('カテゴリーを選択してください');
+      return false;
+    }
+  });
+  // renderで戻され、カテゴリーがファッションのみの場合のalert(newのみ)
+  $('#exhibitionSubmit').click(function(){
+    var value3 = document.getElementById('parent_category').value; 
+    var value = document.getElementById("child_category");    
+    if(value == null && value3 == 1){
       alert('カテゴリーを選択してください');
       return false;
     }

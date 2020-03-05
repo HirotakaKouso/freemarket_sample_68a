@@ -37,9 +37,13 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @parents = Category.where(ancestry:nil)
-    @children = Category.where(ancestry:@item.category.root.id)
-    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+      if current_user.id == @item.user.id
+        @parents = Category.where(ancestry:nil)
+        @children = Category.where(ancestry:@item.category.root.id)
+        @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+      else
+        redirect_to item_path(@item)
+      end
   end
 
   def update
@@ -66,5 +70,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :price, :description, :shipping_method_id, :brand_id, :condition_id, :size_id, :category_id, :prefecture_id, :delivery_date_id, :shipping_fee_id, :method ,images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
+  
 end
 

@@ -1,7 +1,10 @@
 = render "shared/header"
 
+
 .main
   .main__all
+    - breadcrumb :item
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
     .main__all__content
       .main__all__content__image
         .main__all__content__image__main 
@@ -23,13 +26,12 @@
           - elsif @item.order.present?
             売り切れ
           - else
-
             %button= link_to "購入する", item_orders_path(@item), class: "main__all__content__image__button__purchase"
 
 
       .main__all__content__product
         .main__all__content__product__title
-          = @item.name
+          = @item.description
         .main__all__content__product__name
           .main__all__content__product__name__title 出品者
           .main__all__content__product__name__text

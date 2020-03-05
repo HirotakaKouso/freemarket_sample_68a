@@ -1,3 +1,4 @@
+
 = render "shared/header"
 .user-card__content
   %h2 クレジットカード情報
@@ -16,8 +17,6 @@
         %button 削除する
 
   %form
-  %input{:onclick => "history.go(-2);", :type => "button", :value => "前のページに戻る"}/
+  %input{onclick:"history.go(-2);", type:"button", value:"前のページに戻る"}/
 
-.credit_main
-  = link_to "マイページ", user_path(current_user.id)
 

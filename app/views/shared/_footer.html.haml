@@ -28,6 +28,7 @@
         .content__head__list
           お知らせ
   .footer__logo
-    = image_tag "logo-white.png", class: "footer__logo__image"
+    = link_to root_path do
+      = image_tag "logo-white.png", class: "footer__logo__image"
     .footer__logo__furima
       © FURIMA

@@ -1,0 +1,48 @@
+
+.search
+  .search__container
+    .search__container__left
+      = render "shared/header" # ヘッダー呼び出し
+      -# = paginate @items_p #ページネーション機能
+    .search__container__right
+      %section.itemsBox
+        -if @search.present? #検索結果の有無を確認（真）
+          %h2.search__result__head
+            =@search
+            %span.search__result__head__text
+              の検索結果
+          .search__result__number
+            ="1-#{@items.count}件表示"#検索結果数の出力
+          .search__result__content
+            .search__result__content__inside
+              - @items.each do |item|
+                - item.images.first(1).each do |image|
+                  = link_to item_path(item.id) do
+                    .item__case
+                      .item__case__image= image_tag image.src.url #商品画像の出力
+                      .panel
+                        .panel__name
+                        = item.name #商品名の出力
+                        .panel__price
+                        = "#{item.price}円(税込)"  #商品価格の出力
+                        .panel__icons
+                          .left
+                            .heart
+                              -# 小ハートマーク
+                              %img.heart__icon{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/ 
+                              %span 0
+                            .comment
+                              -# コメントマーク
+                              %img.comment__icon{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
+                              0
+                          .right
+                            -# 大ハートボタン
+                            %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
+
+        -else #検索結果の有無を確認（偽）
+          %h2.search__result__nil
+            お探しの商品はございません
+        .items__box__content
+    -# = paginate@items
+= render "shared/footer"#フッターの呼び出し
+= render "shared/purchase"#出品ボタン（カメラアイコン）の呼び出し
