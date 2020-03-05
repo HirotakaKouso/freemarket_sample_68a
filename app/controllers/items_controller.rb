@@ -32,13 +32,18 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @orders = Order.all
   end
 
   def edit
     @item = Item.find(params[:id])
-    @parents = Category.where(ancestry:nil)
-    @children = Category.where(ancestry:@item.category.root.id)
-    @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+      if current_user.id == @item.user.id
+        @parents = Category.where(ancestry:nil)
+        @children = Category.where(ancestry:@item.category.root.id)
+        @grandchildren = Category.where(ancestry:"#{@item.category.root.id}/#{@item.category.parent.id}")
+      else
+        redirect_to item_path(@item)
+      end
   end
 
   def update

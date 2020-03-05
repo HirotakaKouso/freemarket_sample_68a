@@ -35,7 +35,7 @@
           .content__wrapper__box__left__price
             .content__wrapper__box__left__price__main
               .content__wrapper__box__left__price__main__text 商品価格
-              = f.text_field :price, class:"content__wrapper__box__left__price__main__input", placeholder: "300~50,000"
+              = f.text_field :price, class:"content__wrapper__box__left__price__main__input", placeholder: "300~50,000",required: true
               円
             .content__wrapper__box__left__price__sub
               .content__wrapper__box__left__price__sub__left
@@ -74,7 +74,6 @@
           .content__wrapper__box__right__category
             .content__wrapper__box__right__category__left カテゴリー
             .content__wrapper__box__right__category__right
-              -# = f.collection_select :category_id, Category.group(:name).order(id: :asc), :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
               = f.collection_select :category_id, @parents , :id, :name, {prompt: "カテゴリーを選択する"}, id:"parent_category"
               =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down")
           .content__wrapper__box__right__brand
@@ -114,5 +113,5 @@
               = f.collection_select :delivery_date_id, DeliveryDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
               =icon('fas', 'chevron-down', class:"listing-select-wrapper__box--arrow-down",style:"display:block;")
       .content__wrapper__confirmation
-        = f.submit "確認", class:"content__wrapper__confirmation__button"
+        = f.submit "確認", class:"content__wrapper__confirmation__button",id:"exhibitionSubmit"
   = render "shared/footer"

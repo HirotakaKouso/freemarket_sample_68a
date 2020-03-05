@@ -2,7 +2,7 @@
   @return #{$value / 16}rem;
 }
 
-.purchaseNew {
+.purchaseIndex {
   width: 100vw;
   overflow: scroll;
 
@@ -341,43 +341,24 @@
             }
           }
         }
-        .btn{
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          height: rem(100);
-          width: rem(960);
+
+        .submit {
+          display: block;
+          width: rem(400);
+          height: rem(45);
+          background:$mainBackground;
+          border: $mainBackground 1px solid ;
+          border-radius: rem(5);
+          color: #ffffff;
+          font-size: rem(16);
+          font-weight: bold;
+          line-height: rem(45);
+          text-align: center;
           margin: 0 auto;
-          .modify {
-            display: block;
-            width: rem(300);
-            height: rem(45);
-            background:$mainBackground;
-            border: $mainBackground 1px solid ;
-            border-radius: rem(5);
-            color: #ffffff;
-            font-size: rem(16);
-            font-weight: bold;
-            text-align: center;
-            line-height: rem(45);
-            cursor: pointer;
-            outline: none;
-          }
-          .submit {
-            display: block;
-            width: rem(300);
-            height: rem(45);
-            background:$mainBackground;
-            border: $mainBackground 1px solid ;
-            border-radius: rem(5);
-            color: #ffffff;
-            font-size: rem(16);
-            font-weight: bold;
-            line-height: rem(45);
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-          }
+          margin-top: rem(40);
+          margin-bottom: rem(20);
+          cursor: pointer;
+          outline: none;
         }
       }
     }

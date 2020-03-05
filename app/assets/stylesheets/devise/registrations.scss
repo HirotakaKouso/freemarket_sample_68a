@@ -1,252 +1,273 @@
-.registrationsNew{
-  width:100%;
-  min-height:100vh;
-  height: 100%;
-  background-color:lightblue;
-  text-align:center;
-  vertical-align: middle;
-  h2{
-    padding-top:10vh;
-    font-weight: bold;
-    color:grey;
-    font-size: 25px;
-    font-family: 'Courier';
-  }
-  form{
-    .request{
-      color:red;
-      margin-bottom:20px;
-    }
-    .registrationBox{
-      display: inline-block;
-      &__flex {
-        display: flex;
-        flex-direction: column;
-        .nickname{
-          display: flex;
-          justify-content: space-between;
-          color:grey;
-          label{
-            margin-right:200px;
-          }
-          input#user_nickname{
-            margin-left:150px;
-            width:250px;
-            margin-bottom:15px;
-          }  
-        }
-        .email{
-          display: flex;
-          justify-content: space-between;
-          color:grey;
-          label{
-            margin-right:200px;
-          }
-          input#user_email{
-            margin-left:137px;
-            width:250px;
-            margin-bottom:15px;
-          }
-        }
-        .password{
-          display: flex;
-          justify-content: space-between;
-          // margin-left:5vw;
-          color:grey;
-          em{
-            margin-right:70px;
-          }
-          input#user_password{
-            margin-left:137px;
-            width:250px;
-            margin-bottom:15px;
-          }
-        }
-        .passwordConfirm{
-          display: flex;
-          justify-content: space-between;
-          // margin-left:5vw;
-          color:grey;
-          label{
-            margin-right:190px;
-          }
-          input#user_password_confirmation{
-            margin-left:130px;
-            width:250px;
-            margin-bottom:15px;
-          }
-        }
-        .nameUpper{
-          display: flex;
-          justify-content: flex-end;
-          margin-left: 15px;
-          .lastName{
-            // margin-left:5vw;
-            color:grey;
-            label{
-              margin-left:380px;
-            }
-            input#user_last_name{
-              width:125px;
-              margin-bottom:15px;
-            }
-          }
-          .firstName{
-            color:grey;
-            label{
-              margin-left:30px;
-            }
-            #user_first_name{
-              // margin-left:0vw;
-            }
-            input#user_first_name{
-              width:125px;
-              margin-bottom:15px;
-            }
-          }
-        }
-        .nameLower{
-          display: flex;
-          justify-content: flex-end;
-          margin-left: 23px;
-          .lastNameKana{
-            color:grey;
-            margin-right: 15px;
-            label{
-              margin-left:340px;
-            }
-            input#user_last_name_kana{
-              width:125px;
-              margin-bottom:15px;
-            }
-          }
-          .firstNameKana{
-            color:grey;
-            label{
-              // margin-left:2.9vw;
-            }
-            input#user_first_name_kana{
-              width:125px;
-              margin-bottom:15px;
-            }
-          }
-        }
-        .tel{
-          display: flex;
-          justify-content: space-between;
-          color:grey;
-          label{
-            margin-right:265px;
-          }
-          input#user_tel{
-            margin-left:200px;
-            margin-bottom:15px;
-          }
-        }
-        .zipCode{
-          display: flex;
-          justify-content: space-between;
-          color:grey;
-          label{
-            margin-right:265px;
-          }
-          input#user_zip_code{
-            margin-bottom:15px;
-            margin-left:200px;
-          }
-        }
-        .prefecture{
-          display: flex;
-          justify-content: space-between;
-          // margin-left:5vw;
-          color:grey;
-          label{
-            margin-right:300px;
-          }
-          select#user_prefecture_id{
-            width:100px;
-            height:30px;
-            margin-bottom:15px;
-            margin-left:240px;
-          }
-        }
-        .address{
-          display: flex;
-          justify-content: space-between;
-          // margin-left:5vw;
-          color:grey;
-          label{
-            margin-right:265px;
-          }
-          input#user_address{
-            margin-bottom:15px;
-            margin-left:230px;
-          }
-        }
-        .userBirth{
-          display: flex;
-          justify-content: space-between;
-          &__left {
-            .birth{
-              color:grey;
-            }
-          }
-          &__right {
-            display: flex;
-            .birthYear{
-              margin-bottom:15px;
-              color:grey;
-              #user_birth_year{
-                // margin-left:14.3vw;
-              }
-              input#user_birth_year{
-                width:80px;
-              }
-            }
-            .birthMonth{
-              // margin-bottom:15px;
-              color:grey;
-              input#user_birth_month{
-                width:35px;
-              }
-            }
-            .birthDay{
-              margin-bottom:15px;
-              color:grey;
-              input#user_birth_day{
-                width:35px;
-              }
-            }
-          }
-        }
-      }
-    }
-    .actions{
-      margin-top:15px;
-      text-align: center;
-      margin-bottom: 50px;
-      input{
-        width:100px;
-        height:30px;
-        // background-color: #3CCACD;
-        font-size: 15px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    }
-    a{
-      color:black;
-      font-weight: bold;
-      border: white 1px solid;
-      background: white;
-      border-radius: 5px;
-      width: 100px;
+.registrationWrapper{
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#05FBFF, #1D62F0 ) fixed;
+  .registrationContents {
+    padding-top: 50px;
+    .registrationContent {
+      width: 50%;
       margin: 0 auto;
+      background-color: white;
+      border-radius: 30px;
+      .registrationsNew{
+        width:100%;
+        text-align:center;
+        vertical-align: middle;
+        h2{
+          padding-top: 20px;
+          font-weight: bold;
+          color:grey;
+          font-size: 30px;
+          font-family: 'Courier';
+        }
+        form{
+          .request{
+            color:red;
+            margin-bottom:20px;
+          }
+          .registrationBox{
+            display: inline-block;
+            &__flex {
+              display: flex;
+              flex-direction: column;
+              .nickname{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                label{
+                  margin-right:200px;
+                }
+                input#user_nickname{
+                  margin-left:150px;
+                  width:250px;
+                  margin-bottom:15px;
+                }  
+              }
+              .email{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                
+                label{
+                  margin-right:200px;
+                }
+                input#user_email{
+                  margin-left:137px;
+                  width:250px;
+                  margin-bottom:15px;
+                }
+              }
+              .password{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                em{
+                  margin-right:70px;
+                }
+                input#user_password{
+                  margin-left:137px;
+                  width:250px;
+                  margin-bottom:15px;
+                }
+              }
+              .passwordConfirm{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                label{
+                  margin-right:190px;
+                }
+                input#user_password_confirmation{
+                  margin-left:130px;
+                  width:250px;
+                  margin-bottom:15px;
+                }
+              }
+              .nameUpper{
+                display: flex;
+                justify-content: flex-end;
+                margin-left: 15px;
+                font-size: 18px;
+                .lastName{
+                  color:grey;
+                  label{
+                    margin-left:380px;
+                  }
+                  input#user_last_name{
+                    width:125px;
+                    margin-bottom:15px;
+                  }
+                }
+                .firstName{
+                  color:grey;
+                  label{
+                    margin-left:30px;
+                  }
+                  input#user_first_name{
+                    width:125px;
+                    margin-bottom:15px;
+                  }
+                }
+              }
+              .nameLower{
+                display: flex;
+                justify-content: flex-end;
+                margin-left: 23px;
+                font-size: 18px;
+                .lastNameKana{
+                  color:grey;
+                  margin-right: 15px;
+                  label{
+                    margin-left:340px;
+                  }
+                  input#user_last_name_kana{
+                    width:125px;
+                    margin-bottom:15px;
+                  }
+                }
+                .firstNameKana{
+                  color:grey;
+                  input#user_first_name_kana{
+                    width:125px;
+                    margin-bottom:15px;
+                  }
+                }
+              }
+              .tel{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                label{
+                  margin-right:265px;
+                }
+                input#user_tel{
+                  margin-left:200px;
+                  margin-bottom:15px;
+                }
+              }
+              .zipCode{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                label{
+                  margin-right:265px;
+                }
+                input#user_zip_code{
+                  margin-bottom:15px;
+                  margin-left:200px;
+                }
+              }
+              .prefecture{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                label{
+                  margin-right:300px;
+                  text-decoration: underline solid rgb(75, 183, 226);
+                }
+                select#user_prefecture_id{
+                  width:100px;
+                  height:30px;
+                  margin-bottom:15px;
+                  margin-left:240px;
+                }
+              }
+              .address{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                color:grey;
+                text-decoration: underline solid rgb(75, 183, 226);
+                label{
+                  margin-right:265px;
+                }
+                input#user_address{
+                  margin-bottom:15px;
+                  margin-left:230px;
+                }
+              }
+              .userBirth{
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                &__left {
+                  .birth{
+                    color:grey;
+                    text-decoration: underline solid rgb(75, 183, 226);
+                  }
+                }
+                &__right {
+                  display: flex;
+                  .birthYear{
+                    margin-bottom:15px;
+                    color:grey;
+                    input#user_birth_year{
+                      width:80px;
+                    }
+                  }
+                  .birthMonth{
+                    color:grey;
+                    input#user_birth_month{
+                      width:35px;
+                    }
+                  }
+                  .birthDay{
+                    margin-bottom:15px;
+                    color:grey;
+                    input#user_birth_day{
+                      width:35px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .actionBack {
+            padding-top: 10px;
+            .actions{
+              margin-top:15px;
+              text-align: center;
+              margin-bottom: 30px;
+              input{
+                width:100px;
+                height:50px;
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+            }
+            a{
+              font-weight: bold;
+              border: white 1px solid;
+              background: white;
+              border-radius: 5px;
+              width: 100px;
+              height: 40px;
+              line-height: 40px;
+              margin: 0 auto;
+              color: grey;
+            }
+          }
+        }
+      }
+    
+      .field_with_errors {
+        display: contents;
+      }
     }
   }
-}
-
-.field_with_errors {
-  display: contents;
 }

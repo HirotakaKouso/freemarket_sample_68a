@@ -5,9 +5,9 @@ class CardController < ApplicationController
 
   def new
     if @card.exists? #カード情報がなければ、カード登録画面に戻る
-    redirect_to action: "show"
+      redirect_to card_index_path
+    end
   end
-end
 
   def pay #payjpとCardのデータベース作成。
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -22,14 +22,14 @@ end
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "create"
+        redirect_to card_index_path
       else
         redirect_to action: "pay"
       end
     end
   end
 
-  def destroy #PayjpとCardデータベースを削除します
+  def delete #PayjpとCardデータベースを削除します
     card = @card.first
     if card.blank?
       redirect_to action: "new"

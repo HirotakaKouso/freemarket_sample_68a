@@ -101,14 +101,15 @@
         .productLists__main
           - @items.last(3).each do |item|
             - item.images.first(1).each do |image|
-              = link_to item_path(item.id) do
-                = image_tag image.src.url, class: "productList"
-        -# .aaa
-        -#   - @orders.each do |order|
-        -#     - if order.id == buyer.id
-        -#       = image_tag image.src.url, class: "productList"
-        -#     - else
-        -#       = image_tag "btn_googleplay.gif",class: "gBtn"
+              - if item.order.present?
+                = link_to item_path(item.id), class: "linkImage" do
+                  .imageBox
+                    = image_tag image.src.url, class: "productList"
+                    = image_tag "soldout.jpg", class: "soldout"
+              - else
+                = link_to item_path(item.id), class: "linkImage" do
+                  .imageBox
+                    = image_tag image.src.url, class: "productList"
         .productLists__sub
           .productList__body
             .name
@@ -144,8 +145,15 @@
         .productLists__main
           - @items.last(3).each do |item|
             - item.images.first(1).each do |image|
-              = link_to item_path(item.id) do
-                = image_tag image.src.url, class: "productList"
+              - if item.order.present?
+                = link_to item_path(item.id), class: "linkImage" do
+                  .imageBox
+                    = image_tag image.src.url, class: "productList"
+                    = image_tag "soldout.jpg", class: "soldout"
+              - else
+                = link_to item_path(item.id), class: "linkImage" do
+                  .imageBox
+                    = image_tag image.src.url, class: "productList"
         .productLists__sub
           .productList__body
             .name

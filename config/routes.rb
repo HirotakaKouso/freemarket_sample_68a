@@ -6,14 +6,17 @@ Rails.application.routes.draw do
   # get '/items/:id/edit', to: 'items#edit', as: 'item'
 
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :orders, only: [:new,:create]
-    resources :purchase, only: [:create] do
+
+    resources :orders, only: [:index, :new, :create]
+    resources :purchase, only: [:index] do
+
       collection do
+        get 'index', to: 'purchase#index'
         post 'pay', to: 'purchase#pay'
         get 'done', to: 'purchase#done'
       end
     end    
-
+  
     
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -35,13 +38,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit]
 
-  resources :card, only: [:new, :show, :destroy] do
+  resources :card, only: [:new, :show] do
     collection do
-      post 'create', to: 'card#create'
+      post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
     end
   end
   
   resources :searches,only:[:index]
-  
+
 end

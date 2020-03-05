@@ -79,7 +79,7 @@
             text-align: center;
             margin: 0 5px 0 0;
             padding: 10px 20px;
-            background-color: #3CCACE;
+            background-color: $mainBackground;
             color: #fff;
           }
           .listPic {
@@ -94,7 +94,7 @@
           line-height: 50px;
           display: flex;
           .list__text__blue {
-            color: #3CCACE;
+            color: $mainBackground;
             margin: 0 0 0 2px;
           }
         }
@@ -124,7 +124,7 @@
             text-align: center;
             margin: 0 5px 0 0;
             padding: 10px 20px;
-            background-color: #3CCACE;
+            background-color: $mainBackground;
             color: #fff;
           }
           .lastPic {
@@ -134,7 +134,7 @@
           }
         }
         &__text {
-          color: #3CCACE;
+          color: $mainBackground;
           font-weight: bold;
           font-size: 24px;
           line-height: 50px;
@@ -244,7 +244,7 @@
     }
     .productBox {
       .productHead {
-        color: #3CCACE;
+        color: $mainBackground;
         font-size: 28px;
         line-height: 1.4;
         font-weight: bold;
@@ -254,26 +254,44 @@
         width: 780px;
         margin: 26px auto;
         justify-content: space-around;
-        .productList {
-          width: 220px;
-          height: 150px;
-          display: inline-block;
-          cursor: pointer;
+        .productLists__main {
+          padding-left: 65px;
+          display: flex;
+          .linkImage {
+            .imageBox {
+              position: relative;
+              .productList {
+                width: 220px;
+                height: 150px;
+                display: block;
+                cursor: pointer;
+                display: flex;
+              }
+              .productList:hover {
+                width: 220px;
+                height: 150px;
+                display: block;
+                cursor: pointer;
+                opacity: 0.7;
+                -webkit-transform: translateY(-3px);
+                -ms-transform: translateY(-3px);
+                transform: translateY(-3px);
+              }
+                .soldout {
+                  width: 220px;
+                  height: 150px;
+                  opacity: 0.9;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                }
+            }
         }
-        .productList:hover {
-          width: 220px;
-          height: 150px;
-          display: inline-block;
-          cursor: pointer;
-          opacity: 0.7;
-          -webkit-transform: translateY(-3px);
-          -ms-transform: translateY(-3px);
-          transform: translateY(-3px);
-        }
-        // .aaa {
-        // }
+      }
+        
         .productLists__sub {
           display: flex;
+          padding-left: 65px;
           .productList__body {
             width: 210px;
             margin: 10px 20px 0 0;
@@ -358,10 +376,11 @@
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-    cursor: pointer;
     &__image {
       width: 100%;
       vertical-align: bottom;
+      cursor: pointer;
+
     }
   }
 }
@@ -370,7 +389,7 @@
 // カメラのアイコン
 .purchaseBtn {
   width: 120px;
-  background: #3CCACE;
+  background: $mainBackground;
   text-align: center;
   border-radius: 4%;
   bottom: 32px;

@@ -4,9 +4,8 @@
   #wrapper
     .wrapper__content
       .wrapper__content__pankuzu
-        = link_to "ホーム", root_path
-        ＞
-        = link_to "ユーザーSHOP"
+      - breadcrumb :user
+      = breadcrumbs pretext: "",separator: " &rsaquo; "
       .wrapper__content__main
         = link_to "プロフィール編集",root_path, class: "wrapper__content__main__editProfBtn"
         .wrapper__content__main__name
@@ -17,7 +16,7 @@
             = current_user.nickname
         .wrapper__content__main__shop
           .shopCredit
-            = link_to "クレジット登録&削除", pay_card_index_path, class: "cardPath"
+            = link_to "クレジット登録&削除", card_index_path, class: "cardPath"
         %a.wrapper__content__main__evaluations{href: "#"}
           %p 評価：
           %img.wrapper__content__main__evaluationsIcon{alt: "goodsmile", src: "https://image.shoppies.jp/img_m/icon_good.png"}/

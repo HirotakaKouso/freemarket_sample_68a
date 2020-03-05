@@ -18,6 +18,8 @@ class Item < ApplicationRecord
   validates :price, presence:true
   validates :description, presence:true
   validates :method, presence:true
+  validates :price, numericality:{ greater_than_or_equal_to: 300 }
+  validates :price, numericality:{ less_than_or_equal_to: 50000 }
 
   def self.search(search)
     return Item.all unless search
