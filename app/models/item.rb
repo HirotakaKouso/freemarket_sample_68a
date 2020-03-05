@@ -20,5 +20,9 @@ class Item < ApplicationRecord
   validates :method, presence:true
   validates :price, numericality:{ greater_than_or_equal_to: 300 }
   validates :price, numericality:{ less_than_or_equal_to: 50000 }
-  # validates :ancestry nil
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?',"%#{search}%"])
+  end
 end

@@ -111,5 +111,6 @@ gem 'kaminari'
 
 gem 'bootstrap', '~> 4.1.1'
 
-# パンくず
+# 検索用gem
+gem 'ransack'
 gem "gretel"

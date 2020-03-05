@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     function buildHTML(count) {
       if(count == 0) {
+
         if (window.location.href.match(/\/items\/\d+\/edit/)){
           var html = `<div class="preview-box" id="preview-box__${count}">
                         <div class="upper-box1">
@@ -27,6 +28,7 @@ $(document).on('turbolinks:load', function(){
                       </div>`
         }
       }else {
+        // サブ画像ボックス
         var html = `<div class="preview-box" id="preview-box__${count}">
                       <div class="upper-box">
                         <img src="" alt="preview" style="width:114px; height:116px;">

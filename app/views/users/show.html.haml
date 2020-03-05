@@ -57,18 +57,16 @@
                     円（税込）
                   .wrapper__content__goods__block__infoFlex
                     %p#item_204626156.wrapper__content__goods__block__infoFlex__like
-                      %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/
+                      -# 小ハートマーク
+                      %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_suki_off.gif"}/ 
                       %span 0
                     %p.wrapper__content__goods__block__infoFlex__comment
+                      -# コメントマーク
                       %img{alt: "", src: "https://image.shoppies.jp/img_m/sicon_qa_on.gif"}>/
                       0
                     .wrapper__content__goods__block__infoFlex__likeBtn
+                      -# 大ハートボタン
                       %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
- 
-      .wrapper__content__page
-        .wrapper__content__page__select
-          .wrapper__content__page__select__navi
-            = paginate @items
 
 = render "shared/footer"
 = render "shared/purchase"
