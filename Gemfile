@@ -112,7 +112,7 @@ gem "jquery-rails"
 # ページネーションするやつ
 gem 'kaminari'
 
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 
 gem "pry-rails"
 
