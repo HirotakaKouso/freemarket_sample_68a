@@ -2,16 +2,24 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     function buildHTML(count) {
       if(count == 0) {
-        var html = `<div class="preview-box" id="preview-box__${count}">
-                      <div class="upper-box1">
-                        <img src="" alt="preview" style="width:398px; height:370px;">
-                      </div>
-                      <div class="lower-box">
-                        <div class="delete-box" id="delete_btn_${count}">
-                          <span>削除</span>
+        if (window.location.href.match(/\/items\/\d+\/edit/)){
+          var html = `<div class="preview-box" id="preview-box__${count}">
+                        <div class="upper-box1">
+                          <img src="" alt="preview" style="width:398px; height:370px;">
                         </div>
-                      </div>
-                    </div>`
+                      </div>`
+        }else{
+          var html = `<div class="preview-box" id="preview-box__${count}">
+                        <div class="upper-box1">
+                          <img src="" alt="preview" style="width:398px; height:370px;">
+                        </div>
+                        <div class="lower-box">
+                          <div class="delete-box" id="delete_btn_${count}">
+                            <span>削除</span>
+                          </div>
+                        </div>
+                      </div>`
+        }
       }else {
         var html = `<div class="preview-box" id="preview-box__${count}">
                       <div class="upper-box">
@@ -26,9 +34,13 @@ $(document).on('turbolinks:load', function(){
       }
       return html;
     }
+    function buildHTML2(count) {
+      var html = `<i class="fas fa-camera cameraIcon${count}" style="display: flex;"></i>`
+      return html;
+    }
     $(document).on('change', '.hiddenField', function() {
-      var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
+      var id = $(this).attr('id').replace(/[^0-9]/g, "");
+      console.log(id)
       var file = this.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -38,39 +50,35 @@ $(document).on('turbolinks:load', function(){
           $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
         if ($(`#preview-box__${id}`).length == 0) {
-          var count = $('.preview-box').length;
           var html = buildHTML(id);
           $(`.cameraIcon${id}`).css('display','none');
           $(".imageError").css('display', 'none');
           $(`.imageLabel--${id}`).append(html);
         }else
-        if ($(`#preview-box__${id}`).length == 1 ){
-          if($(`#preview-box__${id} img`).length >= 1 && $(`#preview-box__${id} img`).length <= 3){
-            var count = $('.preview-box').length;
-            var html = buildHTML(id);
-            $(`.cameraIcon${id}`).css('display','none');
-            $(".imageError").css('display', 'none');
-            $(`.imageLabel--${id}`).append(html);
+        if (window.location.href.match(/\/items\/\d+\/edit/)){
+          if ($(`#preview-box__${id}`).length == 1 ){
+              var html = buildHTML(id);
+              $(`.cameraIcon${id}`).css('display','none');
+              $(".imageError").css('display', 'none');
+              $(`.imageLabel--${id}`).html(html);
           }
         }
         $(`#preview-box__${id} img`).attr('src', `${src}`);
-        var count = $('.preview-box').length;
-        if(count < 5){
-          $('.labelBox').attr({id: `labelBox--${count}`,for: `item_images_attributes_${count}_src`});
-        }
       }
     });
     $(document).on('click', '.delete-box', function() {
-      var count = $('.preview-box').length;
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
       $(`#item_images_attributes_${id}_src`).val("");
       $(`.cameraIcon${id}`).css('display','flex');
       $(`#item_images_attributes_${id}__destroy`).prop('checked', true);
-
-      if(id < 5){
-        $('.labelBox').attr({id: `labelBox--${id}`,for: `item_images_attributes_${id}_src`});
+      if (window.location.href.match(/\/items\/\d+\/edit/)){
+        if ($(`#preview-box__${id}`).length == 0 || 1 ) {
+          var html = buildHTML2(id);
+          $(`.imageLabel--${id}`).append(html);
+        }
       }
+
     });
     $(".content__wrapper__confirmation__button").click(function(){
       if ($(`.preview-box`).length == 0) {

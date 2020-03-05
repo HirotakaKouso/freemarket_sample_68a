@@ -25,9 +25,6 @@
                         .preview-box#preview-box__0
                           .upper-box1
                             = image_tag image.src.url, id:"editImage0",alt:"preview"
-                          .lower-box
-                            .delete-box#delete_btn_0
-                              %span 削除
                 .content__wrapper__box__left__image__sub
                   %label{for: "item_images_attributes_1_src",id: "labelBox--1"}
                     = i.file_field :src, class: "hiddenField", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src"
