@@ -1,74 +1,79 @@
-.registrationsNew
-  %h2< 会員登録
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    .request 全て必須事項です。
-    .registrationBox
-      .registrationBox__flex
-        .nickname
-          = f.label :nickname
-          = f.text_field :nickname
-        %br/
-        .email
-          = f.label :email
-          = f.email_field :email, autofocus: true, autocomplete: "email"
-        %br/
-        .password
-          = f.label :password
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} 文字以上の英数字)
-          = f.password_field :password, autocomplete: "new-password"
-        %br/
-        .passwordConfirm
-          = f.label :password_confirmation
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        %br/
-        .nameUpper
-          .lastName
-            = f.label :last_name
-            = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
-        
-          .firstName
-            = f.label :first_name 
-            = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
-          %br/
-        .nameLower
-          .lastNameKana
-            = f.label :last_name_kana
-            = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"
-          .firstNameKana
-            = f.label :first_name_kana
-            = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"
-          %br/
-        .tel
-          = f.label :tel
-          = f.telephone_field :tel, autofocus: true, autocomplete: "tel"
-        %br/
-        .zipCode
-          = f.label :zip_code
-          = f.text_field :zip_code, autofocus: true, autocomplete: "zip_code"
-        %br/
-        .prefecture
-          = f.label :prefecture
-          = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: ""}
-        %br/
-        .address
-          = f.label :address
-          = f.text_field :address, autofocus: true, autocomplete: "address"
-        %br/
-        .userBirth
-          .userBirth__left
-            .birth 生年月日
-          .userBirth__right
-            .birthYear
-              = f.number_field :birth_year, autofocus: true, autocomplete: "birth_year", min:1900, max:2020,value:2000
-              = f.label :birth_year
-            .birthMonth
-              = f.number_field :birth_month, autofocus: true, autocomplete: "birth_month", min:1, max:12,value:1
-              = f.label :birth_month
-            .birthDay
-              = f.number_field :birth_day, autofocus: true, autocomplete: "birth_day", min:1, max:31,value:1
-              = f.label :birth_day
-    .actions
-      = f.submit "登録"
-    = render "devise/shared/links"
+.registrationWrapper
+  .registrationContents
+    .registrationContent
+      .registrationsNew
+        %h2< 会員登録
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          -# = render "devise/shared/error_messages", resource: resource
+          .request 全て必須事項です。
+          .registrationBox
+            .registrationBox__flex
+              .nickname
+                = f.label :nickname
+                = f.text_field :nickname
+              %br/
+              .email
+                = f.label :email
+                = f.email_field :email, autofocus: true, autocomplete: "email"
+              %br/
+              .password
+                = f.label :password
+                - if @minimum_password_length
+                  %em
+                    (#{@minimum_password_length} 文字以上の英数字)
+                = f.password_field :password, autocomplete: "new-password"
+              %br/
+              .passwordConfirm
+                = f.label :password_confirmation
+                = f.password_field :password_confirmation, autocomplete: "new-password"
+              %br/
+              .nameUpper
+                .lastName
+                  = f.label :last_name
+                  = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
+              
+                .firstName
+                  = f.label :first_name 
+                  = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
+                %br/
+              .nameLower
+                .lastNameKana
+                  = f.label :last_name_kana
+                  = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"
+                .firstNameKana
+                  = f.label :first_name_kana
+                  = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"
+                %br/
+              .tel
+                = f.label :tel
+                = f.telephone_field :tel, autofocus: true, autocomplete: "tel"
+              %br/
+              .zipCode
+                = f.label :zip_code
+                = f.text_field :zip_code, autofocus: true, autocomplete: "zip_code"
+              %br/
+              .prefecture
+                = f.label :prefecture
+                = f.collection_select :prefecture_id, Prefecture.group(:prefecture).order(id: :asc), :id, :prefecture, {prompt: ""}
+              %br/
+              .address
+                = f.label :address
+                = f.text_field :address, autofocus: true, autocomplete: "address"
+              %br/
+              .userBirth
+                .userBirth__left
+                  .birth 生年月日
+                .userBirth__right
+                  .birthYear
+                    = f.number_field :birth_year, autofocus: true, autocomplete: "birth_year", min:1900, max:2020,value:2000
+                    = f.label :birth_year
+                  .birthMonth
+                    = f.number_field :birth_month, autofocus: true, autocomplete: "birth_month", min:1, max:12,value:1
+                    = f.label :birth_month
+                  .birthDay
+                    = f.number_field :birth_day, autofocus: true, autocomplete: "birth_day", min:1, max:31,value:1
+                    = f.label :birth_day
+          .actionBack
+            .actions
+              = f.submit "登録"
+            = render "devise/shared/links"

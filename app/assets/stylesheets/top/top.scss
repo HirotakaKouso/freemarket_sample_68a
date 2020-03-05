@@ -364,6 +364,7 @@
         margin: 26px auto;
         justify-content: space-around;
         .productLists__main {
+          padding-left: 65px;
           display: flex;
           .linkImage {
             .imageBox {
@@ -399,6 +400,7 @@
         
         .productLists__sub {
           display: flex;
+          padding-left: 65px;
           .productList__body {
             width: 210px;
             margin: 10px 20px 0 0;
