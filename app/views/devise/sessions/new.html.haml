@@ -1,19 +1,21 @@
-.sessions
-  .sessions__box
-    %h2 ログイン画面
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .email
-        = f.label :email
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .password
-        = f.label :password
-        = f.password_field :password, autocomplete: "current-password"
-      .lower
-        - if devise_mapping.rememberable?
-          .userRememberMe
-            = f.check_box :remember_me
-            = f.label :remember_me
-        .actions
-          = f.submit "ログイン"
-    .bottom
-      = render "devise/shared/links"
+.sessionMain
+  .sessionContent
+    .sessions
+      .sessions__box
+        %h2 ログイン画面
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .email
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .password
+            = f.label :password
+            = f.password_field :password, autocomplete: "current-password"
+          .lower
+            - if devise_mapping.rememberable?
+              .userRememberMe
+                = f.check_box :remember_me
+                = f.label :remember_me
+            .actions
+              = f.submit "ログイン"
+        .bottom
+          = render "devise/shared/links"
