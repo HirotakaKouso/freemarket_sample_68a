@@ -11,7 +11,7 @@
       -# .header__main__seachBtn
       .header__main__seachBox
       = form_with(url:searches_path, method: :get, local: true) do |from|
-        = text_field_tag :search, "",placeholder:"キーワードから探す"
+        = text_field_tag :search, "",placeholder:"商品名から探す"
         = submit_tag 'search', :name => nil
     .header__inner__nav
       .listLeft
