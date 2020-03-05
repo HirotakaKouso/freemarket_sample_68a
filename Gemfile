@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -111,6 +114,10 @@ gem 'kaminari'
 
 gem 'bootstrap', '~> 4.1.1'
 
+gem "pry-rails"
+
+
 # 検索用gem
 gem 'ransack'
 gem "gretel"
+
