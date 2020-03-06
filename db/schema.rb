@@ -101,12 +101,12 @@ ActiveRecord::Schema.define(version: 2020_03_05_082216) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name_receiver", null: false
-    t.string "first_name_receiver", null: false
-    t.string "last_name_kana_receiver", null: false
-    t.string "first_name_kana_receiver", null: false
+    t.string "first_name_receive", null: false
+    t.string "last_name_kana_receive", null: false
+    t.string "first_name_kana_receive", null: false
     t.integer "zip_code_receiver", null: false
     t.text "address_receiver", null: false
-    t.string "tel_receiver"
+    t.string "tel_receive"
     t.bigint "prefecture_id", null: false
     t.bigint "payment_id", null: false
     t.bigint "item_id", null: false

@@ -6,7 +6,16 @@
       -# = paginate @items_p #ページネーション機能
     .search__container__right
       %section.itemsBox
-        -if @search.present? #検索結果の有無を確認（真）
+        -if @search.empty? #検索結果の有無を確認（真）
+          %h2.search__result__nil
+            お探しの商品はございません
+        - elsif @items.count == 0
+          %h2.search__result__nil
+            お探しの商品はございません
+        - elsif @search.include?("%") || @search.include?("_")
+          %h2.search__result__nil
+            お探しの商品はございません
+        -else #検索結果の有無を確認（偽）
           %h2.search__result__head
             =@search
             %span.search__result__head__text
@@ -38,11 +47,8 @@
                           .right
                             -# 大ハートボタン
                             %input#204626156.likeBtn{alt: "1", src: "https://image.shoppies.jp/img_m/icon_suki_off.gif", type: "image", value: "0"}/
-
-        -else #検索結果の有無を確認（偽）
-          %h2.search__result__nil
-            お探しの商品はございません
         .items__box__content
+          
     -# = paginate@items
 = render "shared/footer"#フッターの呼び出し
 = render "shared/purchase"#出品ボタン（カメラアイコン）の呼び出し
