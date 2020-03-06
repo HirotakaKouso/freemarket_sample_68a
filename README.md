@@ -9,6 +9,9 @@
 * 商品情報編集機能
 * 商品削除機能
 * カテゴリー選択機能
+* 商品検索機能
+* パンくず機能
+* いいね機能
 
 
 * ruby 2.5.1p57
@@ -31,6 +34,7 @@
 |user_id|references|null:false,foreign_key:true|
 |delivery_date_id|references|null:false,foreign_key:true|
 |shipping_fee_id|references|null:false,foreign_key:true|
+|likes_count|integer||
 
 ### association
 - belongs_to :brand
@@ -43,6 +47,8 @@
 - belongs_to :shipping_fee
 - has_many :images
 - has_one :order
+- has_many :likes
+
 
 ## images table
 |Column|Type|Options|
@@ -110,6 +116,7 @@
 - has_many :items
 - has_many :orders
 - has_one :card
+- has_many :likes
 
 ## prefectures table
 |Column|Type|Options|
@@ -178,4 +185,14 @@
 |card_id|string|null:false|
 
 ### association
+- belongs_to :user
+
+## likes table
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null:false,foreign_key:true|
+|user_id|references|null:false,foreign_key:true|
+
+### association
+- belongs_to :item
 - belongs_to :user
