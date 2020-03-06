@@ -58,13 +58,13 @@
         }
         &__button {
           &__edit {
-            color: #3CCACE;
+            color: $mainBackground;
           }
           &__delete {
-            color: #3CCACE;
+            color: $mainBackground;
           }
           &__purchase {
-            color: #3CCACE;
+            color: $mainBackground;
           }
         }
       }
@@ -235,16 +235,22 @@
       &__left {
         padding: 6px 10px;
         border-radius: 40px;
-        color: #3CCACE;
-        border: 1px solid #ffb340;
+        color: $mainBackground;
+        border: 1px solid  $mainBackground;
         width: 120px;
         &__icon {
-          display: inline-block;
+          display: flex;
+          justify-content: space-around;
+
+          .vertical_like {
+            color: $mainBackground;
+          }
         }
         &__text {
           display: inline-block;
-          color: #3CCACE;
+          color: $mainBackground;
         }
+        
       }
       &__right {
         padding: 6px 10px;
@@ -291,8 +297,8 @@
       }
       &__button {
         line-height: 48px;
-        background: #3CCACE;
-        border: 1px solid #3CCACE;
+        background: $mainBackground;
+        border: 1px solid $mainBackground;
         color: #fff;
         width: 60%;
         font-size: 18px;
@@ -308,7 +314,7 @@
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
-      color: #3CCACE;
+      color: $mainBackground;
       width: 100%;
       padding: 10px 0;
       &__left {
@@ -331,7 +337,7 @@
 
     &__bottomlist {
       margin: 0 auto;
-      color: #3CCACE;
+      color: $mainBackground;
       text-decoration: none;
       font-weight: bold;
       font-size: 22px;
