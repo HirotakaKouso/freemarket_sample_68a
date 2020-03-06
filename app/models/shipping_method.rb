@@ -6,5 +6,7 @@ class ShippingMethod < ActiveHash::Base
     {id: 10, name: '飛脚宅急便'},{id: 11, name: 'カンガルーミニ便'},{id: 12, name: '宅急便コンパクト'},
     {id: 13, name: 'ゆうメール'},{id: 14, name: 'スマートレター'},{id: 15, name: 'ゆうポケット'}       
   ]
+
+
 end
 
