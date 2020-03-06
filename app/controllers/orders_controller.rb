@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
           #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
           @default_card_information = customer.cards.retrieve(@card.card_id)
         end
-        
+        #全ページでのフォームの値を取得する
         session[:last_name_receiver] = params[:order][:last_name_receiver]
         session[:first_name_receiver] = params[:order][:first_name_receiver]
         session[:last_name_kana_receiver] = params[:order][:last_name_kana_receiver]
@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
       else
         @order = Order.new(order_params)
         if @order.save
-
+            #sessionを削除する
             session[:last_name_receiver].clear
             session[:first_name_receiver].clear
             session[:last_name_kana_receiver].clear

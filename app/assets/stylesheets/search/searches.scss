@@ -1,0 +1,102 @@
+.search{
+  width:99vw;
+  min-height:100vh;
+  height: 100%;
+  &__container{
+    &__left{
+
+    }
+    &__right{
+      .itemsBox{
+        .search__result__head{
+          margin-left:100px;
+          .search__result__head__text{
+          }
+        }
+        .search__result__number{
+          margin-left:100px;
+        }
+        .search__result__content{
+
+        }
+      }
+    }
+  }
+}
+
+
+
+.search__result__content{
+  display: flex;
+  justify-content: center;
+  .search__result__content__inside{
+    width:1060px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    .item__case{  //商品画像、商品名、商品価格の大枠
+      height:220px;
+      width:175px;
+      margin-left:10px;
+      margin-right:10px;
+      margin-bottom:20px;
+      border:1px solid #e7e7e7;
+      border-radius: 10px;
+      &__image{  
+        img{
+        //商品画像
+        height: 100px;
+        width:150px;
+        margin-top:10px;
+        margin-left:14px;
+        border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
+.panel{
+  color:#646166;
+  font-size: 12px;
+  margin-left:8px;
+  &__name{}
+  &__price{}
+  &__icons{
+    display: flex;
+    .left{
+      display: flex;
+      .heart{
+        //小ハートマーク
+        img{
+          font-size:12px;
+        }
+      }
+      .comment{
+        //コメントマーク
+        &__icon{
+        margin-left:4px;
+        margin-right:4px;
+        }
+      }
+    }
+    .right{//大ハートボタン
+      input{
+        height:30px;
+        width:30px;
+        margin-left:80px;
+      }
+    }
+  }
+}
+
+.search__result__nil {
+  margin-left: 100px;
+}
+//ページネーションCSS
+// .pagination{
+//   display: flex;
+//   li{
+//     margin-left:15px;
+//   }
+// }

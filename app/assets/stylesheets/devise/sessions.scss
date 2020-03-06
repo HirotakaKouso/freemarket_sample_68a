@@ -1,78 +1,88 @@
-.sessions{
+.sessionMain {
   width:100vw;
   height:100vh;
-  background-color:lightblue;
-  display: flex;
-  justify-content: center;
-  &__box {
-    display: inline-block;
-    h2{
-      padding-top:10vh;
-      margin-bottom:50px;
-      text-align:center;
-      font-weight: bold;
-      color:grey;
-      font-size: 25px;
-    }
-    form{
-      text-align:center;
-      .email{
-        color:grey;
-        #user_email{
-          
-        }
-        input#user_email{
-          width:250px;
-          margin-bottom:15px;
-          margin-left:200px;
-        }
-      }
-      .password{
-        color:grey;
-        #user_password{
-        }
-        input#user_password{
-          width:250px;
-          margin-bottom:15px;
-          margin-left:230px;
-        }
-      }
-      .lower{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        .userRememberMe{
-          display: inline-block;
-          margin-top: 50px;
-          
-          #user_remember_me{
-          }
-          label{
-            color:grey;
-          }
-        }
-        .actions{
-          margin-top:50px;
-          display: inline-block;
-          input{
-            width:100px;
-            height:30px;
-            background-color: white;
-            border-radius: 5px;
-            font-weight: bold;
-          }
-        }
-      }
-    }
-    .bottom {
+  background: linear-gradient(#05FBFF, #1D62F0 ) fixed;
+  .sessionContent {
+    height: 80vh;
+    padding-top: 150px;
+    .sessions{
+      width: 50%;
+      background-color: white;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      margin-top: 50px;
-      a{
-        color:grey;
-        font-weight: bold;
+      border-radius: 20px;
+      justify-content: center;
+      &__box {
+        display: inline-block;
+        h2{
+          padding-top:10vh;
+          margin-bottom:50px;
+          text-align:center;
+          font-weight: bold;
+          color:grey;
+          font-size: 25px;
+          text-decoration: underline solid rgb(75, 183, 226);
+        }
+        form{
+          text-align:center;
+          .email{
+            color:grey;
+            font-size: 18px;
+            text-decoration: underline solid rgb(75, 183, 226);
+            input#user_email{
+              width:250px;
+              margin-bottom:15px;
+              margin-left:200px;
+            }
+          }
+          .password{
+            color:grey;
+            font-size: 18px;
+            text-decoration: underline solid rgb(75, 183, 226);
+            input#user_password{
+              width:250px;
+              margin-bottom:15px;
+              margin-left:230px;
+            }
+          }
+          .lower{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .userRememberMe{
+              display: inline-block;
+              margin-top: 50px;
+              
+              label{
+                color:grey;
+              }
+            }
+            .actions{
+              margin-top:50px;
+              display: inline-block;
+              input{
+                width:100px;
+                height:30px;
+                background-color: white;
+                border-radius: 5px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+        .bottom {
+          display: flex;
+          justify-content: space-between;
+          margin: 50px 0;
+          a{
+            color:grey;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: underline solid rgb(75, 183, 226);
+          }
+      
+        }
       }
-  
     }
   }
 }

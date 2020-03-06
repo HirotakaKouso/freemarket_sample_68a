@@ -14,7 +14,10 @@
           = link_to "#", alt:"guide", class:"top__right__link" do
             =icon('fas', 'book-open')
             %span.text 取引ガイド
+
     .purchaseNew__content__box
+      -# - breadcrumb :order
+      -# = breadcrumbs pretext: "",separator: " &rsaquo; "
       = form_with model:[@item,@order], local: true, class: "form" do |f|
         .item
           - @item.images.each do |image|
@@ -32,7 +35,7 @@
           .userInfo__left
             .title
               配送先
-            .detail#existenceInfo
+            .detail
               .detail__top
                 .lastName
                   = f.label :last_name_receiver,"姓"

@@ -1,5 +1,6 @@
 @import "./reset";
 @import "config/color";
+@import "module/mixin";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "top/top";
@@ -15,8 +16,9 @@
 @import "card/new";
 @import "item/create";
 @import "item/destroy";
+@import "search/searches";
+@import "shared/header";
 @import "purchase/done";
-@import "purchase/index";
 *{
   text-decoration: none;
 }

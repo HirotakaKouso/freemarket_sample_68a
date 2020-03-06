@@ -6,18 +6,25 @@
         = link_to root_path do
           = image_tag "logo.png", class: "topLogo"
       .header__main__seachBox
-        = form_with local: true do |f|
-          = f.text_field :text, class: 'text', placeholder: 'キーワードから探す'
-      .header__main__seachBtn
+      = form_with(url:searches_path, method: :get, local: true) do |from|
+        = text_field_tag :search, "",placeholder:"商品名から探す"
         = image_tag "icon-search 1.png", class: "topSearch"
+        = submit_tag 'search', :name => nil, class: "btnSearch"
+
+        
     .header__inner__nav
       .listLeft
-        .category__box
+        .header__category
           カテゴリー
-          %ul.parent__top
-            - Category.where('ancestry IS NULL').each do |main_category|
-              %li.parent__list
-                = link_to "#{main_category.name}", "/category/#{main_category.id}","data-id": "#{main_category.id}",class: "maincategory"
+          -# %ul.parent__top
+          -#   - Category.where('ancestry IS NULL').each do |main_category|
+          -#     %li= link_to "#{main_category.name}", "/category/#{main_category.id}","data-id": "#{main_category.id}",class: "maincategory"
+          -#     - main_category.children.each do |child|
+          -#       - child.children.each do |children|
+          -#         %ul.parent__list
+          -#           %li= link_to "#{child.name}", "/category/#{child.id}","data-id": "#{child.id}",class: "childcategory"
+          -#         %ul.child__list
+          -#           %li= link_to "#{children.name}", "/category/#{children.id}","data-id": "#{children.id}",class: "childrencategory"
         .header__bland
           ブランド
       .listRight

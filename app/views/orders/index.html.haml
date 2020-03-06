@@ -33,7 +33,7 @@
           .userInfo__left
             .title
               配送先
-            .detail#existenceInfo
+            .detail
               .detail__top
                 .lastName
                   = f.label :last_name_receiver,"姓"
@@ -135,7 +135,7 @@
                 全額所持金支払い
               .fee
                 ¥0
-        = f.submit "確認", class:"submit"
+        = f.submit "確認", class:"submit", id:"orderSubmit"
 = render "shared/footer"
 = render "shared/purchase"
 
