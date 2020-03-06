@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get '/items/:id/edit', to: 'items#edit', as: 'item'
 
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
-
+    resources :likes, only: [:create, :destroy]
     resources :orders, only: [:index, :new, :create]
     resources :purchase, only: [:index] do
 

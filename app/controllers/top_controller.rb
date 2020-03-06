@@ -4,5 +4,5 @@ class TopController < ApplicationController
     @items = Item.all
     @orders = Order.all
   end
-  
+
 end

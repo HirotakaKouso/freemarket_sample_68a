@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   belongs_to :delivery_date
   belongs_to :shipping_fee
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+   end
   accepts_nested_attributes_for :images, allow_destroy: true
   has_one :order
 

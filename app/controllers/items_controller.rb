@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @orders = Order.all
+    @like = Like.new
   end
 
   def edit

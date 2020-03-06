@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_050415) do
+ActiveRecord::Schema.define(version: 2020_03_05_082216) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.bigint "brand_id"
+    t.bigint "brand_id", null: false
     t.bigint "condition_id", null: false
-    t.bigint "size_id"
+    t.bigint "size_id", null: false
     t.bigint "category_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "user_id", null: false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "method"
+    t.integer "likes_count"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
@@ -80,11 +81,20 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name_receiver", null: false
-    t.string "first_name_receiver", null: false
-    t.string "last_name_kana_receiver", null: false
-    t.string "first_name_kana_receiver", null: false
+    t.string "first_name_receiver"
+    t.string "last_name_kana_receiver"
+    t.string "first_name_kana_receiver"
     t.integer "zip_code_receiver", null: false
     t.text "address_receiver", null: false
     t.string "tel_receiver"
@@ -157,6 +167,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_050415) do
   add_foreign_key "items", "shipping_fees"
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users"
+  add_foreign_key "likes", "items"
+  add_foreign_key "likes", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "payments"
   add_foreign_key "orders", "prefectures"

@@ -74,8 +74,11 @@
     .main__all__option
       .main__all__option__left
         .main__all__option__left__icon
-          %i.fa.fa-star
-        = link_to "お気に入り 0", "#", class: "main__all__option__left__text"
+          -# %i.fa.fa-star
+          -# = link_to "お気に入り 0", "#", class: "main__all__option__left__text"
+          .like いいね
+          #likes_buttons{id: @item.id}
+            = render partial: 'likes/like', locals: {item: @item, likes: @likes}
       .main__all__option__right
         .main__all__option__right__icon
           %i.fa.fa-flag
@@ -99,7 +102,7 @@
         .main__all__list__right__text 後の商品
         .main__all__list__right__icon
         %i.fa.fa-angle-right
-      
+
     = link_to "#{@item.category.name}をもっと見る", "#", class: "main__all__bottomlist"
 
 = render "shared/footer"
