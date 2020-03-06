@@ -7,4 +7,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :zip_code, format: { with: /\A\d{7}\z|\A\d{3}-\d{4}\z/ }
+  validates :tel, format: { with: /\A0\d{9,10}\z|\A0\d{2,3}-\d{1,4}-\d{4}\z/ }
 end
