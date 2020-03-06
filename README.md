@@ -134,7 +134,6 @@
 |first_name_receiver|string|null:false| 送付先名
 |last_name_kana_receiver|string|null:false| 姓かな
 |first_name_kana_receiver|string|null:false| 名かな
-
 |zip_code_receiver|integer|null:false| 郵便番号(配達先)
 |address_receiver|text|null:false|市区町村(配達先)
 |tel_receiver|string|| 配達先電話番号
